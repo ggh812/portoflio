@@ -1989,7 +1989,7 @@ input, textarea, select { font: inherit; }
   border: 1px solid var(--gray-200);
   box-shadow: var(--shadow-lg);
 }
-.ba-screen--before { opacity: 0.85; filter: saturate(0.3); }
+.ba-screen--before { }
 
 /* Findings list */
 .findings-list {
