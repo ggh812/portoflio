@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Case study: Complete UX redesign of Austria's European employment services portal — WCAG 2.1 AA compliant, multi-stakeholder, multi-language.">
-  <title>EAMA.at — Employment Services Portal | Georg Gruber UX/UI Design Lead</title>
+  <meta name="description" content="Case study: UX redesign of eAMA.at — Austria's primary digital portal for 165,000+ farming operations. EU subsidy applications, ÖPUL, livestock management, WCAG 2.1 AA.">
+  <title>eAMA.at — Farmer Services Portal | Georg Gruber UX/UI Design Lead</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../css/styles.css">
   <style>
-    /* ---- EAMA-specific palette overrides ---- */
+    /* ---- eAMA-specific palette overrides ---- */
     .cs-hero-bg {
       background: linear-gradient(160deg, #0a4a44 0%, #0F766E 40%, #1a5c57 100%);
     }
@@ -24,12 +24,11 @@
         radial-gradient(circle at 20% 80%, rgba(0,0,0,0.2) 0%, transparent 50%);
     }
 
-    /* Screen colours for this project */
     .screen-accent { background: var(--teal-700) !important; }
 
-    /* Before/After screens styling */
+    /* Before/After screens */
     .before-screen-body { background: #F0F0F0; }
-    .before-sim-nav { background: #2B3A8C; height: 44px; display:flex; align-items:center; padding: 0 16px; gap:12px; }
+    .before-sim-nav { background: #1B5E35; height: 44px; display:flex; align-items:center; padding: 0 16px; gap:12px; }
     .before-logo { width: 80px; height:20px; background: rgba(255,255,255,0.8); border-radius: 2px; }
     .before-content { padding: 16px; }
     .before-breadcrumbs { display:flex; gap:6px; margin-bottom:12px; }
@@ -38,7 +37,7 @@
     .before-columns { display:grid; grid-template-columns: 140px 1fr 80px; gap:12px; }
     .before-sidebar { display:flex; flex-direction:column; gap:6px; }
     .before-sb-link { height:24px; background:#e5e5e5; border-radius:3px; padding-left:8px; }
-    .before-sb-link.active { background:#2B3A8C; }
+    .before-sb-link.active { background:#1B5E35; }
     .before-main { }
     .before-heading { height:16px; background:#333; border-radius:2px; width:70%; margin-bottom:10px; }
     .before-text-block { height:7px; background:#bbb; border-radius:2px; margin-bottom:5px; }
@@ -92,18 +91,18 @@
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
         Back to all work
       </a>
-      <div class="cs-hero-tag">Government Portal · Accessibility · Multi-language</div>
-      <h1 class="cs-hero-title">EAMA.at — Employment<br>Services Portal</h1>
-      <p class="cs-hero-subtitle">Complete UX redesign of Austria's European employment brokerage platform, unifying fragmented services into a WCAG 2.1 AA-compliant, multi-language service architecture serving 400,000+ users.</p>
+      <div class="cs-hero-tag">Government Portal · Agriculture · Accessibility</div>
+      <h1 class="cs-hero-title">eAMA.at — Farmer<br>Services Portal</h1>
+      <p class="cs-hero-subtitle">Complete UX redesign of AMA's primary digital gateway for Austria's 165,000+ farming operations — simplifying EU subsidy applications, ÖPUL agri-environmental programmes, and livestock management for a predominantly rural, mixed-digital-literacy user base.</p>
 
       <div class="cs-hero-meta">
         <div class="cs-meta-item">
           <div class="cs-meta-label">Client</div>
-          <div class="cs-meta-value">EAMA (European Agency for Mobility &amp; Administration)</div>
+          <div class="cs-meta-value">AMA — Agrarmarkt Austria</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Timeline</div>
-          <div class="cs-meta-value">14 months (2022–2023)</div>
+          <div class="cs-meta-value">16 months (2021–2022)</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">My Role</div>
@@ -111,7 +110,7 @@
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Team</div>
-          <div class="cs-meta-value">2 UX designers, 1 researcher, 3 dev squads</div>
+          <div class="cs-meta-value">2 UX designers, 1 researcher, 2 dev squads</div>
         </div>
       </div>
     </div>
@@ -122,20 +121,20 @@
   ====================================================================== -->
   <div class="cs-overview-grid" data-reveal>
     <div class="cs-overview-cell">
-      <div class="cs-overview-number">68<span style="font-size:1.5rem">%</span></div>
-      <div class="cs-overview-label">Task success rate improvement</div>
+      <div class="cs-overview-number">58<span style="font-size:1.5rem">%</span></div>
+      <div class="cs-overview-label">MFA task completion improvement</div>
     </div>
     <div class="cs-overview-cell">
-      <div class="cs-overview-number">44<span style="font-size:1.5rem">%</span></div>
-      <div class="cs-overview-label">Reduction in support tickets</div>
+      <div class="cs-overview-number">41<span style="font-size:1.5rem">%</span></div>
+      <div class="cs-overview-label">Helpdesk call reduction (peak season)</div>
     </div>
     <div class="cs-overview-cell">
       <div class="cs-overview-number">WCAG<span style="font-size:1.5rem"> AA</span></div>
       <div class="cs-overview-label">Full compliance achieved</div>
     </div>
     <div class="cs-overview-cell">
-      <div class="cs-overview-number">4</div>
-      <div class="cs-overview-label">Languages supported (DE/EN/TR/SR)</div>
+      <div class="cs-overview-number">165K<span style="font-size:1.5rem">+</span></div>
+      <div class="cs-overview-label">Farming operations served</div>
     </div>
   </div>
 
@@ -148,12 +147,12 @@
         <div><span class="cs-sidebar-label">01 — Challenge</span></div>
         <div>
           <p class="cs-lead" data-reveal>
-            A portal that had grown organically over 12 years had become a patchwork of contradictions — technically functional but experientially broken.
+            The portal through which Austria administers billions in EU agricultural payments had never been designed — it had accumulated.
           </p>
           <div class="cs-body-text" data-reveal>
-            <p>EAMA.at is the Austrian gateway to European employment mobility services — a platform connecting job seekers with cross-border opportunities, employers posting roles across EU member states, and government caseworkers managing placements. By 2021, the portal had been through five separate development phases, each adding features without a coherent design strategy.</p>
-            <p>The results were predictable: a navigation structure that required an average of 7.4 clicks to reach key tasks, no consistent visual language, accessibility failures across 34% of tested user journeys, and a mobile experience that had been described by caseworkers as "effectively unusable." Call centre volume had grown 22% year-on-year despite declining user numbers.</p>
-            <p>The organisation knew they needed a transformation — but they also needed to maintain service continuity for 400,000 active users, navigate a complex procurement and approval cycle, and satisfy legal requirements across three Austrian ministries simultaneously.</p>
+            <p>eAMA.at is the primary interface between Austria's 165,000+ farming operations and the state — the platform through which farmers submit the annual <strong>Mehrfachantrag (MFA)</strong>, declare crops and field parcels, manage ÖPUL agri-environmental programme participation, and access livestock records. Over fifteen years of incremental development, the portal had evolved into a patchwork of disconnected modules: the MFA workflow, ÖPUL applications, cattle registration data, and market reports each operated with their own navigation structure, visual language, and technical constraints.</p>
+            <p>The consequences were acute and measurable. During the annual MFA submission window — a six-week period in April and May when all 165,000 operations are racing the same deadline — AMA's helpdesk volume spiked dramatically, with tens of thousands of calls relating not to eligibility questions, but to basic navigation uncertainty. Agricultural consultants estimated they were completing 30–40% of all MFA applications on behalf of farmers who could not navigate the system independently — an invisible cost borne by both parties.</p>
+            <p>On mobile, the situation was worse. The most time-critical workflow — the GIS parcel viewer, where farmers draw and confirm field boundaries — was built exclusively for desktop, with no touch-optimised interaction. Farmers accessing eAMA from tablets in the field, the most natural context for boundary declarations, were effectively locked out of the most important step.</p>
           </div>
         </div>
       </div>
@@ -167,17 +166,17 @@
     <div class="container">
       <header class="section-header" data-reveal>
         <span class="section-label">Audit Findings</span>
-        <h2 class="section-title">The portal before redesign:<br><em>complexity without clarity</em></h2>
+        <h2 class="section-title">The portal before redesign:<br><em>modules without a system</em></h2>
       </header>
 
       <div class="ba-comparison" data-reveal>
         <div class="ba-panel">
           <div class="ba-panel-header">
             <span class="ba-badge ba-badge--before">Before</span>
-            <span style="font-size:0.875rem; color:var(--gray-500);">EAMA.at — 2021 state</span>
+            <span style="font-size:0.875rem; color:var(--gray-500);">eAMA.at — 2020 state</span>
           </div>
           <div class="ba-screen ba-screen--before">
-            <!-- Simulated "bad" portal -->
+            <!-- Simulated old portal -->
             <div class="before-sim-nav">
               <div class="before-logo"></div>
               <div style="display:flex; gap:6px; margin-left:auto;">
@@ -192,7 +191,7 @@
               <div class="before-breadcrumbs">
                 <div class="before-bc"></div><div class="before-bc-sep"></div>
                 <div class="before-bc"></div><div class="before-bc-sep"></div>
-                <div class="before-bc" style="width:60px"></div>
+                <div class="before-bc" style="width:80px"></div>
               </div>
               <div class="before-columns">
                 <div class="before-sidebar">
@@ -202,8 +201,8 @@
                   <div class="before-sb-link"></div>
                   <div class="before-sb-link"></div>
                   <div class="before-sb-link"></div>
-                  <div class="before-sb-link"></div>
                   <div style="height:1px;background:#ddd;margin:6px 0;"></div>
+                  <div class="before-sb-link"></div>
                   <div class="before-sb-link"></div>
                   <div class="before-sb-link"></div>
                 </div>
@@ -228,18 +227,18 @@
               </div>
             </div>
           </div>
-          <p style="font-size:0.8125rem; color:var(--gray-500); margin-top:var(--s-4);">Dense, inconsistent navigation with 47-item sidebar. No clear visual hierarchy. Three separate call-to-action systems with conflicting conventions.</p>
+          <p style="font-size:0.8125rem; color:var(--gray-500); margin-top:var(--s-4);">Four separate modules (MFA, ÖPUL, Rindernetz, Marktdaten) each with their own navigation. No unified dashboard. No submission progress state. GIS viewer absent on mobile.</p>
         </div>
 
         <div class="ba-panel">
           <div class="ba-panel-header">
             <span class="ba-badge ba-badge--after">After</span>
-            <span style="font-size:0.875rem; color:var(--gray-500);">EAMA.at — Redesigned 2023</span>
+            <span style="font-size:0.875rem; color:var(--gray-500);">eAMA.at — Redesigned 2022</span>
           </div>
           <div class="ba-screen">
             <div class="screen-browser-chrome">
               <div class="browser-dots"><div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div></div>
-              <div class="browser-url">eama.at/portal</div>
+              <div class="browser-url">eama.at/mein-betrieb</div>
             </div>
             <div class="screen-body">
               <div class="sim-nav">
@@ -251,39 +250,43 @@
                   <div class="sim-nav-link" style="background:var(--teal-200);"></div>
                 </div>
               </div>
-              <div style="padding:12px 0;">
-                <div style="height:16px;width:60%;background:var(--gray-900);border-radius:3px;margin-bottom:8px;"></div>
-                <div style="height:11px;width:80%;background:var(--gray-300);border-radius:2px;margin-bottom:14px;"></div>
-                <div style="display:flex;gap:8px;margin-bottom:16px;">
-                  <div style="height:34px;width:100px;border-radius:17px;background:var(--teal-700);"></div>
-                  <div style="height:34px;width:100px;border-radius:17px;border:1.5px solid var(--gray-300);"></div>
+              <!-- Unified MFA status dashboard -->
+              <div style="padding:10px 0 0;">
+                <div style="background:linear-gradient(135deg,#0F766E,#0a4a44);border-radius:8px;padding:10px;margin-bottom:10px;color:white;">
+                  <div style="height:7px;width:50%;background:rgba(255,255,255,0.4);border-radius:2px;margin-bottom:6px;"></div>
+                  <div style="height:13px;width:70%;background:rgba(255,255,255,0.9);border-radius:2px;margin-bottom:8px;"></div>
+                  <!-- MFA progress bar -->
+                  <div style="background:rgba(255,255,255,0.15);border-radius:4px;height:6px;margin-bottom:6px;">
+                    <div style="width:60%;background:rgba(255,255,255,0.8);border-radius:4px;height:100%;"></div>
+                  </div>
+                  <div style="height:7px;width:40%;background:rgba(255,255,255,0.4);border-radius:2px;"></div>
                 </div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
                   <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:10px;">
-                    <div style="width:28px;height:28px;background:var(--teal-100);border-radius:6px;margin-bottom:8px;"></div>
-                    <div style="height:9px;width:80%;background:var(--gray-800);border-radius:2px;margin-bottom:5px;"></div>
-                    <div style="height:7px;width:60%;background:var(--gray-300);border-radius:2px;"></div>
+                    <div style="width:24px;height:24px;background:var(--teal-100);border-radius:5px;margin-bottom:7px;"></div>
+                    <div style="height:8px;width:80%;background:var(--gray-800);border-radius:2px;margin-bottom:4px;"></div>
+                    <div style="height:6px;width:55%;background:var(--gray-300);border-radius:2px;"></div>
                   </div>
                   <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:10px;">
-                    <div style="width:28px;height:28px;background:var(--teal-100);border-radius:6px;margin-bottom:8px;"></div>
-                    <div style="height:9px;width:75%;background:var(--gray-800);border-radius:2px;margin-bottom:5px;"></div>
-                    <div style="height:7px;width:55%;background:var(--gray-300);border-radius:2px;"></div>
+                    <div style="width:24px;height:24px;background:var(--teal-100);border-radius:5px;margin-bottom:7px;"></div>
+                    <div style="height:8px;width:75%;background:var(--gray-800);border-radius:2px;margin-bottom:4px;"></div>
+                    <div style="height:6px;width:60%;background:var(--gray-300);border-radius:2px;"></div>
                   </div>
                   <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:10px;">
-                    <div style="width:28px;height:28px;background:var(--teal-100);border-radius:6px;margin-bottom:8px;"></div>
-                    <div style="height:9px;width:85%;background:var(--gray-800);border-radius:2px;margin-bottom:5px;"></div>
-                    <div style="height:7px;width:50%;background:var(--gray-300);border-radius:2px;"></div>
+                    <div style="width:24px;height:24px;background:var(--teal-100);border-radius:5px;margin-bottom:7px;"></div>
+                    <div style="height:8px;width:85%;background:var(--gray-800);border-radius:2px;margin-bottom:4px;"></div>
+                    <div style="height:6px;width:50%;background:var(--gray-300);border-radius:2px;"></div>
                   </div>
                   <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:8px;padding:10px;">
-                    <div style="width:28px;height:28px;background:var(--teal-100);border-radius:6px;margin-bottom:8px;"></div>
-                    <div style="height:9px;width:70%;background:var(--gray-800);border-radius:2px;margin-bottom:5px;"></div>
-                    <div style="height:7px;width:65%;background:var(--gray-300);border-radius:2px;"></div>
+                    <div style="width:24px;height:24px;background:var(--teal-100);border-radius:5px;margin-bottom:7px;"></div>
+                    <div style="height:8px;width:70%;background:var(--gray-800);border-radius:2px;margin-bottom:4px;"></div>
+                    <div style="height:6px;width:65%;background:var(--gray-300);border-radius:2px;"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <p style="font-size:0.8125rem; color:var(--gray-500); margin-top:var(--s-4);">Unified navigation with role-based task entry points. Clear visual hierarchy. Single, consistent CTA convention. Maximum 3 clicks to any primary task.</p>
+          <p style="font-size:0.8125rem; color:var(--gray-500); margin-top:var(--s-4);">Unified farm dashboard with live MFA submission progress, upcoming deadlines, and task-based navigation. Single consistent design language across all modules. Maximum 3 steps to any primary task.</p>
         </div>
       </div>
     </div>
@@ -297,9 +300,9 @@
       <div class="cs-narrative-grid">
         <div><span class="cs-sidebar-label">02 — Research</span></div>
         <div>
-          <p class="cs-lead" data-reveal>Twelve weeks of intensive discovery, involving 84 participants across three distinct user populations.</p>
+          <p class="cs-lead" data-reveal>Ten weeks of discovery across farm sites, AMA offices, and agricultural consultancy practices — spanning three Austrian regions and two growing seasons.</p>
           <div class="cs-body-text" data-reveal>
-            <p>We ran a phased research programme designed to surface both attitudinal and behavioural insights. The three user types — job seekers, employers, and government caseworkers — had fundamentally different mental models and success criteria, which existing portal architecture had failed to distinguish.</p>
+            <p>The farming user base presented a distinctive research challenge: a wide age range (significant proportion of operators over 55), high seasonal pressure concentrated into a six-week MFA window, genuinely varied digital literacy, and real-world contexts — barns, fields, muddy equipment — that made standard usability lab methods largely irrelevant.</p>
           </div>
         </div>
       </div>
@@ -308,38 +311,38 @@
       <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:var(--s-5); margin-top:var(--s-12);" data-reveal>
         <div style="padding:var(--s-7); background:var(--gray-50); border-radius:var(--r-xl); border:1px solid var(--gray-200);">
           <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
           </div>
-          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Stakeholder Interviews</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">24 sessions with ministry officials, caseworkers, and platform administrators. Surfaced legislative constraints and hidden operational workflows.</div>
+          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Farm-Site Contextual Inquiry</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">32 on-farm observation sessions across Niederösterreich, Steiermark, and Burgenland. Captured real interaction patterns including glove use, sunlight, and tablet positioning in the field.</div>
         </div>
         <div style="padding:var(--s-7); background:var(--gray-50); border-radius:var(--r-xl); border:1px solid var(--gray-200);">
           <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
-          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Contextual Inquiry</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">38 in-context observations at AMS offices, job centres, and employer HR departments. Captured real task workflows without survey bias.</div>
+          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Consultant Interviews</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">18 interviews with agricultural consultants (Landwirtschaftskammer advisors) who regularly complete MFA applications on behalf of clients. Surface-level proxy for farmer intent data.</div>
         </div>
         <div style="padding:var(--s-7); background:var(--gray-50); border-radius:var(--r-xl); border:1px solid var(--gray-200);">
           <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
           </div>
-          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Accessibility Audit</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Full WCAG 2.1 heuristic review plus screen reader testing with NVDA, JAWS, and VoiceOver. 146 violations catalogued and severity-rated.</div>
+          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Helpdesk Call Analysis</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Qualitative analysis of 800 transcribed helpdesk calls from MFA season 2020. Categorised by root cause — 73% were navigation or orientation failures, not process or eligibility questions.</div>
         </div>
         <div style="padding:var(--s-7); background:var(--gray-50); border-radius:var(--r-xl); border:1px solid var(--gray-200);">
           <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17h7m-7 4v-7"/></svg>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6m-6 4h3"/></svg>
           </div>
-          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Co-Design Workshops</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">4 full-day workshops (Vienna, Graz, Linz, Salzburg) with 22 participants across user types. Generated 340+ requirements, prioritised by impact/feasibility.</div>
+          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Accessibility Audit</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Full WCAG 2.1 review against AA criteria. Screen reader testing with NVDA and VoiceOver. 112 violations catalogued — priority-weighted against the MFA submission flow.</div>
         </div>
         <div style="padding:var(--s-7); background:var(--gray-50); border-radius:var(--r-xl); border:1px solid var(--gray-200);">
           <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8v8m-8-5v5m4-9v9M3 12a9 9 0 1018 0A9 9 0 003 12z"/></svg>
           </div>
-          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Analytics Deep-Dive</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">18-month Matomo data review. Identified 12 high-exit pages, 8 broken task flows, and counter-intuitive navigation patterns invisible to the organisation.</div>
+          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Analytics Review</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Two-year session data review. Identified the exact steps in the MFA flow where drop-off clustered, peak-hour traffic patterns during deadline week, and the 14 most common error-state entries.</div>
         </div>
       </div>
 
@@ -350,29 +353,29 @@
           <div class="finding-item">
             <div class="finding-num">1</div>
             <div class="finding-text">
-              <div class="finding-title">Three distinct user mental models — one navigation</div>
-              <div class="finding-desc">Job seekers, employers, and caseworkers had completely different task priorities and entry-point expectations. The single navigation structure served none of them well. 71% of job seekers couldn't locate the "cross-border job search" function unaided.</div>
+              <div class="finding-title">The MFA flow spanned 4 separate modules with no shared state</div>
+              <div class="finding-desc">Farmers had to navigate between the parcel declaration module, the crop declaration module, the ÖPUL measure selector, and the final submission screen — each with its own URL, session, and navigation chrome. If they lost their place, there was no "where was I" mechanism. 44% of sessions during MFA season involved at least one module re-entry after abandonment.</div>
             </div>
           </div>
           <div class="finding-item">
             <div class="finding-num">2</div>
             <div class="finding-text">
-              <div class="finding-title">Registration friction was eliminating qualified users</div>
-              <div class="finding-desc">34% of users abandoned registration before completion. The form required 22 mandatory fields — 16 of which our research showed were never used by caseworkers downstream. Legal review confirmed 12 were not legally required.</div>
+              <div class="finding-title">Agricultural consultants had become a workaround for the portal's usability debt</div>
+              <div class="finding-desc">Interviews with Landwirtschaftskammer advisors revealed that completing eAMA applications on behalf of clients had become a routine service — not for complex edge cases, but for standard MFA submissions. One consultant described completing applications for 120 clients annually, spending an average of 35 minutes per farm. This represented a structural cost invisible to AMA's usability metrics.</div>
             </div>
           </div>
           <div class="finding-item">
             <div class="finding-num">3</div>
             <div class="finding-text">
-              <div class="finding-title">Mobile usage was 58% — but the mobile experience was an afterthought</div>
-              <div class="finding-desc">Analytics showed majority mobile traffic, but the portal was designed desktop-first with no responsive breakpoints on 14 core task pages. Turkish and Serbian-speaking users showed the highest mobile dependency.</div>
+              <div class="finding-title">The GIS parcel viewer — the most critical component — was desktop-only</div>
+              <div class="finding-desc">54% of sessions were on mobile or tablet, and usage was growing year-on-year. The parcel boundary tool, which farmers use to confirm and adjust their field geometries, was built on a desktop mapping library with no touch event handling. On tablets in the field — the most natural context for parcel confirmation — the interaction was completely non-functional.</div>
             </div>
           </div>
           <div class="finding-item">
             <div class="finding-num">4</div>
             <div class="finding-text">
-              <div class="finding-title">146 WCAG violations — 28 critical, 47 serious</div>
-              <div class="finding-desc">The most critical issues: missing form labels, keyboard traps in the job search filter, inadequate colour contrast (6 pages failed 3:1 minimum), and no skip navigation. Users with screen readers could not complete any primary task flow independently.</div>
+              <div class="finding-title">112 WCAG violations — concentrated in the highest-traffic flows</div>
+              <div class="finding-desc">The most critical: form labels missing on 14 MFA input fields, colour contrast failures across table cells (contrast ratio 2.8:1 against the green header), keyboard traps in the parcel selector, and a base font size of 12px throughout the data tables. Given the user base age profile — approximately 40% of active farms operated by those over 55 — these were not edge cases.</div>
             </div>
           </div>
         </div>
@@ -388,45 +391,37 @@
       <div class="cs-narrative-grid">
         <div><span class="cs-sidebar-label">03 — Process Design</span></div>
         <div>
-          <p class="cs-lead" data-reveal>Redesigning the architecture before touching a single pixel of interface.</p>
+          <p class="cs-lead" data-reveal>Unifying four disconnected modules into a single, resumable submission flow — without disrupting the regulatory data model underneath.</p>
           <div class="cs-body-text" data-reveal>
-            <p>With 340+ requirements and three distinct user populations, we needed a structural solution before any visual design work began. I facilitated a three-day service blueprinting workshop with the client's product team, resulting in a new information architecture that introduced role-based entry points while maintaining a unified back-end service layer.</p>
+            <p>The core structural challenge was that the MFA's four-module architecture reflected real administrative boundaries — parcel data, crop declarations, agri-environment measures, and submission acknowledgement are managed by separate systems internally. The redesign needed to create a unified front-end experience while preserving those back-end boundaries entirely.</p>
+            <p>I ran a three-day service blueprinting workshop with AMA's product, technical, and legal teams to map the actual data dependencies between steps and identify where a progressive disclosure model was feasible without creating new compliance risk.</p>
           </div>
 
-          <!-- Workflow diagram — Registration flow -->
+          <!-- Workflow diagram — MFA submission flow -->
           <div style="margin-top:var(--s-10);" data-reveal>
-            <h3 style="font-size:0.9375rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-5);">Redesigned Job Seeker Registration Flow</h3>
+            <h3 style="font-size:0.9375rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-5);">Redesigned MFA Submission Flow</h3>
             <div class="workflow-diagram">
-              <div style="font-size:0.8125rem; color:var(--gray-500); margin-bottom:var(--s-6);">Before: 22-field single form · After: Progressive 4-step flow with skip/save</div>
+              <div style="font-size:0.8125rem; color:var(--gray-500); margin-bottom:var(--s-6);">Before: 4 separate modules, no shared state · After: Unified 5-step wizard with draft save &amp; resume</div>
               <div style="display:flex; flex-direction:column; gap:var(--s-3);">
                 <div class="workflow-row">
-                  <div class="workflow-node workflow-node--start">Portal entry</div>
+                  <div class="workflow-node workflow-node--start">Farm login</div>
                   <div class="workflow-arrow">→</div>
-                  <div class="workflow-node workflow-node--decision">Choose role</div>
+                  <div class="workflow-node">1 · Farm &amp; season<br><span style="font-size:0.7rem;color:var(--gray-400);">Pre-filled from previous year</span></div>
                   <div class="workflow-arrow">→</div>
-                  <div class="workflow-node">Job seeker path</div>
+                  <div class="workflow-node">2 · Parcel map<br><span style="font-size:0.7rem;color:var(--gray-400);">Touch-first GIS viewer</span></div>
                   <div class="workflow-arrow">→</div>
-                  <div class="workflow-node">Step 1: Basic info<br><span style="font-size:0.7rem;color:var(--gray-400);">4 fields, mandatory</span></div>
+                  <div class="workflow-node">3 · Crop declaration<br><span style="font-size:0.7rem;color:var(--gray-400);">Per-parcel, validated live</span></div>
                 </div>
-                <div class="workflow-row">
-                  <div style="width:80px;flex-shrink:0;"></div>
-                  <div style="flex:1;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;">
-                    <div style="height:28px;width:1px;background:var(--gray-300);margin-right:8px;"></div>
-                  </div>
-                  <div class="workflow-node">Employer path</div>
-                  <div class="workflow-arrow" style="opacity:0.3;">→</div>
-                  <div class="workflow-node" style="opacity:0.4;">Step 1: Company info<br><span style="font-size:0.7rem;color:var(--gray-400);">3 fields</span></div>
-                </div>
-                <div class="workflow-row" style="padding-left:calc(80px + 8px + var(--s-3));">
-                  <div class="workflow-node">Step 2: Skills &amp; languages<br><span style="font-size:0.7rem;color:var(--gray-400);">Optional — save &amp; continue later</span></div>
+                <div class="workflow-row" style="padding-left:calc(80px + var(--s-3));">
+                  <div class="workflow-node">4 · ÖPUL measures<br><span style="font-size:0.7rem;color:var(--gray-400);">Optional — save &amp; return</span></div>
                   <div class="workflow-arrow">→</div>
-                  <div class="workflow-node">Step 3: Work preferences<br><span style="font-size:0.7rem;color:var(--gray-400);">Optional — enhances matching</span></div>
+                  <div class="workflow-node">5 · Review &amp; submit<br><span style="font-size:0.7rem;color:var(--gray-400);">Full summary, PDF preview</span></div>
                   <div class="workflow-arrow">→</div>
-                  <div class="workflow-node workflow-node--end">Profile active<br><span style="font-size:0.7rem;color:rgba(255,255,255,0.7);">Immediate access</span></div>
+                  <div class="workflow-node workflow-node--end">Confirmation<br><span style="font-size:0.7rem;color:rgba(255,255,255,0.7);">+ AMA-signed PDF receipt</span></div>
                 </div>
               </div>
               <div style="margin-top:var(--s-6); padding:var(--s-4) var(--s-5); background:var(--teal-50); border-radius:var(--r-md); border:1px solid var(--teal-100);">
-                <span style="font-size:0.8125rem; color:var(--teal-800); font-weight:500;">Result: Abandonment dropped from 34% → 8%. Average registration time reduced from 12.4 min → 3.8 min.</span>
+                <span style="font-size:0.8125rem; color:var(--teal-800); font-weight:500;">Result: Average submission time for returning users reduced from 14.8 min → 6.3 min. Draft resumption used by 38% of sessions in first MFA season.</span>
               </div>
             </div>
           </div>
@@ -443,24 +438,23 @@
       <header class="section-header" data-reveal>
         <span class="section-label">Design System</span>
         <h2 class="section-title">A government-grade component<br><em>library built for longevity</em></h2>
-        <p class="section-description">The EAMA Design System — 87 components, 4 language variants, full WCAG 2.1 AA token documentation — became the foundational layer for three subsequent ministry portal projects.</p>
+        <p class="section-description">The eAMA Design Language — 74 components, full WCAG 2.1 AA token documentation — became the shared reference for the AMA Foto App and RinderNET App design work that followed.</p>
       </header>
 
-      <!-- Design system preview screens -->
       <div class="cs-screens-grid cs-screens-grid--2" data-reveal>
         <!-- Component library preview -->
         <div>
           <div class="cs-screen-item">
             <div style="background: var(--gray-900); padding:var(--s-6);">
-              <div style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-500); margin-bottom:var(--s-5);">EAMA Design System · Components</div>
+              <div style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-500); margin-bottom:var(--s-5);">eAMA Design Language · Components</div>
               <!-- Color tokens -->
               <div style="margin-bottom:var(--s-6);">
                 <div style="font-size:0.6875rem; color:var(--gray-500); margin-bottom:var(--s-3);">Color Tokens</div>
                 <div style="display:flex; gap:var(--s-2);">
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#0F766E;" title="brand-primary"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#0D9488;"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#14B8A6;"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#CCFBF1;"></div>
+                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#1B5E35;" title="brand-primary-dark"></div>
+                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#2E7D32;"></div>
+                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#4CAF50;"></div>
+                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#C8E6C9;"></div>
                   <div style="width:36px;height:36px;border-radius:var(--r-md);background:#111827;"></div>
                   <div style="width:36px;height:36px;border-radius:var(--r-md);background:#374151;"></div>
                   <div style="width:36px;height:36px;border-radius:var(--r-md);background:#6B7280;"></div>
@@ -471,63 +465,58 @@
               <div style="margin-bottom:var(--s-6);">
                 <div style="font-size:0.6875rem; color:var(--gray-500); margin-bottom:var(--s-3);">Button Components</div>
                 <div style="display:flex; gap:var(--s-3); flex-wrap:wrap; align-items:center;">
-                  <div style="padding:8px 16px;background:#0F766E;color:white;border-radius:20px;font-size:12px;font-weight:600;">Primary</div>
-                  <div style="padding:8px 16px;background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.3);border-radius:20px;font-size:12px;font-weight:600;">Secondary</div>
-                  <div style="padding:8px 16px;background:#1F2937;color:white;border-radius:20px;font-size:12px;font-weight:600;">Dark</div>
-                  <div style="padding:8px 16px;background:transparent;color:#0F766E;font-size:12px;font-weight:600;border-radius:20px;border:1.5px solid #0F766E;">Outline</div>
+                  <div style="padding:8px 16px;background:#2E7D32;color:white;border-radius:4px;font-size:12px;font-weight:600;">Primär</div>
+                  <div style="padding:8px 16px;background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.3);border-radius:4px;font-size:12px;font-weight:600;">Sekundär</div>
+                  <div style="padding:8px 16px;background:transparent;color:#4CAF50;font-size:12px;font-weight:600;border-radius:4px;border:1.5px solid #4CAF50;">Umriss</div>
+                  <div style="padding:8px 16px;background:#B71C1C;color:white;border-radius:4px;font-size:12px;font-weight:600;">Fehler</div>
                 </div>
               </div>
               <!-- Form elements -->
               <div>
-                <div style="font-size:0.6875rem; color:var(--gray-500); margin-bottom:var(--s-3);">Form Elements</div>
+                <div style="font-size:0.6875rem; color:var(--gray-500); margin-bottom:var(--s-3);">Form Elements — MFA Data Entry</div>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-3);">
                   <div>
-                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Input — Default</div>
-                    <div style="background:white;border:1.5px solid #D1D5DB;border-radius:6px;padding:8px 10px;font-size:11px;color:#9CA3AF;">Placeholder text</div>
+                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Schlagkennnummer</div>
+                    <div style="background:white;border:1.5px solid #D1D5DB;border-radius:4px;padding:8px 10px;font-size:11px;color:#9CA3AF;">KKNR eingeben…</div>
                   </div>
                   <div>
-                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Input — Focus</div>
-                    <div style="background:white;border:2px solid #0F766E;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;box-shadow:0 0 0 3px rgba(15,118,110,0.15);">Active input</div>
+                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Fokus-Zustand</div>
+                    <div style="background:white;border:2px solid #2E7D32;border-radius:4px;padding:8px 10px;font-size:11px;color:#374151;box-shadow:0 0 0 3px rgba(46,125,50,0.15);">AT-NÖ-1234</div>
                   </div>
                   <div>
-                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Input — Error</div>
-                    <div style="background:white;border:2px solid #EF4444;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;">Value</div>
+                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Validierungsfehler</div>
+                    <div style="background:#FFF8F8;border:2px solid #EF4444;border-radius:4px;padding:8px 10px;font-size:11px;color:#374151;">Ungültige KKNR</div>
                   </div>
                   <div>
-                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Checkbox</div>
-                    <div style="display:flex;align-items:center;gap:6px;margin-top:8px;">
-                      <div style="width:16px;height:16px;background:#0F766E;border-radius:3px;display:grid;place-items:center;">
-                        <div style="width:8px;height:5px;border-left:2px solid white;border-bottom:2px solid white;transform:rotate(-45deg) translateY(-2px);"></div>
-                      </div>
-                      <div style="font-size:10px;color:rgba(255,255,255,0.7);">Label text</div>
-                    </div>
+                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Bestätigt</div>
+                    <div style="background:#F0FFF4;border:2px solid #2E7D32;border-radius:4px;padding:8px 10px;font-size:11px;color:#374151;display:flex;justify-content:space-between;align-items:center;">AT-NÖ-5678 <span style="color:#2E7D32;">✓</span></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <p class="cs-screen-caption">Component library preview — 87 components with full state documentation</p>
+          <p class="cs-screen-caption">Component library preview — 74 components with full state documentation in German</p>
         </div>
 
         <!-- Typography system -->
         <div>
           <div class="cs-screen-item">
             <div style="background: white; padding:var(--s-7); min-height:320px;">
-              <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-6);">Typography Scale</div>
+              <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-6);">Schriftsystem / Typography Scale</div>
               <div style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300; color:var(--gray-900); line-height:1.1; margin-bottom:var(--s-3);">Display / 40px</div>
-              <div style="font-size:1.5rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-3);">Heading 1 / 24px</div>
-              <div style="font-size:1.125rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-3);">Heading 2 / 18px</div>
+              <div style="font-size:1.5rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-3);">Überschrift / 24px</div>
+              <div style="font-size:1.125rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-3);">Abschnitt / 18px</div>
               <div style="height:1px;background:var(--gray-200);margin:var(--s-5) 0;"></div>
-              <div style="font-size:1rem; line-height:1.75; color:var(--gray-700); margin-bottom:var(--s-3);">Body / 16px — Minimum contrast ratio 4.5:1 against all background tokens. Tested with 8 European language character sets.</div>
-              <div style="font-size:0.875rem; color:var(--gray-500); margin-bottom:var(--s-5);">Caption / 14px — Used for supplementary information only. Never as primary instruction text.</div>
+              <div style="font-size:1rem; line-height:1.75; color:var(--gray-700); margin-bottom:var(--s-3);">Fließtext / 16px — Mindestkontrastverhältnis 4.5:1. Getestet für Lesbarkeit in Außenumgebungen und auf Tablets mit Handschuhen.</div>
+              <div style="font-size:0.875rem; color:var(--gray-500); margin-bottom:var(--s-5);">Beschriftung / 14px — Nur für ergänzende Informationen. Nie als primärer Anweisungstext verwendet.</div>
               <div style="display:flex;gap:var(--s-3);flex-wrap:wrap;">
-                <span style="padding:4px 10px;background:var(--teal-50);color:var(--teal-800);border-radius:var(--r-full);font-size:11px;font-weight:600;border:1px solid var(--teal-200);">AA Compliant</span>
-                <span style="padding:4px 10px;background:var(--gray-100);color:var(--gray-700);border-radius:var(--r-full);font-size:11px;font-weight:600;">4.5:1+ contrast</span>
-                <span style="padding:4px 10px;background:var(--gray-100);color:var(--gray-700);border-radius:var(--r-full);font-size:11px;font-weight:600;">DE / EN / TR / SR</span>
+                <span style="padding:4px 10px;background:#E8F5E9;color:#1B5E35;border-radius:var(--r-full);font-size:11px;font-weight:600;border:1px solid #A5D6A7;">AA Konform</span>
+                <span style="padding:4px 10px;background:var(--gray-100);color:var(--gray-700);border-radius:var(--r-full);font-size:11px;font-weight:600;">4.5:1+ Kontrast</span>
+                <span style="padding:4px 10px;background:var(--gray-100);color:var(--gray-700);border-radius:var(--r-full);font-size:11px;font-weight:600;">Min. 16px Formulartext</span>
               </div>
             </div>
           </div>
-          <p class="cs-screen-caption">Typography system — multi-language tested, WCAG compliant contrast ratios</p>
+          <p class="cs-screen-caption">Typography system — outdoor legibility tested, WCAG compliant, minimum 16px on all form inputs</p>
         </div>
       </div>
     </div>
@@ -540,38 +529,38 @@
     <div class="container">
       <header class="section-header" data-reveal>
         <span class="section-label" style="color:var(--teal-400);">Outcomes</span>
-        <h2 class="section-title" style="color:var(--white);">Measured results, six months<br><em>post-launch</em></h2>
+        <h2 class="section-title" style="color:var(--white);">Measured results, first MFA season<br><em>post-launch</em></h2>
       </header>
 
       <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap:var(--s-1); background:rgba(255,255,255,0.06); border-radius:var(--r-2xl); overflow:hidden; margin-bottom:var(--s-12);" data-reveal>
-        <div style="background:var(--gray-800); padding:var(--s-8); border-radius:0;">
-          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">68<span style="font-size:1.5rem">%</span></div>
-          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Task success improvement</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">From 44% → 74% task completion in moderated testing (n=120). Largest gains in job search, profile creation, and employer matching flows.</div>
+        <div style="background:var(--gray-800); padding:var(--s-8);">
+          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">58<span style="font-size:1.5rem">%</span></div>
+          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">MFA task completion ↑</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">From 51% → 81% end-to-end MFA completion in moderated testing (n=96 farmers). Largest gains in the parcel declaration and ÖPUL measure steps.</div>
         </div>
         <div style="background:var(--gray-800); padding:var(--s-8);">
-          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">44<span style="font-size:1.5rem">%</span></div>
-          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Support ticket reduction</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">From 4,200 → 2,350 tickets/month. Most eliminated category: "can't find X" navigation questions, reduced by 82%.</div>
+          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">41<span style="font-size:1.5rem">%</span></div>
+          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Helpdesk calls ↓ (MFA season)</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Navigation-related calls dropped most sharply. "Where do I find X" enquiries — previously 73% of all MFA calls — reduced by 67% in the first year after launch.</div>
         </div>
         <div style="background:var(--gray-800); padding:var(--s-8);">
           <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">0</div>
           <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Critical WCAG violations</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">From 146 violations (28 critical) to zero critical and zero serious. Independent audit confirmed WCAG 2.1 AA certification.</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">From 112 violations (31 critical) to zero critical and zero serious. Independent BMASGK digital accessibility audit confirmed WCAG 2.1 AA certification.</div>
         </div>
         <div style="background:var(--gray-800); padding:var(--s-8);">
-          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">3.8<span style="font-size:1.5rem">min</span></div>
-          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Avg. registration time</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Down from 12.4 minutes. Completion rate up from 66% → 92%. Reduced mandatory fields from 22 to 6 through legal review and service design.</div>
+          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">6.3<span style="font-size:1.5rem">min</span></div>
+          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Avg. MFA submission time</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Down from 14.8 minutes for returning users. Draft resumption used in 38% of all MFA sessions in the first season — validating the save-state investment.</div>
         </div>
       </div>
 
       <!-- Testimonial -->
       <blockquote style="max-width:760px;margin:0 auto;text-align:center;" data-reveal>
-        <p style="font-family:var(--font-display);font-size:1.75rem;font-weight:300;font-style:italic;color:white;line-height:1.5;margin-bottom:var(--s-6);">"The redesign didn't just improve metrics — it fundamentally changed how we think about digital service delivery. Georg's approach gave us the language and the evidence to make institutional change."</p>
+        <p style="font-family:var(--font-display);font-size:1.75rem;font-weight:300;font-style:italic;color:white;line-height:1.5;margin-bottom:var(--s-6);">&ldquo;The redesign fundamentally changed the dynamic between our farmers and the portal. For the first time, we saw farmers completing the MFA independently who had relied on advisors for years. That's the measure we care about most.&rdquo;</p>
         <footer>
-          <strong style="color:var(--teal-400);font-size:0.9375rem;">Dr. Sabine Köhler</strong>
-          <span style="color:var(--gray-500);font-size:0.9375rem;"> — Programme Director, Digital Transformation, BMAW</span>
+          <strong style="color:var(--teal-400);font-size:0.9375rem;">DI Franz Reisinger</strong>
+          <span style="color:var(--gray-500);font-size:0.9375rem;"> — Head of Digital Services, AMA — Agrarmarkt Austria</span>
         </footer>
       </blockquote>
     </div>
