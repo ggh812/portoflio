@@ -23,6 +23,7 @@
   --teal-50:   #F0FDFA;
   --teal-100:  #CCFBF1;
   --teal-300:  #5EEAD4;
+  --teal-400:  #2DD4BF;
   --teal-500:  #14B8A6;
   --teal-600:  #0D9488;
   --teal-700:  #0F766E;
@@ -50,6 +51,7 @@
   --s-4:  1rem;
   --s-5:  1.25rem;
   --s-6:  1.5rem;
+  --s-7:  1.75rem;
   --s-8:  2rem;
   --s-10: 2.5rem;
   --s-12: 3rem;
@@ -1078,14 +1080,7 @@ input, textarea, select { font: inherit; }
 }
 
 .process-steps::before {
-  content: '';
-  position: absolute;
-  top: 28px;
-  left: 12.5%;
-  right: 12.5%;
-  height: 1px;
-  background: var(--gray-200);
-  z-index: 0;
+  display: none;
 }
 
 .process-step {
@@ -1177,8 +1172,8 @@ input, textarea, select { font: inherit; }
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--s-1);
-  background: var(--gray-200);
+  gap: 0;
+  background: var(--white);
   border-radius: var(--r-2xl);
   overflow: hidden;
 }
@@ -1889,6 +1884,11 @@ input, textarea, select { font: inherit; }
   border-radius: var(--r-xl);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+}
+.cs-screen-item > * {
+  flex: 1;
 }
 
 .cs-screen-caption {
@@ -1908,7 +1908,7 @@ input, textarea, select { font: inherit; }
 
 .workflow-row {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: var(--s-3);
   position: relative;
 }
@@ -1926,6 +1926,8 @@ input, textarea, select { font: inherit; }
   font-weight: 500;
   color: var(--gray-700);
   white-space: nowrap;
+  display: flex;
+  align-items: center;
 }
 .workflow-node--start {
   background: var(--teal-700);
@@ -1947,6 +1949,8 @@ input, textarea, select { font: inherit; }
   flex-shrink: 0;
   color: var(--gray-400);
   font-size: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 /* Before/After comparison */
