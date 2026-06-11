@@ -11,9 +11,23 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../css/styles.css">
   <style>
-    /* ---- eAMA-specific palette overrides ---- */
+    /* ---- eAMA brand palette — #27521B and shades ---- */
+    :root {
+      --teal-50:  #eef6ec;
+      --teal-100: #d4e8c8;
+      --teal-200: #aed4a0;
+      --teal-300: #7ab36e;
+      --teal-400: #5a9940;
+      --teal-500: #3d7a28;
+      --teal-600: #316021;
+      --teal-700: #27521B;
+      --teal-800: #1e4216;
+      --teal-900: #152d0e;
+      --color-accent:     #27521B;
+      --color-accent-mid: #316021;
+    }
     .cs-hero-bg {
-      background: linear-gradient(160deg, #0a4a44 0%, #0F766E 40%, #1a5c57 100%);
+      background: linear-gradient(160deg, #1e4216 0%, #27521B 40%, #1a3812 100%);
     }
     .cs-hero-bg::before {
       content: '';
@@ -24,11 +38,11 @@
         radial-gradient(circle at 20% 80%, rgba(0,0,0,0.2) 0%, transparent 50%);
     }
 
-    .screen-accent { background: var(--teal-700) !important; }
+    .screen-accent { background: #27521B !important; }
 
     /* Before/After screens */
     .before-screen-body { background: #F0F0F0; }
-    .before-sim-nav { background: #1B5E35; height: 44px; display:flex; align-items:center; padding: 0 16px; gap:12px; }
+    .before-sim-nav { background: #27521B; height: 44px; display:flex; align-items:center; padding: 0 16px; gap:12px; }
     .before-logo { width: 80px; height:20px; background: rgba(255,255,255,0.8); border-radius: 2px; }
     .before-content { padding: 16px; }
     .before-breadcrumbs { display:flex; gap:6px; margin-bottom:12px; }
@@ -37,7 +51,7 @@
     .before-columns { display:grid; grid-template-columns: 140px 1fr 80px; gap:12px; }
     .before-sidebar { display:flex; flex-direction:column; gap:6px; }
     .before-sb-link { height:24px; background:#e5e5e5; border-radius:3px; padding-left:8px; }
-    .before-sb-link.active { background:#1B5E35; }
+    .before-sb-link.active { background: #27521B; }
     .before-main { }
     .before-heading { height:16px; background:#333; border-radius:2px; width:70%; margin-bottom:10px; }
     .before-text-block { height:7px; background:#bbb; border-radius:2px; margin-bottom:5px; }
@@ -379,10 +393,10 @@
               <div style="margin-bottom:var(--s-6);">
                 <div style="font-size:0.6875rem; color:var(--gray-500); margin-bottom:var(--s-3);">Color Tokens</div>
                 <div style="display:flex; gap:var(--s-2);">
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#1B5E35;" title="brand-primary-dark"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#2E7D32;"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#4CAF50;"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#C8E6C9;"></div>
+                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#1e4216;" title="brand-primary-dark"></div>
+                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#27521B;"></div>
+                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#5a9940;"></div>
+                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#d4e8c8;"></div>
                   <div style="width:36px;height:36px;border-radius:var(--r-md);background:#111827;"></div>
                   <div style="width:36px;height:36px;border-radius:var(--r-md);background:#374151;"></div>
                   <div style="width:36px;height:36px;border-radius:var(--r-md);background:#6B7280;"></div>
@@ -393,9 +407,9 @@
               <div style="margin-bottom:var(--s-6);">
                 <div style="font-size:0.6875rem; color:var(--gray-500); margin-bottom:var(--s-3);">Button Components</div>
                 <div style="display:flex; gap:var(--s-3); flex-wrap:wrap; align-items:center;">
-                  <div style="padding:8px 16px;background:#2E7D32;color:white;border-radius:4px;font-size:12px;font-weight:600;">Primär</div>
+                  <div style="padding:8px 16px;background:#27521B;color:white;border-radius:4px;font-size:12px;font-weight:600;">Primär</div>
                   <div style="padding:8px 16px;background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.3);border-radius:4px;font-size:12px;font-weight:600;">Sekundär</div>
-                  <div style="padding:8px 16px;background:transparent;color:#4CAF50;font-size:12px;font-weight:600;border-radius:4px;border:1.5px solid #4CAF50;">Umriss</div>
+                  <div style="padding:8px 16px;background:transparent;color:#5a9940;font-size:12px;font-weight:600;border-radius:4px;border:1.5px solid #5a9940;">Umriss</div>
                   <div style="padding:8px 16px;background:#B71C1C;color:white;border-radius:4px;font-size:12px;font-weight:600;">Fehler</div>
                 </div>
               </div>
@@ -409,7 +423,7 @@
                   </div>
                   <div>
                     <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Fokus-Zustand</div>
-                    <div style="background:white;border:2px solid #2E7D32;border-radius:4px;padding:8px 10px;font-size:11px;color:#374151;box-shadow:0 0 0 3px rgba(46,125,50,0.15);">AT-NÖ-1234</div>
+                    <div style="background:white;border:2px solid #27521B;border-radius:4px;padding:8px 10px;font-size:11px;color:#374151;box-shadow:0 0 0 3px rgba(39,82,27,0.15);">AT-NÖ-1234</div>
                   </div>
                   <div>
                     <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Validierungsfehler</div>
@@ -417,7 +431,7 @@
                   </div>
                   <div>
                     <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Bestätigt</div>
-                    <div style="background:#F0FFF4;border:2px solid #2E7D32;border-radius:4px;padding:8px 10px;font-size:11px;color:#374151;display:flex;justify-content:space-between;align-items:center;">AT-NÖ-5678 <span style="color:#2E7D32;">✓</span></div>
+                    <div style="background:#eef6ec;border:2px solid #27521B;border-radius:4px;padding:8px 10px;font-size:11px;color:#374151;display:flex;justify-content:space-between;align-items:center;">AT-NÖ-5678 <span style="color:#27521B;">✓</span></div>
                   </div>
                 </div>
               </div>
@@ -438,7 +452,7 @@
               <div style="font-size:1rem; line-height:1.75; color:var(--gray-700); margin-bottom:var(--s-3);">Fließtext / 16px — Mindestkontrastverhältnis 4.5:1. Getestet für Lesbarkeit in Außenumgebungen und auf Tablets mit Handschuhen.</div>
               <div style="font-size:0.875rem; color:var(--gray-500); margin-bottom:var(--s-5);">Beschriftung / 14px — Nur für ergänzende Informationen. Nie als primärer Anweisungstext verwendet.</div>
               <div style="display:flex;gap:var(--s-3);flex-wrap:wrap;">
-                <span style="padding:4px 10px;background:#E8F5E9;color:#1B5E35;border-radius:var(--r-full);font-size:11px;font-weight:600;border:1px solid #A5D6A7;">AA Konform</span>
+                <span style="padding:4px 10px;background:#eef6ec;color:#27521B;border-radius:var(--r-full);font-size:11px;font-weight:600;border:1px solid #aed4a0;">AA Konform</span>
                 <span style="padding:4px 10px;background:var(--gray-100);color:var(--gray-700);border-radius:var(--r-full);font-size:11px;font-weight:600;">4.5:1+ Kontrast</span>
                 <span style="padding:4px 10px;background:var(--gray-100);color:var(--gray-700);border-radius:var(--r-full);font-size:11px;font-weight:600;">Min. 16px Formulartext</span>
               </div>
