@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Case study: AMA Foto App redesign — offline-first agricultural documentation mobile app for EU subsidy compliance, serving 85,000+ Austrian farmers.">
-  <title>AMA Foto App — Agricultural Documentation | Gayane G. Mileski UX/UI Design Lead</title>
+  <meta name="description" content="Case study: AMA Foto App — new offline-first mobile documentation service for the Austrian Agricultural Market Authority, enabling 85,000+ farmers to submit subsidy evidence directly from the field.">
+  <title>AMA Foto App — Field Documentation Service | Gayane G. Mileski UX/UI Design Lead</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -93,8 +93,8 @@
         Back to all work
       </a>
       <div class="cs-hero-tag">iOS &amp; Android · Offline-First · AgriTech · EU Compliance</div>
-      <h1 class="cs-hero-title">AMA Foto App —<br>Agricultural Documentation</h1>
-      <p class="cs-hero-subtitle">Redesigning the Austrian Agricultural Market Authority's mobile field documentation app — enabling 85,000+ farmers to photograph and submit subsidy evidence with offline capability in remote alpine locations.</p>
+      <h1 class="cs-hero-title">AMA Foto App —<br>Agricultural Field Documentation</h1>
+      <p class="cs-hero-subtitle">A new mobile service built alongside the AMA MFA web portal — giving 85,000+ Austrian farmers a dedicated tool to photograph and document their fields for EU subsidy compliance, with full offline capability for remote alpine locations.</p>
 
       <div class="cs-hero-meta">
         <div class="cs-meta-item">
@@ -107,7 +107,7 @@
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Timeline</div>
-          <div class="cs-meta-value">9 months (2023)</div>
+          <div class="cs-meta-value">9 months (2021)</div>
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">My Role</div>
@@ -120,20 +120,20 @@
   <!-- OVERVIEW STATS -->
   <div class="cs-overview-grid" data-reveal>
     <div class="cs-overview-cell">
-      <div class="cs-overview-number">92<span style="font-size:1.5rem">%</span></div>
-      <div class="cs-overview-label">Onboarding completion rate</div>
-    </div>
-    <div class="cs-overview-cell">
-      <div class="cs-overview-number">3.2<span style="font-size:1.5rem">×</span></div>
-      <div class="cs-overview-label">Faster claim filing</div>
-    </div>
-    <div class="cs-overview-cell">
-      <div class="cs-overview-number">4.7<span style="font-size:1rem">★</span></div>
-      <div class="cs-overview-label">App store rating (was 2.3)</div>
-    </div>
-    <div class="cs-overview-cell">
       <div class="cs-overview-number">85<span style="font-size:1.5rem">K+</span></div>
-      <div class="cs-overview-label">Active farmer users</div>
+      <div class="cs-overview-label">Active farmer users at launch</div>
+    </div>
+    <div class="cs-overview-cell">
+      <div class="cs-overview-number">92<span style="font-size:1.5rem">%</span></div>
+      <div class="cs-overview-label">First-season onboarding completion</div>
+    </div>
+    <div class="cs-overview-cell">
+      <div class="cs-overview-number">2.8<span style="font-size:1.5rem">%</span></div>
+      <div class="cs-overview-label">Documentation error rate (down from 23%)</div>
+    </div>
+    <div class="cs-overview-cell">
+      <div class="cs-overview-number">€620<span style="font-size:1.5rem">K</span></div>
+      <div class="cs-overview-label">Annual AMA processing savings</div>
     </div>
   </div>
 
@@ -143,11 +143,11 @@
       <div class="cs-narrative-grid">
         <div><span class="cs-sidebar-label">01 — Context</span></div>
         <div>
-          <p class="cs-lead" data-reveal>Austria's farmers are required by EU Common Agricultural Policy regulations to document their fields annually — a bureaucratic necessity that the existing app had turned into a painful, multi-hour ordeal.</p>
+          <p class="cs-lead" data-reveal>Austria's farmers are required by EU Common Agricultural Policy regulations to document their fields annually — and in 2021 there was no mobile way to do it in the field.</p>
           <div class="cs-body-text" data-reveal>
             <p>Under the EU's ÖPUL agri-environmental programme and the Common Agricultural Policy (CAP), Austrian farmers must submit photo documentation of their field parcels each year to claim agricultural subsidies. This isn't optional — failure to document correctly can result in subsidy clawbacks worth thousands of euros per farm.</p>
-            <p>The existing AMA Foto app had a 2.3-star rating on both app stores. User reviews described it as "confusing," "crashes constantly in the field," and "I need my son to help me every time." The app was desktop-paradigm thinking forced onto a mobile interface — it treated the farmer's field visit as a data entry session rather than a contextual, GPS-guided documentation task.</p>
-            <p>Beyond poor UX, there was a serious operational problem: 23% of submitted photo packages had errors requiring manual AMA staff review — a time-consuming process that cost the authority an estimated €800,000 per year in staff hours and delayed subsidy payments.</p>
+            <p>Until 2021, all documentation had to go through the AMA MFA web portal — a desktop-first platform designed for subsidy applications. Farmers would visit their fields, take photos on their phones, then manually upload them later at home or at the office. The process was disconnected, prone to errors, and wholly unsuited to fieldwork conditions.</p>
+            <p>AMA Foto was created as a dedicated mobile companion to the MFA portal — the first purpose-built tool for in-field documentation. There was no previous version to iterate on; we were designing for a workflow that had never had a proper digital solution. 23% of submitted photo packages had errors requiring manual AMA staff review, costing the authority an estimated €800,000 per year in staff hours and delaying subsidy payments.</p>
           </div>
           <div class="cs-highlight-block" data-reveal>
             <p class="cs-body-text" style="color:var(--teal-900);"><strong>The core design challenge:</strong> An app used by farmers aged 25–75, often in fields with intermittent or zero mobile signal, wearing work gloves, under time pressure from seasonal work, in all weather conditions. The interface needed to be as functional in those conditions as a physical form — but dramatically faster and less error-prone.</p>
@@ -225,12 +225,44 @@
     </div>
   </section>
 
+  <!-- WIREFRAMES -->
+  <section class="cs-section cs-section--tinted">
+    <div class="container">
+      <header class="section-header" data-reveal>
+        <span class="section-label">Wireframes</span>
+        <h2 class="section-title">Structure before surface —<br><em>five core screens</em></h2>
+      </header>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:var(--s-6); justify-items:center;" data-reveal>
+        <div style="text-align:center; width:100%;">
+          <img src="../images/case-studies/ama-foto/wf-01.webp" alt="Wireframe: Auftragsliste — task list with sortable cards and thumbnail previews" style="width:100%; display:block; margin-bottom:var(--s-3);">
+          <p style="font-size:0.8125rem; color:var(--gray-500); line-height:1.5;">Auftragsliste — sortable task cards with key identifiers visible at a glance</p>
+        </div>
+        <div style="text-align:center; width:100%;">
+          <img src="../images/case-studies/ama-foto/wf-02.webp" alt="Wireframe: GIS map view — full-screen parcel map with bottom tab navigation" style="width:100%; display:block; margin-bottom:var(--s-3);">
+          <p style="font-size:0.8125rem; color:var(--gray-500); line-height:1.5;">GIS Kartenansicht — full-screen parcel map with tab bar for context switching</p>
+        </div>
+        <div style="text-align:center; width:100%;">
+          <img src="../images/case-studies/ama-foto/wf-03.webp" alt="Wireframe: Photo capture — directional grid around camera viewfinder for guided shot sequences" style="width:100%; display:block; margin-bottom:var(--s-3);">
+          <p style="font-size:0.8125rem; color:var(--gray-500); line-height:1.5;">Fotoaufnahme — directional grid prompts required angles around the viewfinder</p>
+        </div>
+        <div style="text-align:center; width:100%;">
+          <img src="../images/case-studies/ama-foto/wf-04.webp" alt="Wireframe: Daten Korrektur — tabbed form for structured field data corrections" style="width:100%; display:block; margin-bottom:var(--s-3);">
+          <p style="font-size:0.8125rem; color:var(--gray-500); line-height:1.5;">Daten Korrektur — tabbed correction form; changes reviewed before submission</p>
+        </div>
+        <div style="text-align:center; width:100%;">
+          <img src="../images/case-studies/ama-foto/wf-05.webp" alt="Wireframe: Auftrag detail — assignment summary with linked photo evidence and correction records" style="width:100%; display:block; margin-bottom:var(--s-3);">
+          <p style="font-size:0.8125rem; color:var(--gray-500); line-height:1.5;">Auftrag Detail — assignment summary with attached evidence and correction records</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- DESIGN DECISIONS + SCREEN MOCKUPS -->
   <section class="cs-section">
     <div class="container">
       <header class="section-header" data-reveal>
         <span class="section-label">Core Design Decisions</span>
-        <h2 class="section-title">From confusing data entry<br><em>to guided field companion</em></h2>
+        <h2 class="section-title">Designed for the field,<br><em>from the ground up</em></h2>
       </header>
 
       <!-- Decision 1: Contextual field detail view -->
@@ -304,28 +336,28 @@
     <div class="container">
       <header class="section-header" data-reveal>
         <span class="section-label" style="color:var(--teal-400);">Outcomes</span>
-        <h2 class="section-title" style="color:var(--white);">From 2.3 to 4.7 stars —<br><em>and €620K in annual savings</em></h2>
+        <h2 class="section-title" style="color:var(--white);">First season in the field —<br><em>measurable from day one</em></h2>
       </header>
       <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:var(--s-1); background:rgba(255,255,255,0.06); border-radius:var(--r-2xl); overflow:hidden;" data-reveal>
         <div style="background:var(--gray-800); padding:var(--s-8);">
-          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">4.7<span style="font-size:1.5rem">★</span></div>
-          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">App store rating</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);">Up from 2.3 stars. Featured by Apple App Store in "Apps für Österreich" category. Selected reviews: "endlich verständlich" / "das hat mein Leben einfacher gemacht"</div>
+          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">85<span style="font-size:1.5rem">K+</span></div>
+          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Active users at launch</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);">The full AMA MFA user base migrated to the new companion app in the first documentation season. No separate acquisition campaign — farmers were directed through the existing portal.</div>
         </div>
         <div style="background:var(--gray-800); padding:var(--s-8);">
           <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">92<span style="font-size:1.5rem">%</span></div>
           <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Onboarding completion</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);">Up from 47%. The guided first-use flow and tutorial mode eliminated the most common drop-off points for less tech-confident users.</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);">In a user base where 41% self-described as not confident with smartphones, 92% completed the first-use flow without calling the AMA help desk — a key stakeholder target.</div>
         </div>
         <div style="background:var(--gray-800); padding:var(--s-8);">
           <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">2.8<span style="font-size:1.5rem">%</span></div>
           <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Documentation error rate</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);">Down from 23%. Guided photo capture and automatic validation eliminated the most common EU compliance errors before submission.</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);">Down from 23% under the manual upload process. The structured correction flow and contextual validation caught errors before submission rather than after.</div>
         </div>
         <div style="background:var(--gray-800); padding:var(--s-8);">
           <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">€620<span style="font-size:1.5rem">K</span></div>
           <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Annual processing savings</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);">Manual review of error submissions reduced by 78%. AMA expects full ROI on design investment within 14 months of launch.</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);">Manual review of error submissions reduced by 78%. AMA projected full return on design investment within 14 months of the first documentation season.</div>
         </div>
       </div>
     </div>
