@@ -1302,7 +1302,7 @@ input, textarea, select { font: inherit; }
    ========================================================================== */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--s-20);
   align-items: center;
 }
