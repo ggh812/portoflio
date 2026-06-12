@@ -234,7 +234,7 @@
       </header>
 
       <!-- Decision 1: GPS-guided task flow -->
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-12); align-items:center; margin-bottom:var(--s-20);" data-reveal>
+      <div data-reveal style="margin-bottom:var(--s-20);">
         <div>
           <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-700);margin-bottom:var(--s-4);">Decision 01</div>
           <h3 style="font-family:var(--font-display);font-size:1.75rem;font-weight:400;color:var(--gray-900);line-height:1.2;margin-bottom:var(--s-4);">GPS-First Navigation — parcels come to you</h3>
@@ -254,106 +254,10 @@
             </div>
           </div>
         </div>
-        <div style="display:flex; justify-content:center;">
-          <!-- Phone mockup — GPS screen -->
-          <div class="phone-frame" style="position:relative;">
-            <div class="phone-notch"></div>
-            <div style="height:24px;background:#1a1a1a;"></div>
-            <div class="phone-screen">
-              <!-- Status bar -->
-              <div style="display:flex;justify-content:space-between;padding:6px 14px 4px;background:#1E40AF;">
-                <span style="font-size:9px;color:rgba(255,255,255,0.8);font-weight:600;">AMA Foto</span>
-                <span style="font-size:9px;color:rgba(255,255,255,0.8);">GPS ●</span>
-              </div>
-              <!-- Map area -->
-              <div style="height:140px;background:linear-gradient(135deg,#d4e6c3 0%,#b8d4a0 50%,#c8ddb0 100%);position:relative;overflow:hidden;">
-                <!-- Map grid lines -->
-                <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.2) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.2) 1px,transparent 1px);background-size:30px 30px;"></div>
-                <!-- Field outline -->
-                <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 220 140" preserveAspectRatio="none">
-                  <polygon points="40,20 160,30 170,100 30,110" fill="rgba(15,118,110,0.3)" stroke="#0F766E" stroke-width="2"/>
-                  <polygon points="170,30 210,25 205,90 175,100" fill="rgba(30,64,175,0.2)" stroke="#1E40AF" stroke-width="2" stroke-dasharray="4,2"/>
-                </svg>
-                <!-- Current location -->
-                <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
-                  <div style="width:16px;height:16px;background:#0F766E;border-radius:50%;border:3px solid white;box-shadow:0 0 0 6px rgba(15,118,110,0.3);"></div>
-                </div>
-              </div>
-              <!-- Detected parcels -->
-              <div style="padding:10px;">
-                <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-500);margin-bottom:8px;">Detected nearby (2)</div>
-                <div style="background:var(--teal-50);border:1.5px solid var(--teal-600);border-radius:10px;padding:10px;margin-bottom:8px;display:flex;align-items:center;gap:10px;">
-                  <div style="width:36px;height:36px;background:var(--teal-100);border-radius:8px;display:grid;place-items:center;flex-shrink:0;">
-                    <svg width="16" height="16" fill="none" stroke="var(--teal-700)" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
-                  </div>
-                  <div>
-                    <div style="font-size:11px;font-weight:700;color:var(--gray-900);">Schlag 01 — Hauptacker</div>
-                    <div style="font-size:10px;color:var(--gray-500);">4.8 ha · 32m away · Fotos ausstehend</div>
-                  </div>
-                  <div style="margin-left:auto;background:var(--teal-700);color:white;font-size:9px;font-weight:700;border-radius:var(--r-full);padding:3px 8px;">START</div>
-                </div>
-                <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:10px;padding:10px;display:flex;align-items:center;gap:10px;">
-                  <div style="width:36px;height:36px;background:var(--gray-100);border-radius:8px;display:grid;place-items:center;flex-shrink:0;">
-                    <svg width="16" height="16" fill="none" stroke="var(--gray-400)" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
-                  </div>
-                  <div>
-                    <div style="font-size:11px;font-weight:600;color:var(--gray-700);">Schlag 03 — Wiese</div>
-                    <div style="font-size:10px;color:var(--gray-400);">2.1 ha · 86m away</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Decision 2: Photo capture guidance -->
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-12); align-items:center; margin-bottom:var(--s-20);" data-reveal>
-        <div style="display:flex; justify-content:center; order:-1;">
-          <!-- Phone mockup — camera screen -->
-          <div class="phone-frame" style="position:relative;">
-            <div class="phone-notch"></div>
-            <div style="height:24px;background:#1a1a1a;"></div>
-            <div class="phone-screen" style="background:#000;">
-              <!-- Camera viewfinder -->
-              <div style="height:260px;background:linear-gradient(160deg, #2d4a2d 0%, #3a5c3a 40%, #1a3a1a 100%);position:relative;overflow:hidden;">
-                <!-- Viewfinder guide -->
-                <div style="position:absolute;inset:16px;border:2px solid rgba(255,255,255,0.5);border-radius:8px;"></div>
-                <!-- Corner indicators -->
-                <div style="position:absolute;top:16px;left:16px;width:20px;height:20px;border-top:3px solid #0F766E;border-left:3px solid #0F766E;"></div>
-                <div style="position:absolute;top:16px;right:16px;width:20px;height:20px;border-top:3px solid #0F766E;border-right:3px solid #0F766E;"></div>
-                <div style="position:absolute;bottom:16px;left:16px;width:20px;height:20px;border-bottom:3px solid #0F766E;border-left:3px solid #0F766E;"></div>
-                <div style="position:absolute;bottom:16px;right:16px;width:20px;height:20px;border-bottom:3px solid #0F766E;border-right:3px solid #0F766E;"></div>
-                <!-- Compass/direction indicator -->
-                <div style="position:absolute;top:20px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.6);padding:3px 10px;border-radius:var(--r-full);display:flex;align-items:center;gap:6px;">
-                  <div style="width:6px;height:6px;border-radius:50%;background:#0F766E;"></div>
-                  <span style="font-size:9px;color:white;font-weight:600;">NE 42° · Blick zeigen</span>
-                </div>
-                <!-- GPS stamp -->
-                <div style="position:absolute;bottom:20px;left:16px;background:rgba(0,0,0,0.7);padding:4px 8px;border-radius:4px;font-size:8px;color:rgba(255,255,255,0.9);font-family:monospace;">
-                  47.8095°N 16.3726°E
-                </div>
-                <!-- Progress indicator -->
-                <div style="position:absolute;bottom:8px;right:16px;font-size:9px;color:rgba(255,255,255,0.7);">Foto 1/4</div>
-              </div>
-              <!-- Controls -->
-              <div style="background:#111;padding:14px;display:flex;align-items:center;justify-content:space-between;">
-                <div style="width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.1);display:grid;place-items:center;">
-                  <svg width="16" height="16" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14"/><rect x="2" y="6" width="20" height="14" rx="2"/></svg>
-                </div>
-                <!-- Shutter -->
-                <div style="width:56px;height:56px;border-radius:50%;border:3px solid white;background:white;display:grid;place-items:center;cursor:pointer;">
-                  <div style="width:44px;height:44px;border-radius:50%;background:#0F766E;"></div>
-                </div>
-                <div style="font-size:10px;color:rgba(255,255,255,0.5);text-align:center;">Blitz<br>aus</div>
-              </div>
-              <!-- Guidance text -->
-              <div style="background:#1a1a1a;padding:8px 14px;text-align:center;">
-                <div style="font-size:10px;color:var(--teal-400);font-weight:600;">Nächste: Nordseite fotografieren</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div data-reveal style="margin-bottom:var(--s-20);">
         <div>
           <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-700);margin-bottom:var(--s-4);">Decision 02</div>
           <h3 style="font-family:var(--font-display);font-size:1.75rem;font-weight:400;color:var(--gray-900);line-height:1.2;margin-bottom:var(--s-4);">Guided Photo Capture — compass-directed sequences</h3>
@@ -366,7 +270,7 @@
       </div>
 
       <!-- Decision 3: Offline mode -->
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-12); align-items:center; margin-bottom:var(--s-12);" data-reveal>
+      <div data-reveal style="margin-bottom:var(--s-12);">
         <div>
           <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-700);margin-bottom:var(--s-4);">Decision 03</div>
           <h3 style="font-family:var(--font-display);font-size:1.75rem;font-weight:400;color:var(--gray-900);line-height:1.2;margin-bottom:var(--s-4);">Offline-First Architecture — reliable in remote conditions</h3>
@@ -379,57 +283,6 @@
             <div style="padding:var(--s-5);background:var(--gray-50);border-radius:var(--r-lg);border:1px solid var(--gray-200);">
               <div style="font-size:1.25rem;font-weight:700;color:var(--teal-700);margin-bottom:var(--s-1);">0</div>
               <div style="font-size:0.8125rem;color:var(--gray-600);">Data loss incidents post-launch</div>
-            </div>
-          </div>
-        </div>
-        <div style="display:flex;justify-content:center;">
-          <!-- Submission status screen -->
-          <div class="phone-frame" style="position:relative;">
-            <div class="phone-notch"></div>
-            <div style="height:24px;background:#1a1a1a;"></div>
-            <div class="phone-screen">
-              <div style="padding:14px;">
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--gray-100);">
-                  <div style="font-size:12px;font-weight:700;color:var(--gray-900);">Einreichungen</div>
-                  <div style="font-size:9px;background:var(--teal-100);color:var(--teal-800);padding:3px 8px;border-radius:var(--r-full);font-weight:700;">WLAN</div>
-                </div>
-                <!-- Uploaded -->
-                <div style="margin-bottom:10px;">
-                  <div style="font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-400);margin-bottom:6px;">Übermittelt ✓</div>
-                  <div style="display:flex;align-items:center;gap:8px;padding:8px;background:var(--teal-50);border-radius:8px;margin-bottom:6px;border:1px solid var(--teal-200);">
-                    <div style="width:28px;height:28px;background:var(--teal-100);border-radius:6px;display:grid;place-items:center;flex-shrink:0;">
-                      <svg width="12" height="12" fill="none" stroke="var(--teal-700)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <div>
-                      <div style="font-size:10px;font-weight:600;color:var(--gray-900);">Schlag 01 — 4 Fotos</div>
-                      <div style="font-size:9px;color:var(--gray-500);">Heute 09:34 · Bestätigt</div>
-                    </div>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:8px;padding:8px;background:var(--teal-50);border-radius:8px;border:1px solid var(--teal-200);">
-                    <div style="width:28px;height:28px;background:var(--teal-100);border-radius:6px;display:grid;place-items:center;flex-shrink:0;">
-                      <svg width="12" height="12" fill="none" stroke="var(--teal-700)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <div>
-                      <div style="font-size:10px;font-weight:600;color:var(--gray-900);">Schlag 03 — 5 Fotos</div>
-                      <div style="font-size:9px;color:var(--gray-500);">Heute 10:12 · Bestätigt</div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Pending offline queue -->
-                <div>
-                  <div style="font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-400);margin-bottom:6px;">Offline gespeichert — Sync ausstehend</div>
-                  <div style="display:flex;align-items:center;gap:8px;padding:8px;background:var(--gray-50);border-radius:8px;border:1px solid var(--gray-200);">
-                    <div style="width:28px;height:28px;background:var(--gray-100);border-radius:6px;display:grid;place-items:center;flex-shrink:0;">
-                      <svg width="12" height="12" fill="none" stroke="var(--gray-400)" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
-                    </div>
-                    <div style="flex:1;">
-                      <div style="font-size:10px;font-weight:600;color:var(--gray-700);">Schlag 07 — 4 Fotos</div>
-                      <div style="font-size:9px;color:var(--gray-400);">Kein Signal — automatisch synchronisiert</div>
-                    </div>
-                    <div style="width:20px;height:20px;border:2px solid var(--gray-300);border-top-color:var(--teal-600);border-radius:50%;animation:spin 1s linear infinite;"></div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
