@@ -1782,8 +1782,8 @@ input, textarea, select { font: inherit; }
 .cs-overview-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--s-1);
-  background: var(--gray-200);
+  gap: 1px;
+  background: #666666;
 }
 .cs-overview-cell {
   background: var(--white);

@@ -49,10 +49,8 @@
     @media (max-width: 768px) {
       /* System mapping: stack primary flow vertically, downstream in 2 cols */
       .rn-flow-container { padding: var(--s-5) !important; }
-      .rn-primary-flow { flex-direction: column !important; align-items: flex-start !important; gap: 0 !important; }
-      .rn-h-arrow { flex: none !important; width: 1px !important; height: 20px !important; min-width: auto !important; margin-left: 22px; }
-      .rn-h-arrow > div { display: none !important; }
-      .rn-h-arrow::after { content: '↓'; position: absolute; top: 2px; left: -6px; font-size: 0.75rem; color: var(--gray-400); line-height: 1; }
+      .rn-primary-flow { flex-direction: column !important; align-items: flex-start !important; gap: var(--s-2) !important; }
+      .rn-arrow { transform: rotate(90deg); margin-left: var(--s-4); }
       .rn-downstream-grid { grid-template-columns: 1fr 1fr !important; }
 
       /* Key screens: one per row */
@@ -187,9 +185,9 @@
             <!-- Primary flow row -->
             <div class="rn-primary-flow" style="display:flex;align-items:center;gap:var(--s-3);margin-bottom:var(--s-5);">
               <div style="background:var(--teal-700);color:white;border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;font-weight:600;white-space:nowrap;">Farmer (App)</div>
-              <div class="rn-h-arrow" style="flex:1;height:1px;background:var(--gray-300);position:relative;min-width:var(--s-4);"><div style="position:absolute;right:-4px;top:-4px;width:8px;height:8px;border-top:2px solid var(--gray-400);border-right:2px solid var(--gray-400);transform:rotate(45deg);"></div></div>
+              <span class="rn-arrow" style="color:var(--gray-400);font-size:1.125rem;line-height:1;flex-shrink:0;">→</span>
               <div style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;color:var(--gray-700);white-space:nowrap;">VIS API</div>
-              <div class="rn-h-arrow" style="flex:1;height:1px;background:var(--gray-300);position:relative;min-width:var(--s-4);"><div style="position:absolute;right:-4px;top:-4px;width:8px;height:8px;border-top:2px solid var(--gray-400);border-right:2px solid var(--gray-400);transform:rotate(45deg);"></div></div>
+              <span class="rn-arrow" style="color:var(--gray-400);font-size:1.125rem;line-height:1;flex-shrink:0;">→</span>
               <div style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;color:var(--gray-700);white-space:nowrap;">AMA Database</div>
             </div>
             <!-- Downstream systems -->
