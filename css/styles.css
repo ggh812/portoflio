@@ -764,13 +764,8 @@ input, textarea, select { font: inherit; }
   overflow: hidden;
   background: var(--gray-50);
   border: 1px solid var(--gray-200);
-  transition: box-shadow var(--t-base), transform var(--t-base);
   text-decoration: none;
   color: inherit;
-}
-.work-card:hover {
-  box-shadow: var(--shadow-xl);
-  transform: translateY(-4px);
 }
 
 .work-card--reversed {
@@ -2218,7 +2213,7 @@ body {
 }
 
 .work-card {
-  transition: box-shadow var(--t-base), transform var(--t-base), opacity var(--t-base);
+  transition: opacity var(--t-base);
 }
 .work-card.is-hidden {
   display: none;
