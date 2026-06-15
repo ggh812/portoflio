@@ -2080,14 +2080,20 @@ input, textarea, select { font: inherit; }
   .nav-link { font-size: 1.25rem; }
   .nav-cta { padding: 0.75rem 2rem; font-size: 1rem; }
 
-  .hero { min-height: auto; padding-block: var(--s-12) var(--s-16); }
-  .hero-grid { grid-template-columns: 1fr; gap: var(--s-12); }
-  .hero-visual { justify-content: center; }
-  .hero-portrait-wrapper { max-width: 360px; }
-  .hero-stats-card { position: static; transform: none; margin-top: var(--s-6); min-width: 100%; grid-template-columns: repeat(3, 1fr); }
+  /* Hero: text first, portrait second on mobile */
+  .hero { min-height: auto; padding-block: var(--s-6) var(--s-10); }
+  .hero-grid { grid-template-columns: 1fr; gap: var(--s-8); padding-block: var(--s-4); }
+  .hero-content { order: -1; }
+  .hero-visual { justify-content: center; order: 0; }
+  .hero-portrait-wrapper { max-width: 240px; }
+  .hero-title { font-size: clamp(1.875rem, 7vw, 2.5rem); }
+  .hero-description { font-size: 0.9375rem; line-height: 1.75; margin-bottom: var(--s-6); }
+  .hero-divider { margin-block: var(--s-4); }
+  .hero-actions { margin-bottom: var(--s-6); }
+  .hero-stats-card { position: static; transform: none; margin-top: var(--s-4); min-width: 100%; grid-template-columns: repeat(3, 1fr); padding: var(--s-4); gap: var(--s-2); }
   .scroll-indicator { display: none; }
 
-  .expertise-grid { grid-template-columns: 1fr 1fr; }
+  .expertise-grid { grid-template-columns: 1fr; }
 
   .process-steps { grid-template-columns: 1fr 1fr; gap: var(--s-1); }
   .process-steps::before { display: none; }
@@ -2118,7 +2124,9 @@ input, textarea, select { font: inherit; }
 
   .cta-strip-actions { flex-direction: column; align-items: stretch; }
 
-  .section { padding-block: var(--s-16); }
+  .section { padding-block: var(--s-12); }
+  .section-header { margin-bottom: var(--s-10); }
+  .section-header--centered { margin-bottom: var(--s-10); }
 }
 
 @media (max-width: 480px) {
@@ -2128,6 +2136,12 @@ input, textarea, select { font: inherit; }
   .hero-actions .btn { text-align: center; justify-content: center; }
   .hero-clients-list { gap: var(--s-5); }
   .cs-overview-grid { grid-template-columns: 1fr; }
+  /* Tighter on very small phones */
+  .section { padding-block: var(--s-10); }
+  .hero-grid { gap: var(--s-6); padding-block: var(--s-2); }
+  .hero-portrait-wrapper { max-width: 200px; }
+  .work-card-visual { min-height: 220px; }
+  .hero-title { font-size: clamp(1.75rem, 6.5vw, 2.25rem); }
 }
 
 /* ==========================================================================
