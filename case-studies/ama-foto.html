@@ -57,6 +57,16 @@
       position: relative;
       overflow: hidden;
     }
+
+    @media (max-width: 768px) {
+      .af-research-grid { grid-template-columns: 1fr !important; }
+      .af-wf-grid { grid-template-columns: repeat(4, 1fr) !important; gap: var(--s-2) !important; }
+      .af-wf-grid > div img { width: 100% !important; }
+      .af-decision-grid { grid-template-columns: 1fr !important; gap: var(--s-8) !important; margin-bottom: var(--s-12) !important; }
+      .af-decision-grid .af-screen { order: 2; display: flex; justify-content: center; }
+      .af-decision-grid .af-screen img { max-width: 240px; width: 70% !important; }
+      .af-next-row { flex-direction: column !important; align-items: flex-start !important; }
+    }
   </style>
 </head>
 <body>
@@ -168,7 +178,7 @@
             <p>To understand the real context of use, our research team spent three weeks conducting field visits to farms across Lower Austria, Burgenland, and Tyrol. This wasn't standard usability testing — it was contextual inquiry in the most literal sense: watching farmers try to use the app while standing in a field, sun in their eyes, trying to photograph a 40-hectare parcel.</p>
           </div>
 
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-5); margin-top:var(--s-8);" data-reveal>
+          <div class="af-research-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-5); margin-top:var(--s-8);" data-reveal>
             <div style="padding:var(--s-6); background:white; border-radius:var(--r-xl); border:1px solid var(--gray-200);">
               <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-700);margin-bottom:var(--s-4);">Field Research</div>
               <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--s-3);">
@@ -257,7 +267,7 @@
         <span class="section-label">Wireframes</span>
         <h2 class="section-title">Structure before surface —<br><em>twelve core screens</em></h2>
       </header>
-      <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:var(--s-5); justify-items:center;" data-reveal>
+      <div class="af-wf-grid" style="display:grid; grid-template-columns:repeat(6,1fr); gap:var(--s-5); justify-items:center;" data-reveal>
         <div style="text-align:center; width:100%;">
           <img src="../images/case-studies/ama-foto/wf-02.webp" alt="Wireframe: Login" style="width:80%; display:block; margin:0 auto;">
         </div>
@@ -307,7 +317,7 @@
       </header>
 
       <!-- Decision 1: Contextual field detail view -->
-      <div data-reveal style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-12); align-items:start; margin-bottom:var(--s-20);">
+      <div class="af-decision-grid" data-reveal style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-12); align-items:start; margin-bottom:var(--s-20);">
         <div>
           <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-700);margin-bottom:var(--s-4);">Decision 01</div>
           <h3 style="font-family:var(--font-display);font-size:1.75rem;font-weight:400;color:var(--gray-900);line-height:1.2;margin-bottom:var(--s-4);">Contextual Field Detail — map, obligations, and data in one view</h3>
@@ -327,14 +337,14 @@
             </div>
           </div>
         </div>
-        <div style="display:flex; justify-content:center;">
+        <div class="af-screen" style="display:flex; justify-content:center;">
           <img src="../images/case-studies/ama-foto/screen-map.webp" alt="GIS parcel map view — field detail with crop data and Blühzeitpunkt action card" style="width:100%; max-width:240px; display:block;">
         </div>
       </div>
 
       <!-- Decision 2: In-field data correction workflow -->
-      <div data-reveal style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-12); align-items:start; margin-bottom:var(--s-20);">
-        <div style="display:flex; justify-content:center;">
+      <div class="af-decision-grid" data-reveal style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-12); align-items:start; margin-bottom:var(--s-20);">
+        <div class="af-screen" style="display:flex; justify-content:center;">
           <img src="../images/case-studies/ama-foto/screen-korrektur.webp" alt="Daten Korrektur — structured in-field data correction form for Schlagnutzung and Begrünungsvariante" style="width:100%; max-width:240px; display:block;">
         </div>
         <div>
@@ -349,7 +359,7 @@
       </div>
 
       <!-- Decision 3: Priority-driven task queue -->
-      <div data-reveal style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-12); align-items:start; margin-bottom:var(--s-12);">
+      <div class="af-decision-grid" data-reveal style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-12); align-items:start; margin-bottom:var(--s-12);">
         <div>
           <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-700);margin-bottom:var(--s-4);">Decision 03</div>
           <h3 style="font-family:var(--font-display);font-size:1.75rem;font-weight:400;color:var(--gray-900);line-height:1.2;margin-bottom:var(--s-4);">Priority-Driven Task Queue — deadlines visible before you set off</h3>
@@ -365,7 +375,7 @@
             </div>
           </div>
         </div>
-        <div style="display:flex; justify-content:center;">
+        <div class="af-screen" style="display:flex; justify-content:center;">
           <img src="../images/case-studies/ama-foto/screen-auftrag.webp" alt="Auftragsliste — prioritised job queue with deadline tracking and distance to field" style="width:100%; max-width:240px; display:block;">
         </div>
       </div>
@@ -406,7 +416,7 @@
 
   <!-- NEXT -->
   <section style="padding:var(--s-16) 0; background:var(--gray-50); border-top: 1px solid var(--gray-200);">
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--s-8);">
+    <div class="container af-next-row" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--s-8);">
       <div>
         <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-2);">Next Case Study</div>
         <a href="rindernet.html" class="btn-arrow" style="font-size:1.125rem; font-weight:500;">
