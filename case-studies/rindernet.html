@@ -47,9 +47,13 @@
     }
 
     @media (max-width: 768px) {
-      /* System mapping: horizontally scrollable to preserve diagram */
-      .rn-flow-container { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: var(--s-5) !important; }
-      .rn-flow-inner { min-width: 560px; }
+      /* System mapping: stack primary flow vertically, downstream in 2 cols */
+      .rn-flow-container { padding: var(--s-5) !important; }
+      .rn-primary-flow { flex-direction: column !important; align-items: flex-start !important; gap: 0 !important; }
+      .rn-h-arrow { flex: none !important; width: 1px !important; height: 20px !important; min-width: auto !important; margin-left: 22px; }
+      .rn-h-arrow > div { display: none !important; }
+      .rn-h-arrow::after { content: '↓'; position: absolute; top: 2px; left: -6px; font-size: 0.75rem; color: var(--gray-400); line-height: 1; }
+      .rn-downstream-grid { grid-template-columns: 1fr 1fr !important; }
 
       /* Key screens: one per row */
       .rn-screens-grid { grid-template-columns: 1fr !important; }
@@ -180,41 +184,22 @@
           <!-- Simplified stakeholder diagram -->
           <div class="rn-flow-container" style="margin-top:var(--s-10); padding:var(--s-8); background:white; border-radius:var(--r-2xl); border:1px solid var(--gray-200);" data-reveal>
             <div style="font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-400);margin-bottom:var(--s-6);">Simplified Data Flow — Calf Birth Reporting</div>
-            <div class="rn-flow-inner" style="display:flex;flex-direction:column;gap:var(--s-4);">
-              <!-- Row 1 -->
-              <div style="display:flex;align-items:center;gap:var(--s-3);">
-                <div style="background:var(--teal-700);color:white;border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;font-weight:600;white-space:nowrap;">Farmer (App)</div>
-                <div style="flex:1;height:1px;background:var(--gray-300);position:relative;">
-                  <div style="position:absolute;right:-4px;top:-4px;width:8px;height:8px;border-top:2px solid var(--gray-400);border-right:2px solid var(--gray-400);transform:rotate(45deg);"></div>
-                </div>
-                <div style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;color:var(--gray-700);white-space:nowrap;">VIS API</div>
-                <div style="flex:1;height:1px;background:var(--gray-300);position:relative;">
-                  <div style="position:absolute;right:-4px;top:-4px;width:8px;height:8px;border-top:2px solid var(--gray-400);border-right:2px solid var(--gray-400);transform:rotate(45deg);"></div>
-                </div>
-                <div style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;color:var(--gray-700);white-space:nowrap;">AMA Database</div>
-              </div>
-              <!-- Row 2 — parallel -->
-              <div style="display:flex;align-items:center;gap:var(--s-3);padding-left:120px;">
-                <div style="height:24px;width:1px;background:var(--gray-300);margin-left:40px;"></div>
-                <div style="flex:1;"></div>
-                <div style="height:24px;width:1px;background:var(--gray-300);"></div>
-              </div>
-              <div style="display:flex;align-items:center;gap:var(--s-3);">
-                <div style="width:120px;flex-shrink:0;"></div>
-                <div style="background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;color:var(--gray-600);white-space:nowrap;">Province vet authority</div>
-                <div style="flex:1;height:1px;background:var(--gray-200);"></div>
-                <div style="background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;color:var(--gray-600);white-space:nowrap;">EU TRACES</div>
-                <div style="flex:1;height:1px;background:var(--gray-200);"></div>
-                <div style="background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;color:var(--gray-600);white-space:nowrap;">BMLRT</div>
-              </div>
-              <!-- Row 3 -->
-              <div style="display:flex;align-items:center;gap:var(--s-3);">
-                <div style="width:120px;flex-shrink:0;"></div>
-                <div style="flex:1;height:1px;background:var(--gray-200);"></div>
-                <div style="background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;color:var(--gray-600);white-space:nowrap;">Breeders' assoc.</div>
-                <div style="flex:1;height:1px;background:var(--gray-200);"></div>
-                <div style="background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;color:var(--gray-600);white-space:nowrap;">AMA Subsidy</div>
-              </div>
+            <!-- Primary flow row -->
+            <div class="rn-primary-flow" style="display:flex;align-items:center;gap:var(--s-3);margin-bottom:var(--s-5);">
+              <div style="background:var(--teal-700);color:white;border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;font-weight:600;white-space:nowrap;">Farmer (App)</div>
+              <div class="rn-h-arrow" style="flex:1;height:1px;background:var(--gray-300);position:relative;min-width:var(--s-4);"><div style="position:absolute;right:-4px;top:-4px;width:8px;height:8px;border-top:2px solid var(--gray-400);border-right:2px solid var(--gray-400);transform:rotate(45deg);"></div></div>
+              <div style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;color:var(--gray-700);white-space:nowrap;">VIS API</div>
+              <div class="rn-h-arrow" style="flex:1;height:1px;background:var(--gray-300);position:relative;min-width:var(--s-4);"><div style="position:absolute;right:-4px;top:-4px;width:8px;height:8px;border-top:2px solid var(--gray-400);border-right:2px solid var(--gray-400);transform:rotate(45deg);"></div></div>
+              <div style="background:var(--gray-100);border:1px solid var(--gray-200);border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;color:var(--gray-700);white-space:nowrap;">AMA Database</div>
+            </div>
+            <!-- Downstream systems -->
+            <div style="font-size:0.6875rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-400);margin-bottom:var(--s-3);">Downstream systems</div>
+            <div class="rn-downstream-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s-2);">
+              <div style="background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:var(--r-md);padding:var(--s-2) var(--s-3);font-size:0.75rem;color:var(--gray-600);text-align:center;line-height:1.3;">Province vet authority</div>
+              <div style="background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:var(--r-md);padding:var(--s-2) var(--s-3);font-size:0.75rem;color:var(--gray-600);text-align:center;line-height:1.3;">EU TRACES</div>
+              <div style="background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:var(--r-md);padding:var(--s-2) var(--s-3);font-size:0.75rem;color:var(--gray-600);text-align:center;line-height:1.3;">BMLRT</div>
+              <div style="background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:var(--r-md);padding:var(--s-2) var(--s-3);font-size:0.75rem;color:var(--gray-600);text-align:center;line-height:1.3;">Breeders' assoc.</div>
+              <div style="background:var(--gray-50);border:1px dashed var(--gray-300);border-radius:var(--r-md);padding:var(--s-2) var(--s-3);font-size:0.75rem;color:var(--gray-600);text-align:center;line-height:1.3;">AMA Subsidy</div>
             </div>
             <div style="margin-top:var(--s-5);font-size:0.8125rem;color:var(--gray-400);">A single calf birth report triggers data flows to 7 downstream systems — all invisible to the farmer, all critical for EU compliance.</div>
           </div>
