@@ -45,6 +45,22 @@
       background: #000;
       border-radius: 6px;
     }
+
+    @media (max-width: 768px) {
+      /* System mapping: horizontally scrollable to preserve diagram */
+      .rn-flow-container { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: var(--s-5) !important; }
+      .rn-flow-inner { min-width: 560px; }
+
+      /* Key screens: one per row */
+      .rn-screens-grid { grid-template-columns: 1fr !important; }
+
+      /* Reporting workflow: stack nodes vertically */
+      .rn-phase-row { flex-direction: column !important; align-items: flex-start !important; gap: var(--s-2) !important; }
+      .rn-phase-row .workflow-arrow { transform: rotate(90deg); }
+
+      /* Accessibility cards: one per row */
+      .rn-access-grid { grid-template-columns: 1fr !important; }
+    }
   </style>
 </head>
 <body>
@@ -162,9 +178,9 @@
           </div>
 
           <!-- Simplified stakeholder diagram -->
-          <div style="margin-top:var(--s-10); padding:var(--s-8); background:white; border-radius:var(--r-2xl); border:1px solid var(--gray-200);" data-reveal>
+          <div class="rn-flow-container" style="margin-top:var(--s-10); padding:var(--s-8); background:white; border-radius:var(--r-2xl); border:1px solid var(--gray-200);" data-reveal>
             <div style="font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-400);margin-bottom:var(--s-6);">Simplified Data Flow — Calf Birth Reporting</div>
-            <div style="display:flex;flex-direction:column;gap:var(--s-4);">
+            <div class="rn-flow-inner" style="display:flex;flex-direction:column;gap:var(--s-4);">
               <!-- Row 1 -->
               <div style="display:flex;align-items:center;gap:var(--s-3);">
                 <div style="background:var(--teal-700);color:white;border-radius:var(--r-md);padding:var(--s-2) var(--s-4);font-size:0.8125rem;font-weight:600;white-space:nowrap;">Farmer (App)</div>
@@ -217,7 +233,7 @@
       </header>
 
       <!-- Real app screenshots -->
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:var(--s-8); justify-items:center; margin-top:var(--s-16);" data-reveal>
+      <div class="rn-screens-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:var(--s-8); justify-items:center; margin-top:var(--s-16);" data-reveal>
         <div style="text-align:center; max-width:220px; width:100%;">
           <img src="../images/case-studies/rindernet/screen-meldungen.webp" alt="Meldungen — notification list showing pending cattle reports with ear tag numbers and owner names" style="width:100%; display:block;">
           <p style="margin-top:var(--s-3); font-size:0.8125rem; color:var(--gray-500); line-height:1.5;">Meldungen — pending reports queue with ear tag and movement date</p>
@@ -245,7 +261,7 @@
             <!-- Phase 1 -->
             <div>
               <div style="font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-600);margin-bottom:var(--s-3);">In the barn — app used in situ</div>
-              <div style="display:flex;align-items:center;gap:var(--s-3);flex-wrap:wrap;">
+              <div class="rn-phase-row" style="display:flex;align-items:center;gap:var(--s-3);flex-wrap:wrap;">
                 <div class="workflow-node workflow-node--start">Open app</div>
                 <div class="workflow-arrow">→</div>
                 <div class="workflow-node">"Geburt melden" tap</div>
@@ -260,7 +276,7 @@
             <!-- Phase 2 -->
             <div>
               <div style="font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal-600);margin-bottom:var(--s-3);">Validation &amp; submission</div>
-              <div style="display:flex;align-items:center;gap:var(--s-3);flex-wrap:wrap;">
+              <div class="rn-phase-row" style="display:flex;align-items:center;gap:var(--s-3);flex-wrap:wrap;">
                 <div class="workflow-node">App validates all fields</div>
                 <div class="workflow-arrow">→</div>
                 <div class="workflow-node workflow-node--decision">Online? <em style="font-size:0.75rem;display:block;color:var(--teal-700);">Yes / No</em></div>
@@ -289,7 +305,7 @@
           <div class="cs-body-text" data-reveal>
             <p>Standard WCAG 2.1 compliance was a baseline requirement, but the real accessibility challenge was the environmental context of use. We developed what we called "barn mode" design principles — a set of constraints applied to every UI decision:</p>
           </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-4); margin-top:var(--s-8);" data-reveal>
+          <div class="rn-access-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-4); margin-top:var(--s-8);" data-reveal>
             <div style="padding:var(--s-6);background:white;border-radius:var(--r-xl);border:1px solid var(--gray-200);">
               <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/></svg>
@@ -367,7 +383,7 @@
 
   <!-- NEXT -->
   <section style="padding:var(--s-16) 0; background:var(--gray-50); border-top: 1px solid var(--gray-200);">
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--s-8);">
+    <div class="container cs-next-row" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--s-8);">
       <div>
         <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-2);">Back to first case study</div>
         <a href="eama.html" class="btn-arrow" style="font-size:1.125rem; font-weight:500;">

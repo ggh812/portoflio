@@ -2162,10 +2162,11 @@ input, textarea, select { font: inherit; }
   .cta-strip-actions { flex-direction: column; align-items: center; }
   #contact { padding-top: var(--s-10); }
 
-  .section { padding-block: var(--s-12); }
+  .section { padding-block: var(--s-10); }
   .section-header { margin-bottom: var(--s-10); }
   .section-header--centered { margin-bottom: var(--s-10); }
   .cs-section { padding-block: var(--s-10); }
+  .cs-next-row { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 480px) {
