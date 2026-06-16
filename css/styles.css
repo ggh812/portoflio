@@ -1419,6 +1419,72 @@ input, textarea, select { font: inherit; }
 }
 
 /* ==========================================================================
+   12B. EXPERIENCE / TIMELINE SECTION
+   ========================================================================== */
+.timeline {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: var(--s-10);
+  padding-bottom: var(--s-12);
+  border-left: 1px solid var(--gray-200);
+}
+.timeline-item:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 2px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--teal-600);
+}
+.timeline-item:first-child .timeline-marker {
+  background: var(--teal-600);
+}
+
+.timeline-role {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--gray-900);
+  margin-bottom: var(--s-1);
+}
+.timeline-org {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--teal-700);
+  margin-bottom: var(--s-2);
+}
+.timeline-org-context {
+  font-weight: 400;
+  color: var(--gray-500);
+}
+.timeline-meta {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: var(--s-4);
+}
+.timeline-desc {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--gray-600);
+}
+
+/* ==========================================================================
    13. CONTACT SECTION
    ========================================================================== */
 .contact-grid {
@@ -2109,6 +2175,9 @@ input, textarea, select { font: inherit; }
   .about-grid { grid-template-columns: 1fr; }
   .about-image { max-width: 340px; margin-inline: auto; }
   .about-badge { right: 0; transform: none; }
+
+  .timeline-item { padding-left: var(--s-8); padding-bottom: var(--s-10); }
+  .timeline-role { font-size: 1.1875rem; }
 
   .contact-grid { grid-template-columns: 1fr; gap: var(--s-10); }
   .form-row { grid-template-columns: 1fr; }
