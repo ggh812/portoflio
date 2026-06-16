@@ -2151,7 +2151,7 @@ input, textarea, select { font: inherit; }
   .nav-cta { padding: 0.75rem 2rem; font-size: 1rem; }
 
   /* Hero: text first, portrait second on mobile */
-  .hero { min-height: auto; padding-block: var(--s-6) var(--s-10); }
+  .hero { min-height: auto; padding-top: calc(var(--nav-height) + var(--s-6)); padding-bottom: var(--s-10); }
   .hero-grid { grid-template-columns: 1fr; gap: var(--s-8); padding-block: var(--s-4); }
   .hero-content { order: -1; }
   .hero-eyebrow-location { display: none; }
