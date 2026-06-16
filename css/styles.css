@@ -2154,6 +2154,7 @@ input, textarea, select { font: inherit; }
   .hero { min-height: auto; padding-block: var(--s-6) var(--s-10); }
   .hero-grid { grid-template-columns: 1fr; gap: var(--s-8); padding-block: var(--s-4); }
   .hero-content { order: -1; }
+  .hero-eyebrow-location { display: none; }
   .hero-visual { justify-content: center; order: 0; }
   .hero-portrait-wrapper { max-width: 320px; width: 100%; }
   .hero-title { font-size: clamp(1.875rem, 7vw, 2.5rem); }
