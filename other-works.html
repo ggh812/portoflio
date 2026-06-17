@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Other works by Gayane G. Mileski — web design, UX and branding projects outside the main case study portfolio.">
+  <title>Other Works | Gayane G. Mileski</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Other Works page layout ── */
+    .ow-page-hero {
+      padding: calc(var(--nav-height) + var(--s-20)) 0 var(--s-16);
+      background: var(--gray-950, #0a0f1a);
+    }
+    .ow-page-hero .section-label { color: var(--teal-400); }
+    .ow-page-hero .section-title { color: white; }
+    .ow-page-hero .section-description { color: var(--gray-400); max-width: 56ch; }
+
+    /* Project-level sections alternate bg */
+    .ow-project { scroll-margin-top: var(--nav-height); }
+
+    /* Sub-section background bands */
+    .ow-band               { padding: var(--s-20) 0; }
+    .ow-band--white        { background: white; }
+    .ow-band--tinted       { background: var(--gray-50); }
+    .ow-band--mid          { background: var(--gray-100); }
+    .ow-band--dark         { background: var(--gray-900); }
+    .ow-band--accent       { background: var(--teal-50); }
+
+    /* Band headings */
+    .ow-band-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-600);
+      margin-bottom: var(--s-4);
+    }
+    .ow-band--dark .ow-band-label { color: var(--teal-400); }
+    .ow-band-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 400;
+      color: var(--gray-900);
+      margin-bottom: var(--s-10);
+      line-height: 1.2;
+    }
+    .ow-band--dark .ow-band-title { color: white; }
+
+    /* Project overview */
+    .ow-overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-16);
+      align-items: start;
+    }
+    @media (max-width: 768px) { .ow-overview-grid { grid-template-columns: 1fr; gap: var(--s-8); } }
+    .ow-meta-table { width: 100%; border-collapse: collapse; }
+    .ow-meta-table td { padding: var(--s-3) 0; border-bottom: 1px solid var(--gray-200); font-size: 0.9375rem; vertical-align: top; }
+    .ow-meta-table tr:last-child td { border-bottom: none; }
+    .ow-meta-table td:first-child { font-weight: 600; color: var(--gray-900); width: 120px; color: var(--gray-500); font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+    .ow-meta-table td:last-child { color: var(--gray-700); }
+    .ow-lead { font-family: var(--font-display); font-size: 1.375rem; font-weight: 300; color: var(--gray-800); line-height: 1.65; margin-bottom: var(--s-6); }
+    .ow-body { font-size: 0.9375rem; line-height: 1.8; color: var(--gray-600); }
+    .ow-body p + p { margin-top: var(--s-5); }
+    .ow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s-2);
+      margin-top: var(--s-6);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--teal-700);
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--teal-200);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .ow-link:hover { color: var(--teal-600); border-color: var(--teal-400); }
+
+    /* Before / After */
+    .ow-ba-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-8);
+    }
+    @media (max-width: 768px) { .ow-ba-grid { grid-template-columns: 1fr; } }
+    .ow-ba-panel { display: flex; flex-direction: column; gap: var(--s-4); }
+    .ow-ba-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s-2);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: var(--s-1) var(--s-3);
+      border-radius: var(--r-full);
+    }
+    .ow-ba-label--before { background: var(--gray-200); color: var(--gray-700); }
+    .ow-ba-label--after  { background: var(--teal-100); color: var(--teal-800); }
+    .ow-screen-wrap {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-md);
+    }
+    .ow-screen-cap {
+      font-size: 0.8125rem;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+
+    /* Iteration cards */
+    .ow-iter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--s-8);
+    }
+    .ow-iter-card {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      background: white;
+    }
+    .ow-iter-screen { height: 220px; position: relative; overflow: hidden; }
+    .ow-iter-body { padding: var(--s-5); }
+    .ow-iter-num {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal-600);
+      margin-bottom: var(--s-2);
+    }
+    .ow-iter-title { font-weight: 600; color: var(--gray-900); margin-bottom: var(--s-2); font-size: 0.9375rem; }
+    .ow-iter-desc { font-size: 0.8125rem; color: var(--gray-500); line-height: 1.6; }
+
+    /* Moodboard */
+    .ow-mood-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-8);
+    }
+    @media (max-width: 768px) { .ow-mood-grid { grid-template-columns: 1fr; } }
+    .ow-mood-panel {
+      background: white;
+      border-radius: var(--r-xl);
+      border: 1px solid var(--gray-200);
+      padding: var(--s-7);
+    }
+    .ow-mood-panel-title {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-400);
+      margin-bottom: var(--s-5);
+    }
+
+    /* Wireframes */
+    .ow-wf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-8);
+    }
+    @media (max-width: 768px) { .ow-wf-grid { grid-template-columns: 1fr; } }
+    .ow-wf-frame {
+      background: white;
+      border: 1.5px solid var(--gray-300);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+    }
+    .ow-wf-bar {
+      padding: var(--s-3) var(--s-5);
+      background: var(--gray-100);
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      gap: var(--s-3);
+    }
+    .ow-wf-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-300); }
+    .ow-wf-url { height: 8px; flex: 1; background: var(--gray-200); border-radius: 3px; }
+    .ow-wf-content { padding: var(--s-5); }
+    .ow-wf-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-400);
+      margin-top: var(--s-4);
+      margin-bottom: var(--s-2);
+    }
+    /* Wireframe skeleton line helpers */
+    .wf-line { height: 6px; background: var(--gray-200); border-radius: 2px; margin-bottom: 5px; }
+    .wf-block { background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: 4px; }
+    .wf-rect { background: var(--gray-200); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+  <div class="reading-progress" aria-hidden="true"><div class="reading-progress-fill"></div></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a href="index.html" class="nav-brand" aria-label="Gayane G. Mileski — Home">
+        <span class="nav-monogram" aria-hidden="true">GG</span>
+        <span class="nav-name">Gayane G. Mileski</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu" role="list">
+        <li><a href="index.html#work"       class="nav-link">Work</a></li>
+        <li><a href="index.html#expertise"  class="nav-link">Expertise</a></li>
+        <li><a href="index.html#process"    class="nav-link">Process</a></li>
+        <li><a href="index.html#about"      class="nav-link">About</a></li>
+        <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+        <li><a href="index.html#contact"    class="nav-link nav-cta">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- PAGE HERO -->
+    <div class="ow-page-hero">
+      <div class="container">
+        <span class="section-label">Other Works</span>
+        <h1 class="section-title" style="margin-top:var(--s-4);margin-bottom:var(--s-6);font-size:clamp(2.5rem,5vw,4rem);">
+          Web, brand &amp; UX work<br><em>outside the main portfolio</em>
+        </h1>
+        <p class="section-description">
+          Shorter engagements, website redesigns, and brand-aligned UX projects — each presented with research context, design iterations, moodboard, and wireframes.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         PROJECT 01 — EQUIP.CO.AT
+    ══════════════════════════════════════════════════════════════════════ -->
+    <div class="ow-project" id="equip">
+
+      <!-- 1 · Overview ─ white -->
+      <div class="ow-band ow-band--white">
+        <div class="container">
+          <div class="ow-band-label">01 — equip.co.at</div>
+          <div class="ow-overview-grid">
+            <div>
+              <p class="ow-lead">Repositioning an IT staffing firm as a human-first employer brand — without losing the corporate credibility that enterprise clients expect.</p>
+              <div class="ow-body">
+                <p>Equip GmbH is an Austrian IT personnel consulting firm founded in 2002, placing software developers, project managers, and IT specialists with enterprise clients across the DACH region. Their existing website had accumulated over fifteen years of incremental updates — inconsistent typography, an outdated grid, and marketing copy that spoke in staffing-industry clichés rather than to either candidate or client audiences.</p>
+                <p>The redesign project centred on two simultaneous audiences with opposing needs: enterprise clients who want reliability signals (certifications, process rigour, tenure), and candidates who want to sense culture and human connection. The design solution needed to hold both without compromising either.</p>
+              </div>
+              <a href="https://equip.co.at/" target="_blank" rel="noopener noreferrer" class="ow-link">
+                Visit equip.co.at
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6m4-3h6v6m-11 5L21 3"/></svg>
+              </a>
+            </div>
+            <div>
+              <table class="ow-meta-table">
+                <tr><td>Client</td><td>Equip GmbH</td></tr>
+                <tr><td>Role</td><td>UX/UI Designer — Web redesign</td></tr>
+                <tr><td>Scope</td><td>Website redesign, employer branding, UX strategy</td></tr>
+                <tr><td>Market</td><td>IT staffing &amp; personnel consulting, Austria/DACH</td></tr>
+                <tr><td>Audiences</td><td>Enterprise clients · IT candidates</td></tr>
+                <tr><td>Stack</td><td>Responsive HTML/CSS, CMS integration</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 · Before / After ─ tinted -->
+      <div class="ow-band ow-band--tinted">
+        <div class="container">
+          <div class="ow-band-label">Before / After</div>
+          <h2 class="ow-band-title">From accumulated legacy<br><em>to a coherent employer brand</em></h2>
+          <div class="ow-ba-grid">
+
+            <!-- BEFORE -->
+            <div class="ow-ba-panel" data-reveal>
+              <span class="ow-ba-label ow-ba-label--before">Before — legacy site</span>
+              <div class="ow-screen-wrap">
+                <!-- CSS mockup of old corporate IT staffing site, circa 2019 -->
+                <div style="background:#1a4480; padding:10px 16px; display:flex; align-items:center; gap:12px;">
+                  <div style="width:80px;height:22px;background:white;border-radius:2px;opacity:0.9;"></div>
+                  <div style="flex:1;display:flex;gap:16px;justify-content:flex-end;">
+                    <div style="width:50px;height:8px;background:rgba(255,255,255,0.5);border-radius:2px;"></div>
+                    <div style="width:70px;height:8px;background:rgba(255,255,255,0.5);border-radius:2px;"></div>
+                    <div style="width:40px;height:8px;background:rgba(255,255,255,0.5);border-radius:2px;"></div>
+                    <div style="width:30px;height:8px;background:rgba(255,255,255,0.5);border-radius:2px;"></div>
+                  </div>
+                </div>
+                <div style="background:#2155a0;padding:30px 16px;text-align:center;">
+                  <div style="width:60%;height:14px;background:rgba(255,255,255,0.8);border-radius:2px;margin:0 auto 10px;"></div>
+                  <div style="width:45%;height:8px;background:rgba(255,255,255,0.4);border-radius:2px;margin:0 auto 18px;"></div>
+                  <div style="display:inline-flex;gap:8px;">
+                    <div style="padding:6px 14px;background:white;border-radius:2px;width:80px;height:10px;"></div>
+                    <div style="padding:6px 14px;background:transparent;border:1px solid rgba(255,255,255,0.6);border-radius:2px;width:80px;height:10px;"></div>
+                  </div>
+                </div>
+                <div style="background:#f4f4f4;padding:16px;">
+                  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;">
+                    <div style="background:white;border:1px solid #ddd;padding:10px;border-radius:2px;">
+                      <div style="width:24px;height:24px;background:#2155a0;border-radius:2px;margin-bottom:6px;"></div>
+                      <div style="height:7px;background:#bbb;border-radius:2px;margin-bottom:4px;width:80%;"></div>
+                      <div style="height:5px;background:#ddd;border-radius:2px;margin-bottom:3px;"></div>
+                      <div style="height:5px;background:#ddd;border-radius:2px;width:70%;"></div>
+                    </div>
+                    <div style="background:white;border:1px solid #ddd;padding:10px;border-radius:2px;">
+                      <div style="width:24px;height:24px;background:#2155a0;border-radius:2px;margin-bottom:6px;"></div>
+                      <div style="height:7px;background:#bbb;border-radius:2px;margin-bottom:4px;width:80%;"></div>
+                      <div style="height:5px;background:#ddd;border-radius:2px;margin-bottom:3px;"></div>
+                      <div style="height:5px;background:#ddd;border-radius:2px;width:70%;"></div>
+                    </div>
+                    <div style="background:white;border:1px solid #ddd;padding:10px;border-radius:2px;">
+                      <div style="width:24px;height:24px;background:#2155a0;border-radius:2px;margin-bottom:6px;"></div>
+                      <div style="height:7px;background:#bbb;border-radius:2px;margin-bottom:4px;width:80%;"></div>
+                      <div style="height:5px;background:#ddd;border-radius:2px;margin-bottom:3px;"></div>
+                      <div style="height:5px;background:#ddd;border-radius:2px;width:70%;"></div>
+                    </div>
+                  </div>
+                  <div style="height:6px;background:#ccc;border-radius:2px;margin-bottom:4px;"></div>
+                  <div style="height:6px;background:#ccc;border-radius:2px;width:85%;margin-bottom:4px;"></div>
+                  <div style="height:6px;background:#ccc;border-radius:2px;width:70%;"></div>
+                </div>
+              </div>
+              <p class="ow-screen-cap">Dense 3-column grid, corporate-blue nav, icon-first services layout with no human imagery. Heavy use of decorative borders and text-heavy content blocks.</p>
+            </div>
+
+            <!-- AFTER -->
+            <div class="ow-ba-panel" data-reveal>
+              <span class="ow-ba-label ow-ba-label--after">After — redesign</span>
+              <div class="ow-screen-wrap">
+                <!-- CSS mockup of redesigned equip.co.at -->
+                <div style="background:white;padding:10px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #eee;">
+                  <div style="width:56px;height:18px;background:#1a3a5c;border-radius:3px;opacity:0.85;"></div>
+                  <div style="flex:1;display:flex;gap:18px;justify-content:flex-end;align-items:center;">
+                    <div style="width:60px;height:7px;background:#ddd;border-radius:2px;"></div>
+                    <div style="width:80px;height:7px;background:#ddd;border-radius:2px;"></div>
+                    <div style="width:40px;height:7px;background:#ddd;border-radius:2px;"></div>
+                    <div style="padding:4px 12px;background:#1a3a5c;border-radius:4px;">
+                      <div style="width:28px;height:7px;background:rgba(255,255,255,0.8);border-radius:2px;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div style="position:relative;height:130px;background:linear-gradient(120deg,#0f2340 0%,#1a3a5c 60%,#1f4a72 100%);overflow:hidden;display:flex;align-items:center;">
+                  <div style="padding:0 20px;flex:1;">
+                    <div style="width:55%;height:13px;background:rgba(255,255,255,0.85);border-radius:2px;margin-bottom:8px;"></div>
+                    <div style="width:70%;height:8px;background:rgba(255,255,255,0.4);border-radius:2px;margin-bottom:16px;"></div>
+                    <div style="display:flex;gap:8px;">
+                      <div style="padding:5px 14px;background:#3b9e8c;border-radius:4px;width:70px;height:10px;"></div>
+                      <div style="padding:5px 14px;background:transparent;border:1.5px solid rgba(255,255,255,0.4);border-radius:4px;width:70px;height:10px;"></div>
+                    </div>
+                  </div>
+                  <div style="width:120px;height:130px;background:rgba(255,255,255,0.06);border-radius:8px 0 0 8px;display:flex;align-items:center;justify-content:center;">
+                    <div style="width:70px;height:90px;background:rgba(255,255,255,0.12);border-radius:5px;"></div>
+                  </div>
+                </div>
+                <div style="background:white;padding:14px 20px;">
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+                    <div style="padding:10px 12px;background:#f8fafb;border-radius:6px;border-left:3px solid #3b9e8c;">
+                      <div style="height:7px;background:#1a3a5c;border-radius:2px;width:60%;margin-bottom:5px;opacity:0.7;"></div>
+                      <div style="height:5px;background:#ccc;border-radius:2px;margin-bottom:3px;"></div>
+                      <div style="height:5px;background:#ccc;border-radius:2px;width:80%;"></div>
+                    </div>
+                    <div style="padding:10px 12px;background:#f8fafb;border-radius:6px;border-left:3px solid #3b9e8c;">
+                      <div style="height:7px;background:#1a3a5c;border-radius:2px;width:60%;margin-bottom:5px;opacity:0.7;"></div>
+                      <div style="height:5px;background:#ccc;border-radius:2px;margin-bottom:3px;"></div>
+                      <div style="height:5px;background:#ccc;border-radius:2px;width:80%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="ow-screen-cap">Clean white ground, full-bleed hero with human photography placeholder, teal accents replacing corporate blue, generous whitespace and left-ruled value cards.</p>
+            </div>
+
+          </div>
+          <p style="margin-top:var(--s-6);font-size:0.8125rem;color:var(--gray-400);font-style:italic;">Note: replace the CSS mockups above with actual Wayback Machine screenshots from web.archive.org/web/*/equip.co.at</p>
+        </div>
+      </div>
+
+      <!-- 3 · Iterations ─ dark -->
+      <div class="ow-band ow-band--dark">
+        <div class="container">
+          <div class="ow-band-label">Design Iterations</div>
+          <h2 class="ow-band-title">Four rounds from audit<br><em>to approved direction</em></h2>
+          <div class="ow-iter-grid">
+
+            <!-- V1 -->
+            <div class="ow-iter-card" data-reveal>
+              <div class="ow-iter-screen" style="background:#e8edf3;">
+                <div style="padding:10px 12px;background:#1a3a5c;display:flex;align-items:center;gap:8px;">
+                  <div style="width:40px;height:12px;background:rgba(255,255,255,0.7);border-radius:2px;"></div>
+                  <div style="flex:1;display:flex;gap:8px;justify-content:flex-end;">
+                    <div style="height:6px;width:30px;background:rgba(255,255,255,0.3);border-radius:2px;"></div>
+                    <div style="height:6px;width:40px;background:rgba(255,255,255,0.3);border-radius:2px;"></div>
+                    <div style="height:6px;width:25px;background:rgba(255,255,255,0.3);border-radius:2px;"></div>
+                  </div>
+                </div>
+                <div style="padding:12px;background:#f0f4f8;">
+                  <div style="height:10px;background:#1a3a5c;border-radius:2px;width:65%;margin-bottom:6px;opacity:0.6;"></div>
+                  <div style="height:6px;background:#9aadbe;border-radius:2px;width:80%;margin-bottom:4px;"></div>
+                  <div style="height:6px;background:#9aadbe;border-radius:2px;width:60%;margin-bottom:12px;"></div>
+                  <div style="display:flex;gap:6px;">
+                    <div style="padding:4px 10px;background:#1a3a5c;border-radius:3px;width:55px;height:8px;"></div>
+                    <div style="padding:4px 10px;border:1px solid #1a3a5c;border-radius:3px;width:55px;height:8px;"></div>
+                  </div>
+                </div>
+                <div style="padding:8px 12px;background:white;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+                  <div style="height:50px;background:#e8edf3;border-radius:4px;border:1px solid #d1dbe5;"></div>
+                  <div style="height:50px;background:#e8edf3;border-radius:4px;border:1px solid #d1dbe5;"></div>
+                  <div style="height:50px;background:#e8edf3;border-radius:4px;border:1px solid #d1dbe5;"></div>
+                </div>
+              </div>
+              <div class="ow-iter-body">
+                <div class="ow-iter-num">V1 — Structural audit</div>
+                <div class="ow-iter-title">Navigation &amp; IA reset</div>
+                <div class="ow-iter-desc">Preserved the existing navy palette while restructuring the information architecture around two audience paths. Removed 40% of navigation items through card sorting with internal team.</div>
+              </div>
+            </div>
+
+            <!-- V2 -->
+            <div class="ow-iter-card" data-reveal>
+              <div class="ow-iter-screen" style="background:#f5f8fa;">
+                <div style="padding:10px 14px;background:white;display:flex;align-items:center;gap:8px;border-bottom:1px solid #e8edf3;">
+                  <div style="width:44px;height:14px;background:#1a3a5c;border-radius:3px;opacity:0.8;"></div>
+                  <div style="flex:1;display:flex;gap:10px;justify-content:flex-end;align-items:center;">
+                    <div style="height:6px;width:35px;background:#ccc;border-radius:2px;"></div>
+                    <div style="height:6px;width:45px;background:#ccc;border-radius:2px;"></div>
+                    <div style="height:20px;padding:0 8px;background:#e87b3a;border-radius:3px;display:flex;align-items:center;">
+                      <div style="height:5px;width:25px;background:rgba(255,255,255,0.8);border-radius:2px;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div style="height:90px;background:linear-gradient(120deg,#1a3a5c 0%,#254d73 100%);display:flex;align-items:center;padding:0 14px;gap:12px;">
+                  <div style="flex:1;">
+                    <div style="height:11px;background:rgba(255,255,255,0.8);border-radius:2px;width:70%;margin-bottom:6px;"></div>
+                    <div style="height:7px;background:rgba(255,255,255,0.35);border-radius:2px;width:85%;"></div>
+                  </div>
+                  <div style="width:70px;height:70px;border-radius:6px;background:rgba(255,255,255,0.1);overflow:hidden;">
+                    <div style="width:100%;height:100%;background:rgba(255,255,255,0.06);"></div>
+                  </div>
+                </div>
+                <div style="padding:10px 14px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                  <div style="padding:8px;background:white;border-radius:5px;border-left:3px solid #e87b3a;">
+                    <div style="height:6px;background:#1a3a5c;border-radius:2px;width:55%;margin-bottom:4px;opacity:0.6;"></div>
+                    <div style="height:4px;background:#ddd;border-radius:2px;margin-bottom:3px;"></div>
+                    <div style="height:4px;background:#ddd;border-radius:2px;width:75%;"></div>
+                  </div>
+                  <div style="padding:8px;background:white;border-radius:5px;border-left:3px solid #e87b3a;">
+                    <div style="height:6px;background:#1a3a5c;border-radius:2px;width:55%;margin-bottom:4px;opacity:0.6;"></div>
+                    <div style="height:4px;background:#ddd;border-radius:2px;margin-bottom:3px;"></div>
+                    <div style="height:4px;background:#ddd;border-radius:2px;width:75%;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="ow-iter-body">
+                <div class="ow-iter-num">V2 — Warm orange direction</div>
+                <div class="ow-iter-title">Human warmth, orange accent</div>
+                <div class="ow-iter-desc">Introduced orange as a warmer accent to humanise the navy. Team responded positively to the warmth — but client stakeholders flagged it as "too startup" for their enterprise positioning. Direction abandoned.</div>
+              </div>
+            </div>
+
+            <!-- V3 -->
+            <div class="ow-iter-card" data-reveal>
+              <div class="ow-iter-screen" style="background:#f0f7f5;">
+                <div style="padding:10px 14px;background:white;display:flex;align-items:center;gap:8px;border-bottom:1px solid #e0eeea;">
+                  <div style="width:44px;height:14px;background:#0f2d3a;border-radius:3px;opacity:0.85;"></div>
+                  <div style="flex:1;display:flex;gap:10px;justify-content:flex-end;align-items:center;">
+                    <div style="height:6px;width:35px;background:#bcd4cc;border-radius:2px;"></div>
+                    <div style="height:6px;width:50px;background:#bcd4cc;border-radius:2px;"></div>
+                    <div style="height:20px;padding:0 8px;background:#2a8a70;border-radius:3px;display:flex;align-items:center;">
+                      <div style="height:5px;width:25px;background:rgba(255,255,255,0.8);border-radius:2px;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div style="height:90px;background:linear-gradient(120deg,#0f2d3a 0%,#1a4a5c 100%);display:flex;align-items:center;padding:0 14px;">
+                  <div style="flex:1;">
+                    <div style="height:11px;background:rgba(255,255,255,0.85);border-radius:2px;width:65%;margin-bottom:6px;"></div>
+                    <div style="height:7px;background:rgba(255,255,255,0.3);border-radius:2px;width:80%;margin-bottom:12px;"></div>
+                    <div style="display:flex;gap:6px;">
+                      <div style="height:18px;width:55px;background:#2a8a70;border-radius:3px;"></div>
+                      <div style="height:18px;width:55px;background:transparent;border:1.5px solid rgba(255,255,255,0.4);border-radius:3px;"></div>
+                    </div>
+                  </div>
+                  <div style="width:72px;height:78px;border-radius:6px;background:rgba(255,255,255,0.08);"></div>
+                </div>
+                <div style="padding:10px 14px;background:white;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;">
+                  <div style="height:35px;background:#f0f7f5;border-radius:4px;border:1px solid #d4e9e3;display:flex;align-items:center;justify-content:center;">
+                    <div style="width:14px;height:14px;background:#2a8a70;border-radius:2px;opacity:0.5;"></div>
+                  </div>
+                  <div style="height:35px;background:#f0f7f5;border-radius:4px;border:1px solid #d4e9e3;display:flex;align-items:center;justify-content:center;">
+                    <div style="width:14px;height:14px;background:#2a8a70;border-radius:2px;opacity:0.5;"></div>
+                  </div>
+                  <div style="height:35px;background:#f0f7f5;border-radius:4px;border:1px solid #d4e9e3;display:flex;align-items:center;justify-content:center;">
+                    <div style="width:14px;height:14px;background:#2a8a70;border-radius:2px;opacity:0.5;"></div>
+                  </div>
+                  <div style="height:35px;background:#f0f7f5;border-radius:4px;border:1px solid #d4e9e3;display:flex;align-items:center;justify-content:center;">
+                    <div style="width:14px;height:14px;background:#2a8a70;border-radius:2px;opacity:0.5;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="ow-iter-body">
+                <div class="ow-iter-num">V3 — Teal &amp; deep navy</div>
+                <div class="ow-iter-title">Employer brand alignment</div>
+                <div class="ow-iter-desc">Teal replaced orange — credible enough for enterprise, human enough for candidates. Four-value icon row introduced to anchor the "Menschlichkeit, Vertrauen, Offenheit, Stabilität" messaging. Direction approved for refinement.</div>
+              </div>
+            </div>
+
+            <!-- V4 -->
+            <div class="ow-iter-card" data-reveal>
+              <div class="ow-iter-screen" style="background:#f8fafb;">
+                <div style="padding:10px 16px;background:white;display:flex;align-items:center;gap:10px;border-bottom:1px solid #eef1f4;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+                  <div style="width:48px;height:15px;background:#0f2d3a;border-radius:3px;opacity:0.88;"></div>
+                  <div style="flex:1;display:flex;gap:14px;justify-content:flex-end;align-items:center;">
+                    <div style="height:6px;width:60px;background:#bbb;border-radius:2px;"></div>
+                    <div style="height:6px;width:70px;background:#bbb;border-radius:2px;"></div>
+                    <div style="height:6px;width:30px;background:#bbb;border-radius:2px;"></div>
+                    <div style="height:22px;padding:0 10px;background:#0f6058;border-radius:4px;display:flex;align-items:center;">
+                      <div style="height:5px;width:24px;background:rgba(255,255,255,0.85);border-radius:2px;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div style="height:90px;background:linear-gradient(120deg,#0a1f2e 0%,#0f2d3a 50%,#173d52 100%);display:flex;align-items:center;padding:0 16px;gap:16px;">
+                  <div style="flex:1;">
+                    <div style="height:4px;background:rgba(75,195,181,0.6);border-radius:2px;width:40px;margin-bottom:8px;"></div>
+                    <div style="height:12px;background:rgba(255,255,255,0.9);border-radius:2px;width:60%;margin-bottom:6px;"></div>
+                    <div style="height:7px;background:rgba(255,255,255,0.35);border-radius:2px;width:75%;margin-bottom:14px;"></div>
+                    <div style="display:flex;gap:6px;">
+                      <div style="height:19px;width:60px;background:#0f6058;border-radius:4px;"></div>
+                      <div style="height:19px;width:60px;background:transparent;border:1.5px solid rgba(255,255,255,0.35);border-radius:4px;"></div>
+                    </div>
+                  </div>
+                  <div style="width:80px;height:80px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,0.07);">
+                    <div style="width:100%;height:100%;background:linear-gradient(180deg,rgba(255,255,255,0.04) 0%,rgba(255,255,255,0.0) 100%);"></div>
+                  </div>
+                </div>
+                <div style="padding:10px 16px;background:white;">
+                  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;">
+                    <div style="padding:6px;background:#f0f7f5;border-radius:5px;border:1px solid #d4e9e3;">
+                      <div style="width:12px;height:12px;background:#0f6058;border-radius:3px;margin-bottom:4px;opacity:0.6;"></div>
+                      <div style="height:5px;background:#1a3a5c;border-radius:2px;width:70%;margin-bottom:3px;opacity:0.5;"></div>
+                      <div style="height:3px;background:#bcd4cc;border-radius:2px;"></div>
+                      <div style="height:3px;background:#bcd4cc;border-radius:2px;margin-top:2px;width:80%;"></div>
+                    </div>
+                    <div style="padding:6px;background:#f0f7f5;border-radius:5px;border:1px solid #d4e9e3;">
+                      <div style="width:12px;height:12px;background:#0f6058;border-radius:3px;margin-bottom:4px;opacity:0.6;"></div>
+                      <div style="height:5px;background:#1a3a5c;border-radius:2px;width:70%;margin-bottom:3px;opacity:0.5;"></div>
+                      <div style="height:3px;background:#bcd4cc;border-radius:2px;"></div>
+                      <div style="height:3px;background:#bcd4cc;border-radius:2px;margin-top:2px;width:80%;"></div>
+                    </div>
+                    <div style="padding:6px;background:#f0f7f5;border-radius:5px;border:1px solid #d4e9e3;">
+                      <div style="width:12px;height:12px;background:#0f6058;border-radius:3px;margin-bottom:4px;opacity:0.6;"></div>
+                      <div style="height:5px;background:#1a3a5c;border-radius:2px;width:70%;margin-bottom:3px;opacity:0.5;"></div>
+                      <div style="height:3px;background:#bcd4cc;border-radius:2px;"></div>
+                      <div style="height:3px;background:#bcd4cc;border-radius:2px;margin-top:2px;width:80%;"></div>
+                    </div>
+                    <div style="padding:6px;background:#f0f7f5;border-radius:5px;border:1px solid #d4e9e3;">
+                      <div style="width:12px;height:12px;background:#0f6058;border-radius:3px;margin-bottom:4px;opacity:0.6;"></div>
+                      <div style="height:5px;background:#1a3a5c;border-radius:2px;width:70%;margin-bottom:3px;opacity:0.5;"></div>
+                      <div style="height:3px;background:#bcd4cc;border-radius:2px;"></div>
+                      <div style="height:3px;background:#bcd4cc;border-radius:2px;margin-top:2px;width:80%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ow-iter-body">
+                <div class="ow-iter-num">V4 — Final direction</div>
+                <div class="ow-iter-title">Refined and approved</div>
+                <div class="ow-iter-desc">Photography integration, teal CTA against deep navy, certification badges added to footer. Eyebrow label pattern added above hero headline. Four-value cards with icon + heading + two-line description. Delivered to development.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 · Moodboard ─ accent tinted -->
+      <div class="ow-band ow-band--accent">
+        <div class="container">
+          <div class="ow-band-label">Moodboard</div>
+          <h2 class="ow-band-title">Anchoring the visual language —<br><em>credible, human, Austrian</em></h2>
+          <div class="ow-mood-grid">
+
+            <!-- Colours -->
+            <div class="ow-mood-panel" data-reveal>
+              <div class="ow-mood-panel-title">Colour Palette</div>
+              <div style="display:flex;flex-direction:column;gap:var(--s-3);">
+                <div style="display:flex;align-items:center;gap:var(--s-4);">
+                  <div style="width:52px;height:52px;border-radius:var(--r-lg);background:#0a1f2e;flex-shrink:0;"></div>
+                  <div>
+                    <div style="font-weight:600;color:var(--gray-900);font-size:0.9375rem;">#0A1F2E — Midnight Navy</div>
+                    <div style="font-size:0.8125rem;color:var(--gray-500);">Hero backgrounds, primary headings — authority &amp; depth</div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--s-4);">
+                  <div style="width:52px;height:52px;border-radius:var(--r-lg);background:#1a3a5c;flex-shrink:0;"></div>
+                  <div>
+                    <div style="font-weight:600;color:var(--gray-900);font-size:0.9375rem;">#1A3A5C — Corporate Navy</div>
+                    <div style="font-size:0.8125rem;color:var(--gray-500);">Navigation, card borders, icon backgrounds</div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--s-4);">
+                  <div style="width:52px;height:52px;border-radius:var(--r-lg);background:#0f6058;flex-shrink:0;"></div>
+                  <div>
+                    <div style="font-weight:600;color:var(--gray-900);font-size:0.9375rem;">#0F6058 — Teal</div>
+                    <div style="font-size:0.8125rem;color:var(--gray-500);">Primary CTAs, value card accents — energy without warmth excess</div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--s-4);">
+                  <div style="width:52px;height:52px;border-radius:var(--r-lg);background:#d4e9e3;flex-shrink:0;border:1px solid #bcd4cc;"></div>
+                  <div>
+                    <div style="font-weight:600;color:var(--gray-900);font-size:0.9375rem;">#D4E9E3 — Teal Tint</div>
+                    <div style="font-size:0.8125rem;color:var(--gray-500);">Section backgrounds, card fills — breathing room between sections</div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--s-4);">
+                  <div style="width:52px;height:52px;border-radius:var(--r-lg);background:#f8fafb;flex-shrink:0;border:1px solid #e8edf3;"></div>
+                  <div>
+                    <div style="font-weight:600;color:var(--gray-900);font-size:0.9375rem;">#F8FAFB — Near White</div>
+                    <div style="font-size:0.8125rem;color:var(--gray-500);">Primary surface — softer than pure white, reduces eye strain</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Typography + photography direction -->
+            <div style="display:flex;flex-direction:column;gap:var(--s-5);">
+
+              <div class="ow-mood-panel" data-reveal>
+                <div class="ow-mood-panel-title">Typography Direction</div>
+                <div style="margin-bottom:var(--s-4);">
+                  <div style="font-size:1.75rem;font-weight:700;color:#0a1f2e;line-height:1.15;letter-spacing:-0.02em;margin-bottom:var(--s-2);">Menschlichkeit.<br>Vertrauen. Stabilität.</div>
+                  <div style="font-size:0.75rem;color:var(--gray-400);">Headings — Inter Bold, tight tracking, navy</div>
+                </div>
+                <div style="height:1px;background:var(--gray-200);margin:var(--s-4) 0;"></div>
+                <div style="font-size:0.9375rem;line-height:1.7;color:#374151;margin-bottom:var(--s-2);">We place IT professionals where expertise meets culture — building teams that outlast the project.</div>
+                <div style="font-size:0.75rem;color:var(--gray-400);">Body — Inter Regular 15px, relaxed line-height</div>
+                <div style="height:1px;background:var(--gray-200);margin:var(--s-4) 0;"></div>
+                <div style="display:flex;gap:var(--s-2);flex-wrap:wrap;">
+                  <span style="padding:3px 10px;background:#d4e9e3;color:#0a1f2e;border-radius:var(--r-full);font-size:11px;font-weight:600;">IT Consulting</span>
+                  <span style="padding:3px 10px;background:#e8edf3;color:#1a3a5c;border-radius:var(--r-full);font-size:11px;font-weight:600;">Workforce Leasing</span>
+                  <span style="padding:3px 10px;background:#e8edf3;color:#1a3a5c;border-radius:var(--r-full);font-size:11px;font-weight:600;">Direct Recruitment</span>
+                </div>
+              </div>
+
+              <div class="ow-mood-panel" data-reveal>
+                <div class="ow-mood-panel-title">Photography Direction</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--s-3);margin-bottom:var(--s-4);">
+                  <div style="height:64px;border-radius:var(--r-md);background:linear-gradient(135deg,#c9d8e8 0%,#a8bfd4 100%);display:flex;align-items:center;justify-content:center;">
+                    <div style="width:32px;height:32px;border-radius:50%;background:rgba(26,58,92,0.25);"></div>
+                  </div>
+                  <div style="height:64px;border-radius:var(--r-md);background:linear-gradient(135deg,#d4e9e3 0%,#b8d9cf 100%);display:flex;align-items:center;justify-content:center;">
+                    <div style="width:28px;height:28px;border-radius:50%;background:rgba(15,96,88,0.2);"></div>
+                  </div>
+                  <div style="height:64px;border-radius:var(--r-md);background:linear-gradient(135deg,#e8edf3 0%,#d1dbe8 100%);"></div>
+                </div>
+                <ul style="padding:0;margin:0;list-style:none;display:flex;flex-direction:column;gap:var(--s-2);">
+                  <li style="font-size:0.8125rem;color:var(--gray-600);display:flex;align-items:center;gap:var(--s-2);"><span style="width:5px;height:5px;border-radius:50%;background:var(--teal-600);flex-shrink:0;"></span>Natural office light, no staged stock imagery</li>
+                  <li style="font-size:0.8125rem;color:var(--gray-600);display:flex;align-items:center;gap:var(--s-2);"><span style="width:5px;height:5px;border-radius:50%;background:var(--teal-600);flex-shrink:0;"></span>Real team members — not models</li>
+                  <li style="font-size:0.8125rem;color:var(--gray-600);display:flex;align-items:center;gap:var(--s-2);"><span style="width:5px;height:5px;border-radius:50%;background:var(--teal-600);flex-shrink:0;"></span>Warm tones in cool-blue environments</li>
+                  <li style="font-size:0.8125rem;color:var(--gray-600);display:flex;align-items:center;gap:var(--s-2);"><span style="width:5px;height:5px;border-radius:50%;background:var(--teal-600);flex-shrink:0;"></span>Eye contact with the camera for trust signals</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 · Wireframes ─ mid grey -->
+      <div class="ow-band ow-band--mid">
+        <div class="container">
+          <div class="ow-band-label">Wireframes</div>
+          <h2 class="ow-band-title">Page-level layouts before<br><em>visual design began</em></h2>
+          <div class="ow-wf-grid">
+
+            <!-- Homepage WF -->
+            <div data-reveal>
+              <div style="font-size:0.8125rem;font-weight:600;color:var(--gray-700);margin-bottom:var(--s-3);">Homepage — Lo-fi wireframe</div>
+              <div class="ow-wf-frame">
+                <div class="ow-wf-bar">
+                  <div class="ow-wf-dot"></div><div class="ow-wf-dot"></div><div class="ow-wf-dot"></div>
+                  <div class="ow-wf-url"></div>
+                </div>
+                <div class="ow-wf-content">
+                  <!-- Nav -->
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--s-4);padding-bottom:var(--s-3);border-bottom:1px solid var(--gray-200);">
+                    <div class="wf-rect" style="width:48px;height:12px;"></div>
+                    <div style="display:flex;gap:var(--s-3);">
+                      <div class="wf-line" style="width:40px;margin:0;"></div>
+                      <div class="wf-line" style="width:55px;margin:0;"></div>
+                      <div class="wf-line" style="width:30px;margin:0;"></div>
+                      <div class="wf-rect" style="width:44px;height:14px;background:var(--gray-300);"></div>
+                    </div>
+                  </div>
+                  <!-- Hero -->
+                  <div class="ow-wf-label">Hero — dual CTA</div>
+                  <div style="background:var(--gray-200);border-radius:var(--r-md);padding:var(--s-5);display:flex;gap:var(--s-4);align-items:center;margin-bottom:var(--s-4);">
+                    <div style="flex:1;">
+                      <div class="wf-line" style="width:30px;margin-bottom:var(--s-3);"></div>
+                      <div class="wf-rect" style="height:16px;width:75%;margin-bottom:var(--s-3);"></div>
+                      <div class="wf-line" style="width:90%;"></div>
+                      <div class="wf-line" style="width:70%;margin-bottom:var(--s-4);"></div>
+                      <div style="display:flex;gap:var(--s-2);">
+                        <div class="wf-rect" style="width:55px;height:14px;background:var(--gray-400);"></div>
+                        <div class="wf-rect" style="width:55px;height:14px;"></div>
+                      </div>
+                    </div>
+                    <div class="wf-rect" style="width:70px;height:80px;flex-shrink:0;"></div>
+                  </div>
+                  <!-- Audience split -->
+                  <div class="ow-wf-label">Audience split — 2 paths</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-3);margin-bottom:var(--s-4);">
+                    <div style="background:var(--gray-200);border-radius:var(--r-md);padding:var(--s-4);">
+                      <div class="wf-line" style="width:60%;margin-bottom:var(--s-2);"></div>
+                      <div class="wf-line" style="width:80%;"></div>
+                      <div class="wf-line" style="width:50%;margin-bottom:var(--s-3);"></div>
+                      <div class="wf-rect" style="height:10px;width:50px;"></div>
+                    </div>
+                    <div style="background:var(--gray-200);border-radius:var(--r-md);padding:var(--s-4);">
+                      <div class="wf-line" style="width:60%;margin-bottom:var(--s-2);"></div>
+                      <div class="wf-line" style="width:80%;"></div>
+                      <div class="wf-line" style="width:50%;margin-bottom:var(--s-3);"></div>
+                      <div class="wf-rect" style="height:10px;width:50px;"></div>
+                    </div>
+                  </div>
+                  <!-- Values row -->
+                  <div class="ow-wf-label">Values — 4 cards</div>
+                  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-2);">
+                    <div style="height:36px;background:var(--gray-200);border-radius:var(--r-md);"></div>
+                    <div style="height:36px;background:var(--gray-200);border-radius:var(--r-md);"></div>
+                    <div style="height:36px;background:var(--gray-200);border-radius:var(--r-md);"></div>
+                    <div style="height:36px;background:var(--gray-200);border-radius:var(--r-md);"></div>
+                  </div>
+                </div>
+              </div>
+              <p class="ow-screen-cap" style="margin-top:var(--s-3);">Audience-split hero pattern — two clear paths for client vs. candidate, with dual CTAs and content forks.</p>
+            </div>
+
+            <!-- Team / About WF -->
+            <div data-reveal>
+              <div style="font-size:0.8125rem;font-weight:600;color:var(--gray-700);margin-bottom:var(--s-3);">Team &amp; About — Lo-fi wireframe</div>
+              <div class="ow-wf-frame">
+                <div class="ow-wf-bar">
+                  <div class="ow-wf-dot"></div><div class="ow-wf-dot"></div><div class="ow-wf-dot"></div>
+                  <div class="ow-wf-url"></div>
+                </div>
+                <div class="ow-wf-content">
+                  <!-- Page hero -->
+                  <div class="ow-wf-label">Section intro</div>
+                  <div style="background:var(--gray-200);border-radius:var(--r-md);padding:var(--s-4);margin-bottom:var(--s-4);text-align:center;">
+                    <div class="wf-rect" style="height:12px;width:40%;margin:0 auto var(--s-2);"></div>
+                    <div class="wf-line" style="width:60%;margin:0 auto var(--s-1);"></div>
+                    <div class="wf-line" style="width:40%;margin:0 auto;"></div>
+                  </div>
+                  <!-- Team grid -->
+                  <div class="ow-wf-label">Team grid — photo + name + role</div>
+                  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-3);margin-bottom:var(--s-4);">
+                    <div style="background:var(--gray-200);border-radius:var(--r-md);padding:var(--s-3);text-align:center;">
+                      <div class="wf-rect" style="width:40px;height:40px;border-radius:50%;margin:0 auto var(--s-2);"></div>
+                      <div class="wf-line" style="width:70%;margin:0 auto var(--s-1);"></div>
+                      <div class="wf-line" style="width:50%;margin:0 auto;"></div>
+                    </div>
+                    <div style="background:var(--gray-200);border-radius:var(--r-md);padding:var(--s-3);text-align:center;">
+                      <div class="wf-rect" style="width:40px;height:40px;border-radius:50%;margin:0 auto var(--s-2);"></div>
+                      <div class="wf-line" style="width:70%;margin:0 auto var(--s-1);"></div>
+                      <div class="wf-line" style="width:50%;margin:0 auto;"></div>
+                    </div>
+                    <div style="background:var(--gray-200);border-radius:var(--r-md);padding:var(--s-3);text-align:center;">
+                      <div class="wf-rect" style="width:40px;height:40px;border-radius:50%;margin:0 auto var(--s-2);"></div>
+                      <div class="wf-line" style="width:70%;margin:0 auto var(--s-1);"></div>
+                      <div class="wf-line" style="width:50%;margin:0 auto;"></div>
+                    </div>
+                  </div>
+                  <!-- Story / narrative -->
+                  <div class="ow-wf-label">Company story — narrative + certifications</div>
+                  <div style="display:grid;grid-template-columns:3fr 1fr;gap:var(--s-3);">
+                    <div>
+                      <div class="wf-line" style="width:100%;"></div>
+                      <div class="wf-line" style="width:90%;"></div>
+                      <div class="wf-line" style="width:95%;"></div>
+                      <div class="wf-line" style="width:80%;"></div>
+                      <div class="wf-line" style="width:100%;"></div>
+                      <div class="wf-line" style="width:70%;"></div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:var(--s-2);">
+                      <div class="wf-rect" style="height:28px;border-radius:var(--r-md);"></div>
+                      <div class="wf-rect" style="height:28px;border-radius:var(--r-md);"></div>
+                      <div class="wf-rect" style="height:28px;border-radius:var(--r-md);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="ow-screen-cap" style="margin-top:var(--s-3);">Team-first about page — credibility signals (certifications, ISO badges) anchored alongside narrative text, not buried in the footer.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /ow-project #equip -->
+
+
+  </main><!-- #main-content -->
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top:0; border-top:none; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--s-4);">
+        <p class="footer-copyright">© 2026 Gayane G. Mileski. All rights reserved.</p>
+        <a href="index.html" style="font-size:0.8125rem; color:var(--gray-600);">← Back to portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
