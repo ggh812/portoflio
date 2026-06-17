@@ -1163,6 +1163,26 @@ input, textarea, select { font: inherit; }
   color: var(--gray-700);
 }
 
+/* Process section — dark teal background overrides */
+#process .section-label,
+#process .section-label::before { color: var(--teal-300); background: var(--teal-300); }
+#process .section-label { background: transparent; }
+#process .process-step-label { color: var(--white); }
+#process .process-step-desc  { color: rgba(255,255,255,0.65); }
+#process .process-step:hover .process-step-num,
+#process .process-step.is-active .process-step-num {
+  box-shadow: 0 0 0 6px rgba(15,118,110,0.4);
+}
+#process .process-phase {
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.06);
+}
+#process .process-phase-title { color: var(--teal-300); }
+#process .process-phase-tag {
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.85);
+}
+
 /* ==========================================================================
    10. IMPACT / METRICS SECTION
    ========================================================================== */
