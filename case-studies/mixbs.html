@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case study: UX consultancy for MiXBS — redesigning the BayCX agent workspace and client reporting platform for a 4,000-person business process outsourcing operation.">
+  <title>MiXBS — BayCX Platform UX | Gayane G. Mileski</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    :root {
+      --teal-50:  #e8f7f6;
+      --teal-100: #beebe8;
+      --teal-200: #88d8d3;
+      --teal-300: #4bc3bc;
+      --teal-400: #23aba0;
+      --teal-500: #0f8f84;
+      --teal-600: #0a756b;
+      --teal-700: #085d55;
+      --teal-800: #064540;
+      --teal-900: #032e2a;
+      --color-accent:     #085d55;
+      --color-accent-mid: #0a756b;
+    }
+    .cs-hero-bg {
+      background: linear-gradient(160deg, #032e2a 0%, #085d55 40%, #043f38 100%);
+    }
+    .cs-hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 75% 30%, rgba(75,195,181,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(0,0,0,0.2) 0%, transparent 50%);
+    }
+    .info-table { width:100%; border-collapse:collapse; font-size:0.9375rem; }
+    .info-table th { text-align:left; font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); padding:0 0 var(--s-3) 0; border-bottom: 1px solid var(--gray-200); }
+    .info-table td { padding: var(--s-4) 0; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
+    .info-table tr:last-child td { border-bottom:none; }
+    .info-table td:first-child { font-weight:600; color: var(--gray-900); width:140px; padding-right:var(--s-6); }
+  </style>
+</head>
+<body>
+
+  <div class="reading-progress" aria-hidden="true"><div class="reading-progress-fill"></div></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a href="../index.html" class="nav-brand" aria-label="Gayane G. Mileski — Home">
+        <span class="nav-monogram" aria-hidden="true">GG</span>
+        <span class="nav-name">Gayane G. Mileski</span>
+      </a>
+      <ul class="nav-menu" id="nav-menu" role="list">
+        <li><a href="../index.html#work"       class="nav-link">Work</a></li>
+        <li><a href="../index.html#expertise"  class="nav-link">Expertise</a></li>
+        <li><a href="../index.html#process"    class="nav-link">Process</a></li>
+        <li><a href="../index.html#about"      class="nav-link">About</a></li>
+        <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+        <li><a href="../index.html#contact"    class="nav-link nav-cta">Book Consultation</a></li>
+      </ul>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+  <!-- =====================================================================
+       HERO
+  ====================================================================== -->
+  <section class="cs-hero">
+    <div class="cs-hero-bg"></div>
+    <div class="container cs-hero-content">
+      <a href="../index.html#work" class="cs-hero-back">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Back to all work
+      </a>
+      <div class="cs-hero-tag">BPO Platform · Contact Centre · SaaS UX</div>
+      <h1 class="cs-hero-title">MiXBS — BayCX<br>Platform Redesign</h1>
+      <p class="cs-hero-subtitle">Three years of UX consultancy for a 4,000-person business process outsourcing operation — redesigning the BayCX agent workspace and client reporting platform to reduce handle time, accelerate onboarding, and bring design coherence to tooling used across 14,000+ daily customer interactions.</p>
+
+      <div class="cs-hero-meta">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Client</div>
+          <div class="cs-meta-value">MiXBS</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Timeline</div>
+          <div class="cs-meta-value">3 years (2022–2025)</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-value">UX Consultant</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Scope</div>
+          <div class="cs-meta-value">Agent workspace, client portal, design system</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       OVERVIEW STATS
+  ====================================================================== -->
+  <div class="cs-overview-grid" data-reveal>
+    <div class="cs-overview-cell">
+      <div class="cs-overview-number">28<span style="font-size:1.5rem">%</span></div>
+      <div class="cs-overview-label">Average handle time reduction</div>
+    </div>
+    <div class="cs-overview-cell">
+      <div class="cs-overview-number">11<span style="font-size:1.5rem">d</span></div>
+      <div class="cs-overview-label">Faster agent onboarding to first solo call</div>
+    </div>
+    <div class="cs-overview-cell">
+      <div class="cs-overview-number">+31</div>
+      <div class="cs-overview-label">NPS improvement — client reporting portal</div>
+    </div>
+    <div class="cs-overview-cell">
+      <div class="cs-overview-number">4K<span style="font-size:1.5rem">+</span></div>
+      <div class="cs-overview-label">Agents across 10+ business verticals</div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       CHALLENGE
+  ====================================================================== -->
+  <section class="cs-section">
+    <div class="container">
+      <div class="cs-narrative-grid">
+        <div><span class="cs-sidebar-label">01 — Challenge</span></div>
+        <div>
+          <p class="cs-lead" data-reveal>
+            BayCX was built to manage operations — not to support the people doing the work.
+          </p>
+          <div class="cs-body-text" data-reveal>
+            <p>MiXBS handles upwards of 14,000 customer interactions daily across healthcare, logistics, retail, and e-commerce clients. Their proprietary platform, BayCX, orchestrates every agent shift: live call management, customer data lookup, script delivery, quality monitoring, and client reporting — all in one tool. But BayCX had been built iteratively by engineering, shaped around operational metrics and integration requirements rather than the cognitive reality of front-line contact work.</p>
+            <p>By 2022, the consequences were measurable. Agents were juggling four open interface panels during a live call. New hires required three or more weeks of supervised practice before handling calls independently. Client account managers were logging into a reporting dashboard they found largely uninterpretable, generating manual exports they then reformatted in spreadsheets. As MiXBS scaled toward 4,000 team members, the platform's design debt had become a direct operational cost — in agent turnover, onboarding overhead, and client retention risk.</p>
+            <p>I came in as an external UX consultant in 2022 to audit the existing BayCX experience, identify the highest-impact opportunities across both agent-facing and client-facing interfaces, and lead the design transformation over a sustained engagement spanning three years.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       RESEARCH
+  ====================================================================== -->
+  <section class="cs-section cs-section--tinted">
+    <div class="container">
+      <div class="cs-narrative-grid">
+        <div><span class="cs-sidebar-label">02 — Research</span></div>
+        <div>
+          <p class="cs-lead" data-reveal>Six weeks of discovery — agent desk shadowing, client interviews, and a full heuristic audit before a single design decision was made.</p>
+          <div class="cs-body-text" data-reveal>
+            <p>Contact centre UX research requires access that most environments don't easily grant: live call floors during peak hours, account manager quarterly reviews, escalation queues. MiXBS opened access across their teams, and the picture that emerged was consistent and urgent.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:var(--s-5); margin-top:var(--s-12);" data-reveal>
+        <div style="padding:var(--s-7); background:white; border-radius:var(--r-xl); border:1px solid var(--gray-200);">
+          <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          </div>
+          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Agent Desk Shadowing</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">28 live call observation sessions across healthcare, logistics, and retail queues. Captured real screen navigation patterns, workarounds, and multi-window management during active calls.</div>
+        </div>
+        <div style="padding:var(--s-7); background:white; border-radius:var(--r-xl); border:1px solid var(--gray-200);">
+          <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Client Portal Interviews</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">14 interviews with client account managers across MiXBS's major verticals. All described relying on manual exports and spreadsheet reformatting to make reporting data usable in their own reviews.</div>
+        </div>
+        <div style="padding:var(--s-7); background:white; border-radius:var(--r-xl); border:1px solid var(--gray-200);">
+          <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Support Ticket Analysis</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Review of 600 internal support tickets from the previous 12 months. 61% related to BayCX navigation confusion, panel state management, or data lost during call transitions.</div>
+        </div>
+        <div style="padding:var(--s-7); background:white; border-radius:var(--r-xl); border:1px solid var(--gray-200);">
+          <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6m-6 4h3"/></svg>
+          </div>
+          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Heuristic Evaluation</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Full Nielsen heuristic review of the BayCX agent workspace and client portal. 87 violations catalogued — 23 critical. Primary failure modes: visibility of system status, error recovery, and real-world alignment.</div>
+        </div>
+      </div>
+
+      <!-- Key findings -->
+      <div style="margin-top:var(--s-16);" data-reveal>
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:var(--gray-900);margin-bottom:var(--s-8);">Key Research Findings</h3>
+        <div class="findings-list">
+          <div class="finding-item">
+            <div class="finding-num">1</div>
+            <div class="finding-text">
+              <div class="finding-title">Agents routinely navigated 4+ open interface panels during a live call</div>
+              <div class="finding-desc">Every call type required switching between the active call panel, customer data lookup, script and knowledge base, and ticket log — in separate browser windows with no shared state. A single misclick could collapse the view, requiring agents to rebuild context while the customer waited. Observation sessions showed agents spending 35–45% of call time on internal navigation rather than customer resolution.</div>
+            </div>
+          </div>
+          <div class="finding-item">
+            <div class="finding-num">2</div>
+            <div class="finding-text">
+              <div class="finding-title">Client reporting was designed for data export, not for decision-making</div>
+              <div class="finding-desc">The client portal surfaced 40+ metrics across eight dashboard tabs — no hierarchy, no trends, no explanation of what each metric meant in practice. Every client interviewee described an identical workaround: export raw data, reformat in a spreadsheet, then present internally. One account manager estimated spending six hours per month reformatting data that should have been readable in the portal directly. The workaround had become so universal it was invisible.</div>
+            </div>
+          </div>
+          <div class="finding-item">
+            <div class="finding-num">3</div>
+            <div class="finding-text">
+              <div class="finding-title">Onboarding was a 3-week supervised handhold — and the tool was the reason</div>
+              <div class="finding-desc">New agents didn't struggle with call handling or script knowledge — they struggled with the tool. Trainers described the same pattern consistently: the first week was almost entirely BayCX navigation, with actual call handling starting in week two. Absent progressive disclosure, onboarding states, or visual consistency across panels, there was no gradual path from trainee to independent. Agents either memorised the interface or remained dependent on senior colleagues.</div>
+            </div>
+          </div>
+          <div class="finding-item">
+            <div class="finding-num">4</div>
+            <div class="finding-text">
+              <div class="finding-title">Error states were invisible until it was too late to correct them</div>
+              <div class="finding-desc">BayCX's call logging system allowed agents to submit incomplete records silently — no validation, no confirmation state, no distinction between "saved" and "submitted." Quality monitoring sessions found 18% of call records were missing required fields at submission, discovered only during the next day's audit when correction was significantly more costly. The absence of real-time status feedback was the single highest-impact heuristic failure.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       AGENT WORKSPACE
+  ====================================================================== -->
+  <section class="cs-section">
+    <div class="container">
+      <div class="cs-narrative-grid">
+        <div><span class="cs-sidebar-label">03 — Agent Workspace</span></div>
+        <div>
+          <p class="cs-lead" data-reveal>
+            Collapsing four fragmented panels into one unified workspace — without disrupting the operational data architecture underneath.
+          </p>
+          <div class="cs-body-text" data-reveal>
+            <p>BayCX's panel architecture reflected real integration boundaries — the telephony system, CRM, knowledge base, and ticket logger were each separate services. A unified front-end couldn't change the back-end topology; it had to surface all four data sources coherently within a single interface session. I worked with MiXBS's engineering team over four months to map every real-time data dependency between panels, identify where state could be shared, and design a contextual workspace where the dominant panel shifted automatically based on call phase.</p>
+            <p>Each phase — incoming call, active conversation, post-call wrap — surfaced only what was needed at that moment. The customer lookup triggered on call connect. The script panel anchored the active call view. The wrap-up screen gated submission behind real-time field validation, making incomplete records impossible to submit silently.</p>
+          </div>
+
+          <div style="margin-top:var(--s-10);" data-reveal>
+            <h3 style="font-size:0.9375rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-5);">Redesigned BayCX Agent Workspace Flow</h3>
+            <div class="workflow-diagram">
+              <div style="font-size:0.8125rem; color:var(--gray-500); margin-bottom:var(--s-6);">Before: 4 open browser windows, no shared state · After: Single contextual workspace, phase-aware panel switching</div>
+              <div style="display:flex; flex-direction:column; gap:var(--s-3);">
+                <div class="workflow-row">
+                  <div class="workflow-node workflow-node--start">Incoming call</div>
+                  <div class="workflow-arrow">→</div>
+                  <div class="workflow-node">Auto-lookup<br><span style="font-size:0.7rem;color:var(--gray-400);">Customer ID + history surface</span></div>
+                  <div class="workflow-arrow">→</div>
+                  <div class="workflow-node">Active call view<br><span style="font-size:0.7rem;color:var(--gray-400);">Script + live data + log in one panel</span></div>
+                  <div class="workflow-arrow">→</div>
+                  <div class="workflow-node">Wrap-up<br><span style="font-size:0.7rem;color:var(--gray-400);">Required fields gated on screen</span></div>
+                </div>
+                <div class="workflow-row workflow-row--indent">
+                  <div class="workflow-node">Live validation<br><span style="font-size:0.7rem;color:var(--gray-400);">Real-time field completion check</span></div>
+                  <div class="workflow-arrow">→</div>
+                  <div class="workflow-node workflow-node--end">Ticket submitted<br><span style="font-size:0.7rem;color:rgba(255,255,255,0.7);">Explicit confirmation state shown</span></div>
+                </div>
+              </div>
+              <div style="margin-top:var(--s-6); padding:var(--s-4) var(--s-5); background:var(--teal-50); border-radius:var(--r-md); border:1px solid var(--teal-100);">
+                <span style="font-size:0.8125rem; color:var(--teal-800); font-weight:500;">Result: Average handle time from 5.2 min → 3.8 min. Incomplete ticket submissions from 18% → under 2%.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       CLIENT PORTAL
+  ====================================================================== -->
+  <section class="cs-section cs-section--tinted">
+    <div class="container">
+      <div class="cs-narrative-grid">
+        <div><span class="cs-sidebar-label">04 — Client Portal</span></div>
+        <div>
+          <p class="cs-lead" data-reveal>
+            Forty metrics across eight tabs — redesigned around the three questions every client actually needs to answer each week.
+          </p>
+          <div class="cs-body-text" data-reveal>
+            <p>Client interviews made the diagnostic clear: the existing portal was a data lake wearing dashboard clothes. Every metric BayCX captured was surfaced, with no hierarchy, no temporal context, and no interpretation. Clients who needed to answer "is my team performing to SLA this week?" were presented with 40+ raw figures and no path to an answer without exporting and reformatting the data themselves.</p>
+            <p>The redesign started from the questions, not the data. Through structured interviews with 14 client contacts, I identified three core weekly questions every client tried to answer: performance against SLA targets, quality score trends, and volume patterns. The new portal gave each question its own view, with supporting data available on demand rather than by default — and with inline context explaining what each metric meant and why it mattered.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Client portal mockup -->
+      <div style="margin-top:var(--s-12); border-radius:var(--r-xl); overflow:hidden; border:1px solid var(--gray-200); box-shadow:var(--shadow-md); background:white;" data-reveal>
+        <div style="padding:var(--s-4) var(--s-6); background:var(--gray-900); display:flex; align-items:center; gap:var(--s-4); border-bottom:1px solid rgba(255,255,255,0.08);">
+          <div style="width:64px; height:18px; background:var(--teal-500); border-radius:3px; opacity:0.85;"></div>
+          <div style="height:16px; width:1px; background:rgba(255,255,255,0.12);"></div>
+          <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.08em; color:var(--gray-400); text-transform:uppercase;">Client Performance Portal · Week view</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; border-bottom:1px solid var(--gray-200);">
+          <div style="padding:var(--s-7); border-right:1px solid var(--gray-200);">
+            <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-3);">SLA Performance</div>
+            <div style="font-family:var(--font-display); font-size:2.75rem; font-weight:300; color:var(--gray-900); line-height:1; margin-bottom:var(--s-2);">97.4<span style="font-size:1.125rem">%</span></div>
+            <div style="font-size:0.75rem; font-weight:600; color:#16a34a;">↑ 1.8pp vs last week</div>
+            <div style="margin-top:var(--s-3); font-size:0.75rem; color:var(--gray-400); line-height:1.5;">Target: 95% · 3-week trend stable</div>
+          </div>
+          <div style="padding:var(--s-7); border-right:1px solid var(--gray-200);">
+            <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-3);">Quality Score</div>
+            <div style="font-family:var(--font-display); font-size:2.75rem; font-weight:300; color:var(--gray-900); line-height:1; margin-bottom:var(--s-2);">4.3<span style="font-size:1.125rem"> /5</span></div>
+            <div style="font-size:0.75rem; color:var(--gray-500);">Stable ±0.1 over 4 weeks</div>
+            <div style="margin-top:var(--s-3); font-size:0.75rem; color:var(--gray-400); line-height:1.5;">Target: 4.0 · Based on 1,240 evaluated calls</div>
+          </div>
+          <div style="padding:var(--s-7);">
+            <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-3);">Volume vs Forecast</div>
+            <div style="font-family:var(--font-display); font-size:2.75rem; font-weight:300; color:var(--gray-900); line-height:1; margin-bottom:var(--s-2);">+7<span style="font-size:1.125rem">%</span></div>
+            <div style="font-size:0.75rem; color:var(--gray-500);">Capacity headroom adequate</div>
+            <div style="margin-top:var(--s-3); font-size:0.75rem; color:var(--gray-400); line-height:1.5;">Peak day: Thursday · Avg 2,240 interactions/day</div>
+          </div>
+        </div>
+        <div style="padding:var(--s-4) var(--s-6); background:var(--teal-50); border-top:1px solid var(--teal-100); display:flex; align-items:center; gap:var(--s-3);">
+          <svg width="14" height="14" fill="none" stroke="var(--teal-700)" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span style="font-size:0.8125rem; color:var(--teal-700);">3 primary views replaced 8 tabs and 40+ raw metrics — contextual interpretation inline, no export required</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       OUTCOMES
+  ====================================================================== -->
+  <section class="cs-section cs-section--dark">
+    <div class="container">
+      <header class="section-header" data-reveal>
+        <span class="section-label" style="color:var(--teal-400);">Outcomes</span>
+        <h2 class="section-title" style="color:var(--white);">Results across three years of<br><em>sustained design transformation</em></h2>
+      </header>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap:var(--s-6); margin-bottom:var(--s-12);" data-reveal>
+        <div style="background:var(--gray-800); border-radius:var(--r-xl); padding:var(--s-8);">
+          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">28<span style="font-size:1.5rem">%</span></div>
+          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Average handle time ↓</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">From 5.2 min → 3.8 min, post-wrap included. Largest gains in healthcare and logistics queues where multi-system lookups were most frequent.</div>
+        </div>
+        <div style="background:var(--gray-800); border-radius:var(--r-xl); padding:var(--s-8);">
+          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">11<span style="font-size:1.5rem">d</span></div>
+          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Faster to first solo call</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Supervised onboarding from ~18 days to ~7 days before first unassisted call. Consistent improvement across all four quarters post-launch.</div>
+        </div>
+        <div style="background:var(--gray-800); border-radius:var(--r-xl); padding:var(--s-8);">
+          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">+31</div>
+          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Client portal NPS ↑</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">From –4 → +27 across client account contacts surveyed post-launch. Manual data export usage dropped to near-zero within six weeks of rollout.</div>
+        </div>
+        <div style="background:var(--gray-800); border-radius:var(--r-xl); padding:var(--s-8);">
+          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">2<span style="font-size:1.5rem">%</span></div>
+          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Incomplete ticket rate (from 18%)</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Real-time validation and explicit submission confirmation almost eliminated audit correction overhead. Quality review cycle time halved as a direct result.</div>
+        </div>
+      </div>
+
+      <blockquote style="max-width:760px;margin:0 auto;text-align:center;" data-reveal>
+        <p style="font-family:var(--font-display);font-size:1.75rem;font-weight:300;font-style:italic;color:white;line-height:1.5;margin-bottom:var(--s-6);">"The workspace redesign changed the entire onboarding conversation. We used to spend two weeks teaching the tool. Now we spend two weeks on the work."</p>
+        <footer>
+          <strong style="color:var(--teal-400);font-size:0.9375rem;">Training Lead</strong>
+          <span style="color:var(--gray-500);font-size:0.9375rem;"> — MiXBS Operations</span>
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- NAV to next case study -->
+  <section style="padding:var(--s-16) 0; background:var(--gray-50); border-top: 1px solid var(--gray-200);">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--s-8);">
+      <div>
+        <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-2);">Next Case Study</div>
+        <a href="eama.html" class="btn-arrow" style="font-size:1.125rem; font-weight:500;">
+          eAMA.at — Farmer Services Portal
+          <span class="arrow-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+      <a href="../index.html#work" class="btn btn-outline">All case studies</a>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top:0; border-top:none;">
+        <p class="footer-copyright">© 2026 Gayane G. Mileski. All rights reserved.</p>
+        <a href="../index.html" style="font-size:0.8125rem; color:var(--gray-600);">← Back to portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>
