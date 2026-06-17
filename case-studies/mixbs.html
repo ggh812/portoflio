@@ -231,26 +231,30 @@
     <div class="container">
       <div class="cs-narrative-grid">
         <div><span class="cs-sidebar-label">05 — Authentication</span></div>
-        <div>
+        <div style="display:grid; grid-template-columns:1fr 300px; gap:var(--s-10); align-items:start;">
           <div class="cs-body-text" data-reveal>
             <p>The mobile authentication flow covers the full password recovery sequence across six screens: selecting the recovery method (email or phone), receiving and entering a time-limited OTP code, handling code expiry with a resend option, verifying the code, and setting a new password with inline validation feedback.</p>
             <p>The flow prioritises clarity at each step — progressive disclosure keeps each screen to a single task, error states are specific rather than generic, and the keyboard layout is matched to the input type (numeric for OTP, standard for email input) to reduce friction on mobile.</p>
           </div>
-          <div data-reveal style="margin-top: var(--s-8); text-align:center;">
-            <img src="../images/case-studies/mixbs/mb-authorisation.png" alt="Mobile app password recovery flow — six screens from entry method selection to new password confirmation" loading="lazy" style="width:300px; max-width:100%; height:auto; display:inline-block; border-radius: var(--r-xl); border: 1px solid var(--gray-200);">
+          <div data-reveal>
+            <img src="../images/case-studies/mixbs/mb-authorisation.png" alt="Mobile app password recovery flow — six screens from entry method selection to new password confirmation" loading="lazy" style="width:100%; height:auto; display:block; border-radius: var(--r-xl); border: 1px solid var(--gray-200);">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════
-       CLOSE / NEXT
-  ══════════════════════════════════════════════════ -->
-  <section class="cs-section cs-section--dark">
-    <div class="container" style="text-align:center;">
-      <a href="../index.html#work" class="btn btn-outline" style="margin-right: var(--s-4);">All case studies</a>
-      <a href="eama.html" class="btn btn-primary">Next: eAMA.at</a>
+  <!-- NAV to next case study -->
+  <section style="padding:var(--s-16) 0; background:var(--gray-50); border-top: 1px solid var(--gray-200);">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--s-8);">
+      <div>
+        <div style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-2);">Next Case Study</div>
+        <a href="eama.html" class="btn-arrow" style="font-size:1.125rem; font-weight:500;">
+          eAMA.at
+          <span class="arrow-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+      <a href="../index.html#work" class="btn btn-outline">All case studies</a>
     </div>
   </section>
 
