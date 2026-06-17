@@ -68,6 +68,44 @@
     .info-table td { padding: var(--s-4) 0; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
     .info-table tr:last-child td { border-bottom:none; }
     .info-table td:first-child { font-weight:600; color: var(--gray-900); width:140px; padding-right:var(--s-6); }
+
+    /* Design System component sheets — equal-height, equal-padding cards */
+    .ds-stack { display:flex; flex-direction:column; gap:var(--s-6); }
+    .ds-row {
+      margin:0;
+      background:var(--white);
+      border:1px solid var(--gray-200);
+      border-radius:var(--r-2xl);
+      padding:var(--s-7);
+      box-shadow:var(--shadow-sm);
+    }
+    .ds-row-label {
+      font-size:0.6875rem;
+      font-weight:700;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+      color:var(--teal-600);
+      margin-bottom:var(--s-5);
+    }
+    .ds-frame {
+      height:clamp(150px, 19vw, 230px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-sizing:border-box;
+    }
+    .ds-frame img {
+      max-width:100%;
+      max-height:100%;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      display:block;
+    }
+    @media (max-width: 768px) {
+      .ds-row { padding:var(--s-5); }
+      .ds-frame { height:clamp(70px, 20vw, 150px); }
+    }
   </style>
 </head>
 <body>
@@ -372,91 +410,33 @@
   <!-- =====================================================================
        DESIGN SYSTEM
   ====================================================================== -->
-  <section class="cs-section">
+  <section class="cs-section cs-section--tinted">
     <div class="container">
       <header class="section-header" data-reveal>
         <span class="section-label">Design System</span>
         <h2 class="section-title">A government-grade component<br><em>library built for longevity</em></h2>
-        <p class="section-description">The eAMA Design Language — 74 components, full WCAG 2.1 AA token documentation — became the shared reference for the AMA Foto App and RinderNET App design work that followed.</p>
+        <p class="section-description">The eAMA Design Language documents every interactive component across its full range of states — default, hover, focus, active, disabled and error — with WCAG 2.1 AA contrast verified on each token and German-language labels matching the live MFA portal. The same library went on to underpin the AMA Foto App and RinderNET Meldeapp.</p>
       </header>
 
-      <div class="cs-screens-grid cs-screens-grid--2" data-reveal>
-        <!-- Component library preview -->
-        <div style="display:flex; flex-direction:column;">
-          <div class="cs-screen-item" style="flex:1;">
-            <div style="background: var(--gray-900); padding:var(--s-6); height:100%; box-sizing:border-box;">
-              <div style="font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-500); margin-bottom:var(--s-5);">eAMA Design Language · Components</div>
-              <!-- Color tokens -->
-              <div style="margin-bottom:var(--s-6);">
-                <div style="font-size:0.6875rem; color:var(--gray-500); margin-bottom:var(--s-3);">Color Tokens</div>
-                <div style="display:flex; gap:var(--s-2);">
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#1e4216;" title="brand-primary-dark"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#27521B;"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#5a9940;"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#d4e8c8;"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#111827;"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#374151;"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#6B7280;"></div>
-                  <div style="width:36px;height:36px;border-radius:var(--r-md);background:#F3F4F6;border:1px solid #E5E7EB;"></div>
-                </div>
-              </div>
-              <!-- Button variants -->
-              <div style="margin-bottom:var(--s-6);">
-                <div style="font-size:0.6875rem; color:var(--gray-500); margin-bottom:var(--s-3);">Button Components</div>
-                <div style="display:flex; gap:var(--s-3); flex-wrap:wrap; align-items:center;">
-                  <div style="padding:8px 16px;background:#27521B;color:white;border-radius:4px;font-size:12px;font-weight:600;">Primär</div>
-                  <div style="padding:8px 16px;background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.3);border-radius:4px;font-size:12px;font-weight:600;">Sekundär</div>
-                  <div style="padding:8px 16px;background:transparent;color:#5a9940;font-size:12px;font-weight:600;border-radius:4px;border:1.5px solid #5a9940;">Umriss</div>
-                  <div style="padding:8px 16px;background:#B71C1C;color:white;border-radius:4px;font-size:12px;font-weight:600;">Fehler</div>
-                </div>
-              </div>
-              <!-- Form elements -->
-              <div>
-                <div style="font-size:0.6875rem; color:var(--gray-500); margin-bottom:var(--s-3);">Form Elements — MFA Data Entry</div>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--s-3);">
-                  <div>
-                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Schlagkennnummer</div>
-                    <div style="background:white;border:1.5px solid #D1D5DB;border-radius:4px;padding:8px 10px;font-size:11px;color:#9CA3AF;">KKNR eingeben…</div>
-                  </div>
-                  <div>
-                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Fokus-Zustand</div>
-                    <div style="background:white;border:2px solid #27521B;border-radius:4px;padding:8px 10px;font-size:11px;color:#374151;box-shadow:0 0 0 3px rgba(39,82,27,0.15);">AT-NÖ-1234</div>
-                  </div>
-                  <div>
-                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Validierungsfehler</div>
-                    <div style="background:#FFF8F8;border:2px solid #EF4444;border-radius:4px;padding:8px 10px;font-size:11px;color:#374151;">Ungültige KKNR</div>
-                  </div>
-                  <div>
-                    <div style="font-size:10px;color:var(--gray-400);margin-bottom:4px;">Bestätigt</div>
-                    <div style="background:#eef6ec;border:2px solid #27521B;border-radius:4px;padding:8px 10px;font-size:11px;color:#374151;display:flex;justify-content:space-between;align-items:center;">AT-NÖ-5678 <span style="color:#27521B;">✓</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div class="ds-stack" data-reveal>
+        <figure class="ds-row">
+          <figcaption class="ds-row-label">Buttons — primary, secondary, outline &amp; ghost, every state</figcaption>
+          <div class="ds-frame">
+            <img src="../images/case-studies/eama/eama-ds-button.png" alt="eAMA button component — primary, secondary, outline and ghost variants across default, hover, active, focus, disabled and error states">
           </div>
-          <p class="cs-screen-caption">Component library preview — 74 components with full state documentation in German</p>
-        </div>
-
-        <!-- Typography system -->
-        <div style="display:flex; flex-direction:column;">
-          <div class="cs-screen-item" style="flex:1;">
-            <div style="background: white; padding:var(--s-7); height:100%; box-sizing:border-box;">
-              <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-6);">Schriftsystem / Typography Scale</div>
-              <div style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300; color:var(--gray-900); line-height:1.1; margin-bottom:var(--s-3);">Display / 40px</div>
-              <div style="font-size:1.5rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-3);">Überschrift / 24px</div>
-              <div style="font-size:1.125rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-3);">Abschnitt / 18px</div>
-              <div style="height:1px;background:var(--gray-200);margin:var(--s-5) 0;"></div>
-              <div style="font-size:1rem; line-height:1.75; color:var(--gray-700); margin-bottom:var(--s-3);">Fließtext / 16px — Mindestkontrastverhältnis 4.5:1. Getestet für Lesbarkeit in Außenumgebungen und auf Tablets mit Handschuhen.</div>
-              <div style="font-size:0.875rem; color:var(--gray-500); margin-bottom:var(--s-5);">Beschriftung / 14px — Nur für ergänzende Informationen. Nie als primärer Anweisungstext verwendet.</div>
-              <div style="display:flex;gap:var(--s-3);flex-wrap:wrap;">
-                <span style="padding:4px 10px;background:#eef6ec;color:#27521B;border-radius:var(--r-full);font-size:11px;font-weight:600;border:1px solid #aed4a0;">AA Konform</span>
-                <span style="padding:4px 10px;background:var(--gray-100);color:var(--gray-700);border-radius:var(--r-full);font-size:11px;font-weight:600;">4.5:1+ Kontrast</span>
-                <span style="padding:4px 10px;background:var(--gray-100);color:var(--gray-700);border-radius:var(--r-full);font-size:11px;font-weight:600;">Min. 16px Formulartext</span>
-              </div>
-            </div>
+        </figure>
+        <figure class="ds-row">
+          <figcaption class="ds-row-label">Toggles &amp; switches — on / off, focus &amp; disabled</figcaption>
+          <div class="ds-frame">
+            <img src="../images/case-studies/eama/eama-ds-switch.png" alt="eAMA toggle switch component — on and off positions across default, focus and disabled states">
           </div>
-          <p class="cs-screen-caption">Typography system — outdoor legibility tested, WCAG compliant, minimum 16px on all form inputs</p>
-        </div>
+        </figure>
+        <figure class="ds-row">
+          <figcaption class="ds-row-label">File upload — drop-zones, button trigger, validation &amp; error states</figcaption>
+          <div class="ds-frame">
+            <img src="../images/case-studies/eama/eama-ds-upload.png" alt="eAMA file upload component — drag-and-drop zones, button trigger and error states with German labels">
+          </div>
+        </figure>
       </div>
     </div>
   </section>
