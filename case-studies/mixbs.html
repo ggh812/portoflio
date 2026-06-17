@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Case study: UX consultancy for MiXBS — redesigning the BayCX agent workspace and client reporting platform for a 4,000-person business process outsourcing operation.">
-  <title>MiXBS — BayCX Platform UX | Gayane G. Mileski</title>
+  <meta name="description" content="Case study: Designing BayCX from scratch — a contact centre intelligence platform for automating customer interactions, optimising workloads with WFM, and generating predictive analytics.">
+  <title>MiXBS — BayCX Intelligence Platform | Gayane G. Mileski</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,8 +22,6 @@
       --teal-700: #085d55;
       --teal-800: #064540;
       --teal-900: #032e2a;
-      --color-accent:     #085d55;
-      --color-accent-mid: #0a756b;
     }
     .cs-hero-bg {
       background: linear-gradient(160deg, #032e2a 0%, #085d55 40%, #043f38 100%);
@@ -36,11 +34,130 @@
         radial-gradient(circle at 75% 30%, rgba(75,195,181,0.08) 0%, transparent 50%),
         radial-gradient(circle at 20% 80%, rgba(0,0,0,0.2) 0%, transparent 50%);
     }
-    .info-table { width:100%; border-collapse:collapse; font-size:0.9375rem; }
-    .info-table th { text-align:left; font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); padding:0 0 var(--s-3) 0; border-bottom: 1px solid var(--gray-200); }
-    .info-table td { padding: var(--s-4) 0; border-bottom: 1px solid var(--gray-100); color: var(--gray-700); vertical-align: top; }
-    .info-table tr:last-child td { border-bottom:none; }
-    .info-table td:first-child { font-weight:600; color: var(--gray-900); width:140px; padding-right:var(--s-6); }
+
+    /* ── Shared grid helpers with mobile overrides ── */
+    .method-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--s-5);
+      margin-top: var(--s-12);
+    }
+    .method-card {
+      padding: var(--s-6);
+      background: white;
+      border-radius: var(--r-xl);
+      border: 1px solid var(--gray-200);
+    }
+    .method-card-icon {
+      width: 36px; height: 36px;
+      background: var(--teal-100);
+      border-radius: var(--r-md);
+      display: grid; place-items: center;
+      color: var(--teal-700);
+      margin-bottom: var(--s-4);
+    }
+    .method-card-title {
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: var(--s-2);
+      font-size: 0.9375rem;
+    }
+    .method-card-desc {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      line-height: 1.65;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s-5);
+      margin-top: var(--s-10);
+    }
+    .module-card {
+      padding: var(--s-6);
+      border-radius: var(--r-xl);
+      border: 1px solid var(--teal-200);
+      background: var(--teal-50);
+    }
+    .module-num {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal-600);
+      margin-bottom: var(--s-3);
+    }
+    .module-title {
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: var(--s-2);
+      font-size: 1rem;
+    }
+    .module-desc {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+
+    /* Analytics dashboard mockup grid */
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .analytics-cell {
+      padding: var(--s-6);
+    }
+    .analytics-cell + .analytics-cell {
+      border-left: 1px solid var(--gray-200);
+    }
+
+    /* Outcome cards */
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s-5);
+      margin-bottom: var(--s-12);
+    }
+    .outcome-card {
+      background: var(--gray-800);
+      border-radius: var(--r-xl);
+      padding: var(--s-6);
+    }
+    .outcome-num {
+      font-family: var(--font-display);
+      font-size: 3.25rem;
+      font-weight: 300;
+      color: white;
+      line-height: 1;
+      margin-bottom: var(--s-2);
+    }
+    .outcome-label {
+      font-weight: 600;
+      color: var(--teal-400);
+      margin-bottom: var(--s-2);
+      font-size: 0.875rem;
+    }
+    .outcome-desc {
+      font-size: 0.8125rem;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* ── Mobile ─────────────────── */
+    @media (max-width: 768px) {
+      .module-grid { grid-template-columns: 1fr 1fr; }
+      .analytics-grid { grid-template-columns: 1fr; }
+      .analytics-cell + .analytics-cell { border-left: none; border-top: 1px solid var(--gray-200); }
+      .outcome-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .method-cards { grid-template-columns: 1fr; }
+      .module-grid { grid-template-columns: 1fr; }
+      .outcome-grid { grid-template-columns: 1fr; }
+      .outcome-num { font-size: 2.75rem; }
+    }
   </style>
 </head>
 <body>
@@ -77,9 +194,9 @@
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
         Back to all work
       </a>
-      <div class="cs-hero-tag">BPO Platform · Contact Centre · SaaS UX</div>
-      <h1 class="cs-hero-title">MiXBS — BayCX<br>Platform Redesign</h1>
-      <p class="cs-hero-subtitle">Three years of UX consultancy for a 4,000-person business process outsourcing operation — redesigning the BayCX agent workspace and client reporting platform to reduce handle time, accelerate onboarding, and bring design coherence to tooling used across 14,000+ daily customer interactions.</p>
+      <div class="cs-hero-tag">Enterprise SaaS · WFM · Contact Centre Automation</div>
+      <h1 class="cs-hero-title">MiXBS — BayCX<br>Intelligence Platform</h1>
+      <p class="cs-hero-subtitle">Three years designing a new contact centre intelligence platform from the ground up — automating customer interactions, optimising agent workloads through workforce management, and generating predictive analytics for operations managers across 14,000+ daily interactions.</p>
 
       <div class="cs-hero-meta">
         <div class="cs-meta-item">
@@ -96,7 +213,7 @@
         </div>
         <div class="cs-meta-item">
           <div class="cs-meta-label">Scope</div>
-          <div class="cs-meta-value">Agent workspace, client portal, design system</div>
+          <div class="cs-meta-value">Automation UX, WFM module, predictive analytics</div>
         </div>
       </div>
     </div>
@@ -107,16 +224,16 @@
   ====================================================================== -->
   <div class="cs-overview-grid" data-reveal>
     <div class="cs-overview-cell">
-      <div class="cs-overview-number">28<span style="font-size:1.5rem">%</span></div>
-      <div class="cs-overview-label">Average handle time reduction</div>
+      <div class="cs-overview-number">3</div>
+      <div class="cs-overview-label">Core modules shipped — automation, WFM, analytics</div>
     </div>
     <div class="cs-overview-cell">
-      <div class="cs-overview-number">11<span style="font-size:1.5rem">d</span></div>
-      <div class="cs-overview-label">Faster agent onboarding to first solo call</div>
+      <div class="cs-overview-number">34<span style="font-size:1.5rem">%</span></div>
+      <div class="cs-overview-label">Tier-1 inquiries auto-resolved without agent transfer</div>
     </div>
     <div class="cs-overview-cell">
-      <div class="cs-overview-number">+31</div>
-      <div class="cs-overview-label">NPS improvement — client reporting portal</div>
+      <div class="cs-overview-number">91<span style="font-size:1.5rem">%</span></div>
+      <div class="cs-overview-label">Agent schedule adherence after WFM launch</div>
     </div>
     <div class="cs-overview-cell">
       <div class="cs-overview-number">4K<span style="font-size:1.5rem">+</span></div>
@@ -125,20 +242,19 @@
   </div>
 
   <!-- =====================================================================
-       CHALLENGE
+       01 — BRIEF
   ====================================================================== -->
   <section class="cs-section">
     <div class="container">
       <div class="cs-narrative-grid">
-        <div><span class="cs-sidebar-label">01 — Challenge</span></div>
+        <div><span class="cs-sidebar-label">01 — Brief</span></div>
         <div>
           <p class="cs-lead" data-reveal>
-            BayCX was built to manage operations — not to support the people doing the work.
+            MiXBS was running one of Europe's largest BPO operations on a patchwork of third-party tools that didn't share data, couldn't forecast together, and gave operations managers no unified view of the business.
           </p>
           <div class="cs-body-text" data-reveal>
-            <p>MiXBS handles upwards of 14,000 customer interactions daily across healthcare, logistics, retail, and e-commerce clients. Their proprietary platform, BayCX, orchestrates every agent shift: live call management, customer data lookup, script delivery, quality monitoring, and client reporting — all in one tool. But BayCX had been built iteratively by engineering, shaped around operational metrics and integration requirements rather than the cognitive reality of front-line contact work.</p>
-            <p>By 2022, the consequences were measurable. Agents were juggling four open interface panels during a live call. New hires required three or more weeks of supervised practice before handling calls independently. Client account managers were logging into a reporting dashboard they found largely uninterpretable, generating manual exports they then reformatted in spreadsheets. As MiXBS scaled toward 4,000 team members, the platform's design debt had become a direct operational cost — in agent turnover, onboarding overhead, and client retention risk.</p>
-            <p>I came in as an external UX consultant in 2022 to audit the existing BayCX experience, identify the highest-impact opportunities across both agent-facing and client-facing interfaces, and lead the design transformation over a sustained engagement spanning three years.</p>
+            <p>By 2022, MiXBS handled upwards of 14,000 customer interactions daily across healthcare, logistics, retail, and e-commerce clients. Automation, workforce management, and performance analytics were each handled by separate third-party systems — none of which integrated cleanly, and all of which required specialist knowledge to configure or interpret. Workforce planners built schedules in Excel because the WFM tool was too rigid to model their actual shift patterns. Automation rules were authored by IT rather than operations staff, creating a bottleneck every time a client's contact flow needed adjustment. Analytics were consumed as weekly PDF exports, not live operational signals.</p>
+            <p>The decision to build BayCX — a proprietary platform unifying all three capabilities — came from a strategic need to own the intelligence layer of their operation. As an external UX consultant, I was brought in to define the product from the ground up: leading discovery across three distinct user groups, establishing the platform architecture and design system, and taking each module from concept through to launched product over three years.</p>
           </div>
         </div>
       </div>
@@ -146,81 +262,80 @@
   </section>
 
   <!-- =====================================================================
-       RESEARCH
+       02 — DISCOVERY
   ====================================================================== -->
   <section class="cs-section cs-section--tinted">
     <div class="container">
       <div class="cs-narrative-grid">
-        <div><span class="cs-sidebar-label">02 — Research</span></div>
+        <div><span class="cs-sidebar-label">02 — Discovery</span></div>
         <div>
-          <p class="cs-lead" data-reveal>Six weeks of discovery — agent desk shadowing, client interviews, and a full heuristic audit before a single design decision was made.</p>
+          <p class="cs-lead" data-reveal>Eight weeks across three distinct user groups — each with their own domain expertise, mental models, and failure modes when tooling didn't serve them.</p>
           <div class="cs-body-text" data-reveal>
-            <p>Contact centre UX research requires access that most environments don't easily grant: live call floors during peak hours, account manager quarterly reviews, escalation queues. MiXBS opened access across their teams, and the picture that emerged was consistent and urgent.</p>
+            <p>The three platform modules served fundamentally different audiences: operations supervisors configuring and monitoring automation; workforce planners modelling demand and building schedules; and analytics users — a mix of ops managers and client account managers — who needed to turn raw interaction data into decisions. Understanding each group required different research methods and a willingness to go deep into genuinely specialised domains.</p>
           </div>
         </div>
       </div>
 
-      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:var(--s-5); margin-top:var(--s-12);" data-reveal>
-        <div style="padding:var(--s-7); background:white; border-radius:var(--r-xl); border:1px solid var(--gray-200);">
-          <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
+      <div class="method-cards" data-reveal>
+        <div class="method-card">
+          <div class="method-card-icon">
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
           </div>
-          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Agent Desk Shadowing</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">28 live call observation sessions across healthcare, logistics, and retail queues. Captured real screen navigation patterns, workarounds, and multi-window management during active calls.</div>
+          <div class="method-card-title">Supervisor Walkthroughs</div>
+          <div class="method-card-desc">24 shadowing sessions with operations supervisors across live contact floors — observing how they monitored queue states, intervened on automation failures, and escalated edge cases in real time.</div>
         </div>
-        <div style="padding:var(--s-7); background:white; border-radius:var(--r-xl); border:1px solid var(--gray-200);">
-          <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <div class="method-card">
+          <div class="method-card-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           </div>
-          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Client Portal Interviews</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">14 interviews with client account managers across MiXBS's major verticals. All described relying on manual exports and spreadsheet reformatting to make reporting data usable in their own reviews.</div>
+          <div class="method-card-title">WFM Specialist Sessions</div>
+          <div class="method-card-desc">12 structured interviews and task-observation sessions with workforce planners. We mapped their existing Excel-based processes step by step — every formula, every workaround — before designing the WFM module to replace them.</div>
         </div>
-        <div style="padding:var(--s-7); background:white; border-radius:var(--r-xl); border:1px solid var(--gray-200);">
-          <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        <div class="method-card">
+          <div class="method-card-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
-          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Support Ticket Analysis</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Review of 600 internal support tickets from the previous 12 months. 61% related to BayCX navigation confusion, panel state management, or data lost during call transitions.</div>
+          <div class="method-card-title">Automation Rule Authoring</div>
+          <div class="method-card-desc">18 co-creation sessions where ops staff attempted to configure automation rules using prototype interfaces. Exposed the gap between how non-technical users think about interaction flows and how rule engines typically model them.</div>
         </div>
-        <div style="padding:var(--s-7); background:white; border-radius:var(--r-xl); border:1px solid var(--gray-200);">
-          <div style="width:36px;height:36px;background:var(--teal-100);border-radius:var(--r-md);display:grid;place-items:center;color:var(--teal-700);margin-bottom:var(--s-4);">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6m-6 4h3"/></svg>
+        <div class="method-card">
+          <div class="method-card-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8v8m-8-5v5m4-9v9M3 12a9 9 0 1018 0A9 9 0 003 12z"/></svg>
           </div>
-          <div style="font-weight:600;color:var(--gray-900);margin-bottom:var(--s-2);">Heuristic Evaluation</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Full Nielsen heuristic review of the BayCX agent workspace and client portal. 87 violations catalogued — 23 critical. Primary failure modes: visibility of system status, error recovery, and real-world alignment.</div>
+          <div class="method-card-title">Analytics Comprehension Testing</div>
+          <div class="method-card-desc">Moderated testing sessions with 14 ops managers and client account contacts — presenting existing data exports and asking them to answer specific business questions. Mapped where interpretation failed and why.</div>
         </div>
       </div>
 
-      <!-- Key findings -->
       <div style="margin-top:var(--s-16);" data-reveal>
         <h3 style="font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:var(--gray-900);margin-bottom:var(--s-8);">Key Research Findings</h3>
         <div class="findings-list">
           <div class="finding-item">
             <div class="finding-num">1</div>
             <div class="finding-text">
-              <div class="finding-title">Agents routinely navigated 4+ open interface panels during a live call</div>
-              <div class="finding-desc">Every call type required switching between the active call panel, customer data lookup, script and knowledge base, and ticket log — in separate browser windows with no shared state. A single misclick could collapse the view, requiring agents to rebuild context while the customer waited. Observation sessions showed agents spending 35–45% of call time on internal navigation rather than customer resolution.</div>
+              <div class="finding-title">Workforce planners had abandoned the WFM tool in favour of Excel</div>
+              <div class="finding-desc">The existing third-party WFM system couldn't model the multi-skill, multi-shift patterns MiXBS operated. Planners had created sophisticated Excel models over years — with colour-coded shift types, manual forecast adjustments, and holiday override logic — because no tool gave them the flexibility they needed. The design challenge wasn't to replicate Excel; it was to understand what made their Excel models work and build that reasoning directly into BayCX's WFM module.</div>
             </div>
           </div>
           <div class="finding-item">
             <div class="finding-num">2</div>
             <div class="finding-text">
-              <div class="finding-title">Client reporting was designed for data export, not for decision-making</div>
-              <div class="finding-desc">The client portal surfaced 40+ metrics across eight dashboard tabs — no hierarchy, no trends, no explanation of what each metric meant in practice. Every client interviewee described an identical workaround: export raw data, reformat in a spreadsheet, then present internally. One account manager estimated spending six hours per month reformatting data that should have been readable in the portal directly. The workaround had become so universal it was invisible.</div>
+              <div class="finding-title">Automation configuration was gated behind IT — creating a two-week bottleneck for every change</div>
+              <div class="finding-desc">Contact flow adjustments — new IVR options, updated chatbot responses, modified routing rules — required a ticket to IT, an average two-week turnaround, and no visibility on progress. Operations supervisors had deep knowledge of what needed to change and why, but no interface that let them act on it. Every delay had a measurable cost: misrouted interactions, outdated responses, and client complaints about stale contact experiences.</div>
             </div>
           </div>
           <div class="finding-item">
             <div class="finding-num">3</div>
             <div class="finding-text">
-              <div class="finding-title">Onboarding was a 3-week supervised handhold — and the tool was the reason</div>
-              <div class="finding-desc">New agents didn't struggle with call handling or script knowledge — they struggled with the tool. Trainers described the same pattern consistently: the first week was almost entirely BayCX navigation, with actual call handling starting in week two. Absent progressive disclosure, onboarding states, or visual consistency across panels, there was no gradual path from trainee to independent. Agents either memorised the interface or remained dependent on senior colleagues.</div>
+              <div class="finding-title">Analytics were consumed weekly — by which point the window to act had passed</div>
+              <div class="finding-desc">Weekly PDF performance reports arrived in inboxes every Monday. By the time managers reviewed them, the preceding week's staffing problems, automation failures, and quality drops were already history. The data was accurate but operationally useless at that latency. What managers actually needed was a live signal layer — not more historical reporting — that surfaced emerging issues within hours, not days.</div>
             </div>
           </div>
           <div class="finding-item">
             <div class="finding-num">4</div>
             <div class="finding-text">
-              <div class="finding-title">Error states were invisible until it was too late to correct them</div>
-              <div class="finding-desc">BayCX's call logging system allowed agents to submit incomplete records silently — no validation, no confirmation state, no distinction between "saved" and "submitted." Quality monitoring sessions found 18% of call records were missing required fields at submission, discovered only during the next day's audit when correction was significantly more costly. The absence of real-time status feedback was the single highest-impact heuristic failure.</div>
+              <div class="finding-title">No single view existed across automation, staffing, and performance</div>
+              <div class="finding-desc">When something went wrong — a volume spike, a quality dip, a rash of automation failures — ops managers had to open three separate tools to diagnose the root cause. The absence of cross-module correlation meant that obvious relationships (high automation failure rates correlating with understaffing downstream) were invisible at the surface level, requiring manual cross-referencing of data sets that should have been connected by default.</div>
             </div>
           </div>
         </div>
@@ -229,43 +344,59 @@
   </section>
 
   <!-- =====================================================================
-       AGENT WORKSPACE
+       03 — PLATFORM ARCHITECTURE
   ====================================================================== -->
   <section class="cs-section">
     <div class="container">
       <div class="cs-narrative-grid">
-        <div><span class="cs-sidebar-label">03 — Agent Workspace</span></div>
+        <div><span class="cs-sidebar-label">03 — Platform</span></div>
         <div>
           <p class="cs-lead" data-reveal>
-            Collapsing four fragmented panels into one unified workspace — without disrupting the operational data architecture underneath.
+            Three modules sharing one data layer — designed so that what happens in automation is visible in workforce planning, and what workforce planning forecasts feeds the analytics layer.
           </p>
           <div class="cs-body-text" data-reveal>
-            <p>BayCX's panel architecture reflected real integration boundaries — the telephony system, CRM, knowledge base, and ticket logger were each separate services. A unified front-end couldn't change the back-end topology; it had to surface all four data sources coherently within a single interface session. I worked with MiXBS's engineering team over four months to map every real-time data dependency between panels, identify where state could be shared, and design a contextual workspace where the dominant panel shifted automatically based on call phase.</p>
-            <p>Each phase — incoming call, active conversation, post-call wrap — surfaced only what was needed at that moment. The customer lookup triggered on call connect. The script panel anchored the active call view. The wrap-up screen gated submission behind real-time field validation, making incomplete records impossible to submit silently.</p>
+            <p>The core architectural decision was that BayCX's three modules couldn't be designed as separate products. Each module's output feeds the next: automation performance data informs WFM demand forecasting; WFM schedules determine capacity available for automation escalations; and the analytics layer surfaces patterns across both. I worked with MiXBS's engineering team across the first year of the engagement to define the data model that would make cross-module intelligence possible before any UI work began.</p>
+          </div>
+
+          <div class="module-grid" data-reveal>
+            <div class="module-card">
+              <div class="module-num">Module 01</div>
+              <div class="module-title">Interaction Automation</div>
+              <div class="module-desc">Visual rule builder for configuring IVR flows, chatbot responses, and automated routing — operable by ops staff without IT involvement. Real-time automation health monitoring with human-handoff rate tracking.</div>
+            </div>
+            <div class="module-card">
+              <div class="module-num">Module 02</div>
+              <div class="module-title">Workforce Management</div>
+              <div class="module-desc">Demand forecasting from historical interaction data, multi-skill schedule building, shift pattern templates, and real-time adherence monitoring. Replaced the Excel-based planning process entirely.</div>
+            </div>
+            <div class="module-card">
+              <div class="module-num">Module 03</div>
+              <div class="module-title">Predictive Analytics</div>
+              <div class="module-desc">Live operations dashboard surfacing emerging issues — volume spikes, quality drops, automation failure clusters — before they become reportable problems. Correlation view across all three modules in a single screen.</div>
+            </div>
           </div>
 
           <div style="margin-top:var(--s-10);" data-reveal>
-            <h3 style="font-size:0.9375rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-5);">Redesigned BayCX Agent Workspace Flow</h3>
+            <h3 style="font-size:0.9375rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-5);">Cross-module data flow</h3>
             <div class="workflow-diagram">
-              <div style="font-size:0.8125rem; color:var(--gray-500); margin-bottom:var(--s-6);">Before: 4 open browser windows, no shared state · After: Single contextual workspace, phase-aware panel switching</div>
+              <div style="font-size:0.8125rem; color:var(--gray-500); margin-bottom:var(--s-6);">Every module produces data that another module consumes — the platform's intelligence comes from those connections</div>
               <div style="display:flex; flex-direction:column; gap:var(--s-3);">
                 <div class="workflow-row">
-                  <div class="workflow-node workflow-node--start">Incoming call</div>
+                  <div class="workflow-node workflow-node--start">Incoming<br>interaction</div>
                   <div class="workflow-arrow">→</div>
-                  <div class="workflow-node">Auto-lookup<br><span style="font-size:0.7rem;color:var(--gray-400);">Customer ID + history surface</span></div>
+                  <div class="workflow-node">Automation<br><span style="font-size:0.7rem;color:var(--gray-400);">IVR / chatbot / routing</span></div>
                   <div class="workflow-arrow">→</div>
-                  <div class="workflow-node">Active call view<br><span style="font-size:0.7rem;color:var(--gray-400);">Script + live data + log in one panel</span></div>
+                  <div class="workflow-node">Human handoff<br><span style="font-size:0.7rem;color:var(--gray-400);">Queue + agent assignment</span></div>
                   <div class="workflow-arrow">→</div>
-                  <div class="workflow-node">Wrap-up<br><span style="font-size:0.7rem;color:var(--gray-400);">Required fields gated on screen</span></div>
+                  <div class="workflow-node">Interaction close<br><span style="font-size:0.7rem;color:var(--gray-400);">Outcome + quality data</span></div>
                 </div>
                 <div class="workflow-row workflow-row--indent">
-                  <div class="workflow-node">Live validation<br><span style="font-size:0.7rem;color:var(--gray-400);">Real-time field completion check</span></div>
+                  <div class="workflow-node">WFM forecasting<br><span style="font-size:0.7rem;color:var(--gray-400);">Automation rate → capacity model</span></div>
                   <div class="workflow-arrow">→</div>
-                  <div class="workflow-node workflow-node--end">Ticket submitted<br><span style="font-size:0.7rem;color:rgba(255,255,255,0.7);">Explicit confirmation state shown</span></div>
+                  <div class="workflow-node">Schedule build<br><span style="font-size:0.7rem;color:var(--gray-400);">Agent allocation + shift planning</span></div>
+                  <div class="workflow-arrow">→</div>
+                  <div class="workflow-node workflow-node--end">Analytics layer<br><span style="font-size:0.7rem;color:rgba(255,255,255,0.7);">Cross-module ops view</span></div>
                 </div>
-              </div>
-              <div style="margin-top:var(--s-6); padding:var(--s-4) var(--s-5); background:var(--teal-50); border-radius:var(--r-md); border:1px solid var(--teal-100);">
-                <span style="font-size:0.8125rem; color:var(--teal-800); font-weight:500;">Result: Average handle time from 5.2 min → 3.8 min. Incomplete ticket submissions from 18% → under 2%.</span>
               </div>
             </div>
           </div>
@@ -275,53 +406,170 @@
   </section>
 
   <!-- =====================================================================
-       CLIENT PORTAL
+       04 — WFM MODULE
   ====================================================================== -->
   <section class="cs-section cs-section--tinted">
     <div class="container">
       <div class="cs-narrative-grid">
-        <div><span class="cs-sidebar-label">04 — Client Portal</span></div>
+        <div><span class="cs-sidebar-label">04 — WFM Module</span></div>
         <div>
           <p class="cs-lead" data-reveal>
-            Forty metrics across eight tabs — redesigned around the three questions every client actually needs to answer each week.
+            Workforce management is one of the most domain-specific design challenges in enterprise SaaS — the gap between what planners know and what most tools offer is where scheduling quality is lost.
           </p>
           <div class="cs-body-text" data-reveal>
-            <p>Client interviews made the diagnostic clear: the existing portal was a data lake wearing dashboard clothes. Every metric BayCX captured was surfaced, with no hierarchy, no temporal context, and no interpretation. Clients who needed to answer "is my team performing to SLA this week?" were presented with 40+ raw figures and no path to an answer without exporting and reformatting the data themselves.</p>
-            <p>The redesign started from the questions, not the data. Through structured interviews with 14 client contacts, I identified three core weekly questions every client tried to answer: performance against SLA targets, quality score trends, and volume patterns. The new portal gave each question its own view, with supporting data available on demand rather than by default — and with inline context explaining what each metric meant and why it mattered.</p>
+            <p>The WFM module had to do something genuinely difficult: replace a highly personalised, years-evolved Excel process without removing the flexibility that made that process work. The key insight from planner sessions was that scheduling isn't a single-step action — it's an iterative conversation between a demand forecast, a set of constraints, and a pool of agents with different skills, availability, and preferences. Most WFM tools collapse this into a one-shot generate button. BayCX needed to expose the reasoning.</p>
+            <p>I designed the WFM module around three distinct planning phases — forecast, build, monitor — each with its own interface state. The forecast phase surfaces historical patterns and anomaly flags before a schedule is generated. The build phase allows planners to adjust the generated schedule against constraint overrides, seeing the impact on coverage in real time. The monitor phase tracks live adherence against that plan and surfaces deviations before they affect SLA.</p>
+          </div>
+
+          <div style="margin-top:var(--s-10); border-radius:var(--r-xl); overflow:hidden; border:1px solid var(--gray-200); box-shadow:var(--shadow-md); background:white;" data-reveal>
+            <div style="padding:var(--s-4) var(--s-6); background:var(--gray-900); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--s-4);">
+              <div style="display:flex; align-items:center; gap:var(--s-4);">
+                <div style="width:64px; height:18px; background:var(--teal-500); border-radius:3px; opacity:0.85;"></div>
+                <div style="height:16px; width:1px; background:rgba(255,255,255,0.12);"></div>
+                <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.08em; color:var(--gray-400); text-transform:uppercase;">WFM · Schedule Build</div>
+              </div>
+              <div style="display:flex; gap:var(--s-3);">
+                <div style="padding:var(--s-1) var(--s-3); border-radius:var(--r-full); background:rgba(255,255,255,0.06); font-size:0.75rem; color:var(--gray-500);">Forecast</div>
+                <div style="padding:var(--s-1) var(--s-3); border-radius:var(--r-full); background:var(--teal-700); font-size:0.75rem; color:white; font-weight:600;">Build</div>
+                <div style="padding:var(--s-1) var(--s-3); border-radius:var(--r-full); background:rgba(255,255,255,0.06); font-size:0.75rem; color:var(--gray-500);">Monitor</div>
+              </div>
+            </div>
+            <div style="padding:var(--s-6);">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--s-5); flex-wrap:wrap; gap:var(--s-3);">
+                <div>
+                  <div style="font-size:0.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--gray-400); margin-bottom:var(--s-2);">Week 24 — Healthcare Queue</div>
+                  <div style="display:flex; gap:var(--s-4); font-size:0.8125rem; color:var(--gray-600);">
+                    <span>Forecast demand: <strong style="color:var(--gray-900);">2,340 interactions</strong></span>
+                    <span>Agents scheduled: <strong style="color:var(--gray-900);">34</strong></span>
+                  </div>
+                </div>
+                <div style="display:flex; align-items:center; gap:var(--s-2); padding:var(--s-2) var(--s-4); background:var(--teal-50); border-radius:var(--r-full); border:1px solid var(--teal-200);">
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--teal-600);"></div>
+                  <span style="font-size:0.75rem; font-weight:600; color:var(--teal-700);">Coverage adequate · 97.1% SLA forecast</span>
+                </div>
+              </div>
+              <!-- Schedule grid visual -->
+              <div style="overflow-x:auto;">
+                <div style="min-width:480px;">
+                  <div style="display:grid; grid-template-columns:80px repeat(7,1fr); gap:2px; margin-bottom:2px;">
+                    <div style="font-size:0.625rem; color:var(--gray-400);"></div>
+                    <div style="font-size:0.625rem; font-weight:700; color:var(--gray-500); text-align:center; text-transform:uppercase;">Mon</div>
+                    <div style="font-size:0.625rem; font-weight:700; color:var(--gray-500); text-align:center; text-transform:uppercase;">Tue</div>
+                    <div style="font-size:0.625rem; font-weight:700; color:var(--gray-500); text-align:center; text-transform:uppercase;">Wed</div>
+                    <div style="font-size:0.625rem; font-weight:700; color:var(--gray-500); text-align:center; text-transform:uppercase;">Thu</div>
+                    <div style="font-size:0.625rem; font-weight:700; color:var(--gray-500); text-align:center; text-transform:uppercase;">Fri</div>
+                    <div style="font-size:0.625rem; font-weight:700; color:var(--gray-500); text-align:center; text-transform:uppercase;">Sat</div>
+                    <div style="font-size:0.625rem; font-weight:700; color:var(--gray-500); text-align:center; text-transform:uppercase;">Sun</div>
+                  </div>
+                  <div style="display:flex; flex-direction:column; gap:2px;">
+                    <div style="display:grid; grid-template-columns:80px repeat(7,1fr); gap:2px;">
+                      <div style="font-size:0.625rem; color:var(--gray-500); display:flex; align-items:center;">06:00–14:00</div>
+                      <div style="height:24px; background:var(--teal-100); border-radius:3px; border:1px solid var(--teal-200);"></div>
+                      <div style="height:24px; background:var(--teal-100); border-radius:3px; border:1px solid var(--teal-200);"></div>
+                      <div style="height:24px; background:var(--teal-100); border-radius:3px; border:1px solid var(--teal-200);"></div>
+                      <div style="height:24px; background:var(--teal-200); border-radius:3px; border:1px solid var(--teal-300);"></div>
+                      <div style="height:24px; background:var(--teal-100); border-radius:3px; border:1px solid var(--teal-200);"></div>
+                      <div style="height:24px; background:var(--gray-100); border-radius:3px; border:1px solid var(--gray-200);"></div>
+                      <div style="height:24px; background:var(--gray-100); border-radius:3px; border:1px solid var(--gray-200);"></div>
+                    </div>
+                    <div style="display:grid; grid-template-columns:80px repeat(7,1fr); gap:2px;">
+                      <div style="font-size:0.625rem; color:var(--gray-500); display:flex; align-items:center;">14:00–22:00</div>
+                      <div style="height:24px; background:var(--teal-100); border-radius:3px; border:1px solid var(--teal-200);"></div>
+                      <div style="height:24px; background:var(--teal-100); border-radius:3px; border:1px solid var(--teal-200);"></div>
+                      <div style="height:24px; background:var(--teal-100); border-radius:3px; border:1px solid var(--teal-200);"></div>
+                      <div style="height:24px; background:var(--teal-100); border-radius:3px; border:1px solid var(--teal-200);"></div>
+                      <div style="height:24px; background:var(--teal-200); border-radius:3px; border:1px solid var(--teal-300);"></div>
+                      <div style="height:24px; background:var(--teal-100); border-radius:3px; border:1px solid var(--teal-200);"></div>
+                      <div style="height:24px; background:var(--gray-100); border-radius:3px; border:1px solid var(--gray-200);"></div>
+                    </div>
+                    <div style="display:grid; grid-template-columns:80px repeat(7,1fr); gap:2px;">
+                      <div style="font-size:0.625rem; color:var(--gray-500); display:flex; align-items:center;">22:00–06:00</div>
+                      <div style="height:24px; background:var(--gray-50); border-radius:3px; border:1px solid var(--gray-200);"></div>
+                      <div style="height:24px; background:var(--gray-50); border-radius:3px; border:1px solid var(--gray-200);"></div>
+                      <div style="height:24px; background:var(--teal-50); border-radius:3px; border:1px solid var(--teal-100);"></div>
+                      <div style="height:24px; background:var(--teal-50); border-radius:3px; border:1px solid var(--teal-100);"></div>
+                      <div style="height:24px; background:var(--teal-50); border-radius:3px; border:1px solid var(--teal-100);"></div>
+                      <div style="height:24px; background:var(--gray-50); border-radius:3px; border:1px solid var(--gray-200);"></div>
+                      <div style="height:24px; background:var(--gray-50); border-radius:3px; border:1px solid var(--gray-200);"></div>
+                    </div>
+                  </div>
+                  <div style="display:flex; gap:var(--s-5); margin-top:var(--s-4); flex-wrap:wrap;">
+                    <div style="display:flex; align-items:center; gap:var(--s-2);"><div style="width:12px;height:12px;border-radius:2px;background:var(--teal-200);border:1px solid var(--teal-300);"></div><span style="font-size:0.6875rem;color:var(--gray-500);">Peak coverage</span></div>
+                    <div style="display:flex; align-items:center; gap:var(--s-2);"><div style="width:12px;height:12px;border-radius:2px;background:var(--teal-100);border:1px solid var(--teal-200);"></div><span style="font-size:0.6875rem;color:var(--gray-500);">Standard shift</span></div>
+                    <div style="display:flex; align-items:center; gap:var(--s-2);"><div style="width:12px;height:12px;border-radius:2px;background:var(--teal-50);border:1px solid var(--teal-100);"></div><span style="font-size:0.6875rem;color:var(--gray-500);">Reduced coverage</span></div>
+                    <div style="display:flex; align-items:center; gap:var(--s-2);"><div style="width:12px;height:12px;border-radius:2px;background:var(--gray-100);border:1px solid var(--gray-200);"></div><span style="font-size:0.6875rem;color:var(--gray-500);">No cover scheduled</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Client portal mockup -->
-      <div style="margin-top:var(--s-12); border-radius:var(--r-xl); overflow:hidden; border:1px solid var(--gray-200); box-shadow:var(--shadow-md); background:white;" data-reveal>
-        <div style="padding:var(--s-4) var(--s-6); background:var(--gray-900); display:flex; align-items:center; gap:var(--s-4); border-bottom:1px solid rgba(255,255,255,0.08);">
-          <div style="width:64px; height:18px; background:var(--teal-500); border-radius:3px; opacity:0.85;"></div>
-          <div style="height:16px; width:1px; background:rgba(255,255,255,0.12);"></div>
-          <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.08em; color:var(--gray-400); text-transform:uppercase;">Client Performance Portal · Week view</div>
-        </div>
-        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; border-bottom:1px solid var(--gray-200);">
-          <div style="padding:var(--s-7); border-right:1px solid var(--gray-200);">
-            <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-3);">SLA Performance</div>
-            <div style="font-family:var(--font-display); font-size:2.75rem; font-weight:300; color:var(--gray-900); line-height:1; margin-bottom:var(--s-2);">97.4<span style="font-size:1.125rem">%</span></div>
-            <div style="font-size:0.75rem; font-weight:600; color:#16a34a;">↑ 1.8pp vs last week</div>
-            <div style="margin-top:var(--s-3); font-size:0.75rem; color:var(--gray-400); line-height:1.5;">Target: 95% · 3-week trend stable</div>
+  <!-- =====================================================================
+       05 — PREDICTIVE ANALYTICS
+  ====================================================================== -->
+  <section class="cs-section">
+    <div class="container">
+      <div class="cs-narrative-grid">
+        <div><span class="cs-sidebar-label">05 — Analytics</span></div>
+        <div>
+          <p class="cs-lead" data-reveal>
+            Turning raw interaction data into operational decisions — not by adding more charts, but by surfacing the right signal at the right moment.
+          </p>
+          <div class="cs-body-text" data-reveal>
+            <p>The analytics comprehension testing exposed a consistent problem: every manager we tested could read a chart, but almost none could translate what they were seeing into an action they should take right now. The data was accurate but inactionable at the level it was presented. Metrics existed in isolation — a quality score here, a handle time there — with no connection to why the number had moved or what could be done about it.</p>
+            <p>The analytics module was designed around a different principle: show the anomaly first, then the data that explains it. The primary view is a live operations feed that surfaces cross-module deviations — interactions where automation failure correlates with downstream agent overload, or where a quality dip is traced to a specific shift segment that's understaffed. Numbers are shown only in the context of their target range and recent trend, never as standalone figures requiring interpretation.</p>
           </div>
-          <div style="padding:var(--s-7); border-right:1px solid var(--gray-200);">
-            <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-3);">Quality Score</div>
-            <div style="font-family:var(--font-display); font-size:2.75rem; font-weight:300; color:var(--gray-900); line-height:1; margin-bottom:var(--s-2);">4.3<span style="font-size:1.125rem"> /5</span></div>
-            <div style="font-size:0.75rem; color:var(--gray-500);">Stable ±0.1 over 4 weeks</div>
-            <div style="margin-top:var(--s-3); font-size:0.75rem; color:var(--gray-400); line-height:1.5;">Target: 4.0 · Based on 1,240 evaluated calls</div>
+
+          <div style="margin-top:var(--s-10); border-radius:var(--r-xl); overflow:hidden; border:1px solid var(--gray-200); box-shadow:var(--shadow-md); background:white;" data-reveal>
+            <div style="padding:var(--s-4) var(--s-6); background:var(--gray-900); display:flex; align-items:center; gap:var(--s-4); flex-wrap:wrap;">
+              <div style="width:64px; height:18px; background:var(--teal-500); border-radius:3px; opacity:0.85;"></div>
+              <div style="height:16px; width:1px; background:rgba(255,255,255,0.12);"></div>
+              <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.08em; color:var(--gray-400); text-transform:uppercase;">Predictive Analytics · Live operations</div>
+              <div style="margin-left:auto; display:flex; align-items:center; gap:var(--s-2);">
+                <div style="width:6px; height:6px; border-radius:50%; background:#22c55e;"></div>
+                <span style="font-size:0.6875rem; color:var(--gray-500);">Live · refreshing every 3 min</span>
+              </div>
+            </div>
+
+            <div class="analytics-grid">
+              <div class="analytics-cell">
+                <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-3);">Automation rate</div>
+                <div style="font-family:var(--font-display); font-size:2.75rem; font-weight:300; color:var(--gray-900); line-height:1; margin-bottom:var(--s-2);">34<span style="font-size:1.125rem">%</span></div>
+                <div style="font-size:0.75rem; font-weight:600; color:#16a34a; margin-bottom:var(--s-2);">↑ 4pp vs 30-day avg</div>
+                <div style="font-size:0.75rem; color:var(--gray-400);">Target: 30% · Healthcare queue leading</div>
+              </div>
+              <div class="analytics-cell">
+                <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-3);">Schedule adherence</div>
+                <div style="font-family:var(--font-display); font-size:2.75rem; font-weight:300; color:var(--gray-900); line-height:1; margin-bottom:var(--s-2);">91<span style="font-size:1.125rem">%</span></div>
+                <div style="font-size:0.75rem; color:var(--gray-500); margin-bottom:var(--s-2);">Stable — within ±1.5% for 6 weeks</div>
+                <div style="font-size:0.75rem; color:var(--gray-400);">Target: 88% · All queues compliant</div>
+              </div>
+              <div class="analytics-cell">
+                <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-3);">Forecast accuracy</div>
+                <div style="font-family:var(--font-display); font-size:2.75rem; font-weight:300; color:var(--gray-900); line-height:1; margin-bottom:var(--s-2);">92<span style="font-size:1.125rem">%</span></div>
+                <div style="font-size:0.75rem; color:var(--gray-500); margin-bottom:var(--s-2);">Within 10% variance threshold</div>
+                <div style="font-size:0.75rem; color:var(--gray-400);">Thursday volume spike — flagged 18h ahead</div>
+              </div>
+            </div>
+
+            <div style="padding:var(--s-5) var(--s-6); background:var(--gray-50); border-top:1px solid var(--gray-200);">
+              <div style="font-size:0.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--gray-400); margin-bottom:var(--s-3);">Active signals</div>
+              <div style="display:flex; flex-direction:column; gap:var(--s-2);">
+                <div style="display:flex; align-items:start; gap:var(--s-3); padding:var(--s-3) var(--s-4); background:white; border-radius:var(--r-lg); border:1px solid var(--gray-200);">
+                  <div style="width:6px; height:6px; border-radius:50%; background:#f59e0b; margin-top:5px; flex-shrink:0;"></div>
+                  <div style="font-size:0.8125rem; color:var(--gray-700);"><strong style="color:var(--gray-900);">Logistics queue</strong> — automation failure rate 18% above baseline. Downstream queue depth growing. Consider staffing buffer for 15:00–17:00 window.</div>
+                </div>
+                <div style="display:flex; align-items:start; gap:var(--s-3); padding:var(--s-3) var(--s-4); background:white; border-radius:var(--r-lg); border:1px solid var(--gray-200);">
+                  <div style="width:6px; height:6px; border-radius:50%; background:#22c55e; margin-top:5px; flex-shrink:0;"></div>
+                  <div style="font-size:0.8125rem; color:var(--gray-700);"><strong style="color:var(--gray-900);">Healthcare queue</strong> — automation rate at 34%, above 30% target. SLA headroom strong through end of shift.</div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div style="padding:var(--s-7);">
-            <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:var(--s-3);">Volume vs Forecast</div>
-            <div style="font-family:var(--font-display); font-size:2.75rem; font-weight:300; color:var(--gray-900); line-height:1; margin-bottom:var(--s-2);">+7<span style="font-size:1.125rem">%</span></div>
-            <div style="font-size:0.75rem; color:var(--gray-500);">Capacity headroom adequate</div>
-            <div style="margin-top:var(--s-3); font-size:0.75rem; color:var(--gray-400); line-height:1.5;">Peak day: Thursday · Avg 2,240 interactions/day</div>
-          </div>
-        </div>
-        <div style="padding:var(--s-4) var(--s-6); background:var(--teal-50); border-top:1px solid var(--teal-100); display:flex; align-items:center; gap:var(--s-3);">
-          <svg width="14" height="14" fill="none" stroke="var(--teal-700)" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span style="font-size:0.8125rem; color:var(--teal-700);">3 primary views replaced 8 tabs and 40+ raw metrics — contextual interpretation inline, no export required</span>
         </div>
       </div>
     </div>
@@ -334,37 +582,37 @@
     <div class="container">
       <header class="section-header" data-reveal>
         <span class="section-label" style="color:var(--teal-400);">Outcomes</span>
-        <h2 class="section-title" style="color:var(--white);">Results across three years of<br><em>sustained design transformation</em></h2>
+        <h2 class="section-title" style="color:var(--white);">From disconnected tools<br><em>to a unified intelligence platform</em></h2>
       </header>
 
-      <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap:var(--s-6); margin-bottom:var(--s-12);" data-reveal>
-        <div style="background:var(--gray-800); border-radius:var(--r-xl); padding:var(--s-8);">
-          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">28<span style="font-size:1.5rem">%</span></div>
-          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Average handle time ↓</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">From 5.2 min → 3.8 min, post-wrap included. Largest gains in healthcare and logistics queues where multi-system lookups were most frequent.</div>
+      <div class="outcome-grid" data-reveal>
+        <div class="outcome-card">
+          <div class="outcome-num">34<span style="font-size:1.5rem">%</span></div>
+          <div class="outcome-label">Tier-1 auto-resolution</div>
+          <div class="outcome-desc">Interactions resolved through automation without agent transfer — a rate that required neither human effort nor human cost, and scaled independently of headcount.</div>
         </div>
-        <div style="background:var(--gray-800); border-radius:var(--r-xl); padding:var(--s-8);">
-          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">11<span style="font-size:1.5rem">d</span></div>
-          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Faster to first solo call</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Supervised onboarding from ~18 days to ~7 days before first unassisted call. Consistent improvement across all four quarters post-launch.</div>
+        <div class="outcome-card">
+          <div class="outcome-num">91<span style="font-size:1.5rem">%</span></div>
+          <div class="outcome-label">Schedule adherence ↑ (from 68%)</div>
+          <div class="outcome-desc">WFM module replaced Excel-based scheduling across all queues. Planners gained real-time adherence monitoring for the first time, removing same-day surprises.</div>
         </div>
-        <div style="background:var(--gray-800); border-radius:var(--r-xl); padding:var(--s-8);">
-          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">+31</div>
-          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Client portal NPS ↑</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">From –4 → +27 across client account contacts surveyed post-launch. Manual data export usage dropped to near-zero within six weeks of rollout.</div>
+        <div class="outcome-card">
+          <div class="outcome-num">92<span style="font-size:1.5rem">%</span></div>
+          <div class="outcome-label">Forecast accuracy</div>
+          <div class="outcome-desc">Within 10% variance threshold on weekly interaction volume. Volume spikes now flagged 18+ hours in advance, enabling proactive staffing rather than reactive scrambling.</div>
         </div>
-        <div style="background:var(--gray-800); border-radius:var(--r-xl); padding:var(--s-8);">
-          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">2<span style="font-size:1.5rem">%</span></div>
-          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Incomplete ticket rate (from 18%)</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Real-time validation and explicit submission confirmation almost eliminated audit correction overhead. Quality review cycle time halved as a direct result.</div>
+        <div class="outcome-card">
+          <div class="outcome-num">2<span style="font-size:1.5rem">wk</span></div>
+          <div class="outcome-label">Automation change lead time ↓ (from 2 months)</div>
+          <div class="outcome-desc">Contact flow changes moved from IT ticket to ops-controlled visual editor. What previously required a two-month IT cycle now ships in under two weeks through the platform.</div>
         </div>
       </div>
 
       <blockquote style="max-width:760px;margin:0 auto;text-align:center;" data-reveal>
-        <p style="font-family:var(--font-display);font-size:1.75rem;font-weight:300;font-style:italic;color:white;line-height:1.5;margin-bottom:var(--s-6);">"The workspace redesign changed the entire onboarding conversation. We used to spend two weeks teaching the tool. Now we spend two weeks on the work."</p>
+        <p style="font-family:var(--font-display);font-size:1.75rem;font-weight:300;font-style:italic;color:white;line-height:1.5;margin-bottom:var(--s-6);">"For the first time, operations managers can see automation, staffing, and quality in one place — and act on what they're seeing before it becomes a problem."</p>
         <footer>
-          <strong style="color:var(--teal-400);font-size:0.9375rem;">Training Lead</strong>
-          <span style="color:var(--gray-500);font-size:0.9375rem;"> — MiXBS Operations</span>
+          <strong style="color:var(--teal-400);font-size:0.9375rem;">Head of Operations</strong>
+          <span style="color:var(--gray-500);font-size:0.9375rem;"> — MiXBS</span>
         </footer>
       </blockquote>
     </div>
