@@ -145,6 +145,24 @@
       .ds-row { padding:var(--s-5); }
       .ds-frame { height:clamp(70px, 20vw, 150px); }
     }
+
+    /* Implementation contribution — process diagram */
+    .impl-figure { margin:var(--s-10) 0 0; }
+    .impl-frame {
+      background:var(--white);
+      border:1px solid var(--gray-200);
+      border-radius:var(--r-xl);
+      padding:var(--s-6);
+      box-shadow:var(--shadow-sm);
+      overflow-x:auto;
+    }
+    .impl-frame img { display:block; width:100%; min-width:820px; height:auto; }
+    .impl-caption { font-size:0.8125rem; color:var(--gray-500); line-height:1.65; margin-top:var(--s-4); max-width:820px; }
+    .impl-highlights { list-style:none; margin:var(--s-6) 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:var(--s-4) var(--s-7); }
+    .impl-highlights li { font-size:0.9375rem; line-height:1.55; color:var(--gray-700); padding-left:var(--s-5); position:relative; }
+    .impl-highlights li::before { content:''; position:absolute; left:0; top:0.55em; width:7px; height:7px; border-radius:2px; background:var(--teal-500); }
+    .impl-highlights strong { color:var(--gray-900); font-weight:600; }
+    @media (max-width:768px){ .impl-frame{ padding:var(--s-4);} .impl-highlights{ grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -231,6 +249,38 @@
   </div>
 
   <!-- =====================================================================
+       MY CONTRIBUTION — IMPLEMENTATION  (first narrative section)
+  ====================================================================== -->
+  <section class="cs-section cs-section--tinted">
+    <div class="container">
+      <div class="cs-narrative-grid">
+        <div><span class="cs-sidebar-label">My Contribution</span></div>
+        <div>
+          <p class="cs-lead" data-reveal>My role didn't end at handoff. I defined how UX/UI lives inside the development process itself — the operating model that kept design intent intact from the first requirement through to rollout.</p>
+          <div class="cs-body-text" data-reveal>
+            <p>On a programme this size — two development squads, a requirements-engineering function, business departments (<em>Fachbereich</em>), an info-team and a dedicated test-team — the real threat to a redesign isn't the visual concept. It's the hundreds of small implementation decisions where design intent quietly erodes under technical constraint and shifting requirements. To prevent that, I authored the <strong>UX-in-development workflow</strong>: an explicit operating model defining how UX/UI is embedded across every phase, from Problem Discovery through Solution Discovery, Development, Validation and Rollout.</p>
+            <p>The model draws a hard line between the <strong>WAS</strong> — what the business needs and why — and the <strong>WIE</strong> — how the interface and screen-flow deliver it. The UX/UI concept I produced became the shared artefact bridging the two: reviewed jointly with engineering for technical feasibility and with the business for requirement coverage, so every team held a common understanding of both <em>what</em> was being built and <em>how</em>. It also set the rules of engagement during the build — input from any team can be folded into the WIE where it makes sense, but non-negotiable UX criteria (corporate design, legal requirements, cross-module consistency, accessibility) stay protected and can't be quietly overridden under delivery pressure.</p>
+            <p>When implementation or testing surfaced a needed change, the workflow routed it correctly: a purely interface-level fix was made directly in the UX/UI concept, while anything touching a functional requirement went back to the business to be sharpened first — and only then re-reflected in the design. The result was a redesign that survived contact with engineering intact.</p>
+          </div>
+          <ul class="impl-highlights" data-reveal>
+            <li><strong>Owned the UX/UI concept</strong> as the binding reference for every screen and flow built.</li>
+            <li><strong>Defined WAS vs WIE governance</strong> separating functional ownership from design ownership.</li>
+            <li><strong>Ran joint feasibility &amp; coverage reviews</strong> with dev squads and the business per feature.</li>
+            <li><strong>Protected UX quality gates</strong> — CD, legal, consistency and WCAG AA — through to rollout.</li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="impl-figure" data-reveal>
+        <div class="impl-frame">
+          <img src="../images/case-studies/eama/ux-in-development.png" alt="UX-in-development process map — swimlanes for requirements engineering, business and info-team, UX/UI, development and test-team across five phases (Problem Discovery, Solution Discovery, Development, Validation, Rollout), with decision gates and annotated rules of engagement.">
+        </div>
+        <figcaption class="impl-caption">The UX-in-development operating model I authored — how UX/UI decisions move through Problem Discovery → Solution Discovery → Development → Validation → Rollout, with explicit review gates and the WAS / WIE split that kept functional and design ownership distinct but synchronised.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- =====================================================================
        CHALLENGE
   ====================================================================== -->
   <section class="cs-section">
@@ -257,8 +307,9 @@
   <section class="cs-section cs-section--tinted">
     <div class="container">
       <header class="section-header" data-reveal>
-        <span class="section-label">Audit Findings</span>
-        <h2 class="section-title">The portal before redesign:<br><em>modules without a system</em></h2>
+        <span class="section-label">Before &amp; After</span>
+        <h2 class="section-title">From modules without a system<br>to <em>one coherent portal</em></h2>
+        <p class="section-description">Fifteen years of incremental development had left eAMA as four loosely-joined modules — MFA, ÖPUL, Rindernetz and Marktdaten — each carrying its own navigation, typography and visual language. The redesign consolidates them into a single portal governed by one design system: a tab-based content area, a prominent login, and a market-information sidebar, with every primary task brought within three steps. The two screens below show the same starting point — the farmer's first view of the portal — before and after.</p>
       </header>
 
       <div class="ba-comparison" data-reveal>
