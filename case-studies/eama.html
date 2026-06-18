@@ -87,17 +87,17 @@
     .ia-stem { width:1px; height:20px; background:#cccccc; }
     .ia-spine { height:2px; background:#cccccc; margin:0 0 0; }
     /* module columns */
-    .ia-modules { display:flex; gap:12px; }
-    .ia-module { flex:0 0 auto; min-width:128px; max-width:152px; position:relative; padding-top:24px; }
-    .ia-module--wide { min-width:152px; max-width:180px; }
+    .ia-modules { display:flex; gap:8px; }
+    .ia-module { flex:0 0 auto; min-width:82px; max-width:100px; position:relative; padding-top:24px; }
+    .ia-module--wide { min-width:112px; max-width:132px; }
     .ia-module::before { content:''; position:absolute; top:0; left:50%; width:1px; height:22px; background:#cccccc; transform:translateX(-50%); }
-    .ia-mod-name { background:white; border:1.5px solid #CBD5E1; border-radius:4px; padding:4px 8px; font-size:0.625rem; font-weight:700; color:var(--teal-700); text-align:center; margin-bottom:6px; line-height:1.35; }
-    .ia-mod-items { display:flex; flex-direction:column; gap:2px; }
-    .ia-item { font-size:0.5625rem; line-height:1.4; padding:3px 6px; border-radius:3px; color:#475569; background:white; border:1px solid #E2E8F0; }
+    .ia-mod-name { background:white; border:1.5px solid #CBD5E1; border-radius:4px; padding:3px 6px; font-size:0.5rem; font-weight:700; color:var(--teal-700); text-align:center; margin-bottom:6px; line-height:1.35; }
+    .ia-mod-items { display:flex; flex-direction:column; gap:4px; }
+    .ia-item { font-size:0.5rem; line-height:1.35; padding:2px 5px; border-radius:3px; color:#475569; background:white; border:1px solid #E2E8F0; }
     .ia-item--dead { color:#B91C1C; background:#FEF2F2; border-color:#FECACA; }
     .ia-item--dup  { color:#1D4ED8; background:#EFF6FF; border-color:#BFDBFE; }
-    .ia-item--sub  { font-size:0.5rem; color:#94A3B8; background:transparent; border-color:transparent; padding-left:10px; }
-    .ia-item--more { font-size:0.5rem; color:#94A3B8; background:transparent; border-color:transparent; font-style:italic; }
+    .ia-item--sub  { font-size:0.4375rem; color:#94A3B8; background:transparent; border-color:transparent; padding-left:10px; }
+    .ia-item--more { font-size:0.4375rem; color:#94A3B8; background:transparent; border-color:transparent; font-style:italic; }
     /* roles row at top */
     .ia-roles { display:flex; justify-content:center; gap:6px; margin-bottom:0; flex-wrap:wrap; }
     .ia-role { font-size:0.5625rem; color:var(--teal-600); background:var(--teal-50); border:1px solid var(--teal-100); border-radius:var(--r-full); padding:2px 8px; white-space:nowrap; }
@@ -472,7 +472,7 @@
                 </div>
 
                 <!-- 04 Daten -->
-                <div class="ia-module" style="min-width:110px;max-width:130px;">
+                <div class="ia-module" style="min-width:72px;max-width:86px;">
                   <div class="ia-mod-name">Daten</div>
                   <div class="ia-mod-items">
                     <div class="ia-item">Lagebestand</div>
@@ -493,7 +493,7 @@
                 </div>
 
                 <!-- 06 Betriebe -->
-                <div class="ia-module" style="min-width:110px;max-width:130px;">
+                <div class="ia-module" style="min-width:72px;max-width:86px;">
                   <div class="ia-mod-name">Betriebe</div>
                   <div class="ia-mod-items">
                     <div class="ia-item">Lagebestand</div>
@@ -503,7 +503,7 @@
                 </div>
 
                 <!-- 07 Mehrfachantrag MFÄ — the big one -->
-                <div class="ia-module ia-module--wide" style="min-width:170px;max-width:200px;">
+                <div class="ia-module ia-module--wide" style="min-width:112px;max-width:132px;">
                   <div class="ia-mod-name" style="background:var(--teal-50);border-color:var(--teal-300);">Mehrfachantrag (MFÄ)</div>
                   <div class="ia-mod-items">
                     <div class="ia-item">Lagebestand</div>
@@ -532,7 +532,7 @@
                 </div>
 
                 <!-- 09 Förderinfo -->
-                <div class="ia-module" style="min-width:110px;max-width:130px;">
+                <div class="ia-module" style="min-width:72px;max-width:86px;">
                   <div class="ia-mod-name">Förderinfo</div>
                   <div class="ia-mod-items">
                     <div class="ia-item ia-item--dead">Lagebestand</div>
@@ -541,7 +541,7 @@
                 </div>
 
                 <!-- 10 MIS -->
-                <div class="ia-module" style="min-width:110px;max-width:130px;">
+                <div class="ia-module" style="min-width:72px;max-width:86px;">
                   <div class="ia-mod-name">MIS</div>
                   <div class="ia-mod-items">
                     <div class="ia-item">Lagebestand</div>
@@ -563,7 +563,7 @@
                 </div>
 
                 <!-- 12 Admin -->
-                <div class="ia-module" style="min-width:110px;max-width:130px;">
+                <div class="ia-module" style="min-width:72px;max-width:86px;">
                   <div class="ia-mod-name">Admin</div>
                   <div class="ia-mod-items">
                     <div class="ia-item">Lagebestand</div>
