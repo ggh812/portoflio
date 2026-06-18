@@ -69,6 +69,45 @@
     .info-table tr:last-child td { border-bottom:none; }
     .info-table td:first-child { font-weight:600; color: var(--gray-900); width:140px; padding-right:var(--s-6); }
 
+    /* ── IA Sitemap Diagram ───────────────────────────────────────────── */
+    .ia-viewer { border-radius: var(--r-xl); overflow: hidden; margin-top: var(--s-8); box-shadow: var(--shadow-lg); }
+    .ia-topbar { background: var(--gray-900); padding: var(--s-4) var(--s-6); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--s-4); }
+    .ia-topbar-title { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-400); }
+    .ia-legend { display:flex; gap:var(--s-5); align-items:center; flex-wrap:wrap; }
+    .ia-legend-item { display:flex; align-items:center; gap:5px; font-size:0.75rem; color:var(--gray-500); }
+    .ia-dot { width:8px; height:8px; border-radius:2px; flex-shrink:0; }
+    .ia-dot--dead { background:#EF4444; }
+    .ia-dot--dup  { background:#3B82F6; }
+    .ia-scroll { overflow-x:auto; background:#F1F3F5; padding:var(--s-7) var(--s-6); }
+    /* root node */
+    .ia-root-row { display:flex; justify-content:center; }
+    .ia-eama { background:var(--teal-700); color:white; padding:5px 20px; border-radius:5px; font-size:0.8125rem; font-weight:700; letter-spacing:0.04em; display:inline-block; white-space:nowrap; }
+    /* spine */
+    .ia-spine-wrap { display:flex; flex-direction:column; align-items:center; }
+    .ia-stem { width:1px; height:20px; background:var(--gray-400); }
+    .ia-spine { height:2px; background:var(--gray-400); margin:0 0 0; }
+    /* module columns */
+    .ia-modules { display:flex; gap:6px; }
+    .ia-module { flex:0 0 auto; min-width:128px; max-width:152px; position:relative; padding-top:24px; }
+    .ia-module--wide { min-width:152px; max-width:180px; }
+    .ia-module::before { content:''; position:absolute; top:0; left:50%; width:1px; height:22px; background:var(--gray-400); transform:translateX(-50%); }
+    .ia-mod-name { background:white; border:1.5px solid #CBD5E1; border-radius:4px; padding:4px 8px; font-size:0.625rem; font-weight:700; color:var(--teal-700); text-align:center; margin-bottom:6px; line-height:1.35; }
+    .ia-mod-items { display:flex; flex-direction:column; gap:2px; }
+    .ia-item { font-size:0.5625rem; line-height:1.4; padding:3px 6px; border-radius:3px; color:#475569; background:white; border:1px solid #E2E8F0; }
+    .ia-item--dead { color:#B91C1C; background:#FEF2F2; border-color:#FECACA; }
+    .ia-item--dup  { color:#1D4ED8; background:#EFF6FF; border-color:#BFDBFE; }
+    .ia-item--sub  { font-size:0.5rem; color:#94A3B8; background:transparent; border-color:transparent; padding-left:10px; }
+    .ia-item--more { font-size:0.5rem; color:#94A3B8; background:transparent; border-color:transparent; font-style:italic; }
+    /* roles row at top */
+    .ia-roles { display:flex; justify-content:center; gap:6px; margin-bottom:0; flex-wrap:wrap; }
+    .ia-role { font-size:0.5625rem; color:var(--teal-600); background:var(--teal-50); border:1px solid var(--teal-100); border-radius:var(--r-full); padding:2px 8px; white-space:nowrap; }
+    .ia-roles-stem { display:flex; flex-direction:column; align-items:center; }
+    @media (max-width:768px) {
+      .ia-scroll { padding:var(--s-5) var(--s-4); }
+      .ia-topbar { padding:var(--s-3) var(--s-4); }
+      .ia-legend { gap:var(--s-3); }
+    }
+
     /* Design System component sheets — equal-height, equal-padding cards */
     .ds-stack { display:flex; flex-direction:column; gap:var(--s-6); }
     .ds-row {
@@ -352,10 +391,197 @@
       </div>
 
       <div style="margin-top:var(--s-10);" data-reveal>
-        <div style="border-radius:var(--r-xl); overflow:hidden; border:1px solid var(--gray-200); box-shadow:var(--shadow-md); background:white;">
-          <img src="../images/case-studies/eama/eama-ia-sitemap.webp" alt="Full information architecture audit of the legacy eAMA portal — sitemap showing 140+ screens, 8 top-level modules, dead-ends highlighted in red, duplicate entry points in blue" style="width:100%; display:block;">
-        </div>
-        <p style="font-size:0.8125rem; color:var(--gray-500); margin-top:var(--s-3); text-align:center;">Full IA audit of the legacy portal — red nodes = navigation dead-ends; blue = duplicate entry points across modules</p>
+        <div class="ia-viewer">
+
+          <!-- header bar -->
+          <div class="ia-topbar">
+            <span class="ia-topbar-title">Legacy eAMA · Full IA Audit · 140+ screens · 12 modules</span>
+            <div class="ia-legend">
+              <span class="ia-legend-item"><span class="ia-dot ia-dot--dead"></span>Löschnotiz — dead-end</span>
+              <span class="ia-legend-item"><span class="ia-dot ia-dot--dup"></span>Löschen — duplicate / redundant</span>
+            </div>
+          </div>
+
+          <!-- diagram canvas -->
+          <div class="ia-scroll">
+
+            <!-- user roles (top entry points) -->
+            <div style="display:flex;justify-content:center;margin-bottom:4px;gap:6px;flex-wrap:wrap;">
+              <span class="ia-role">Landwirtschaft (Ansicht)</span>
+              <span class="ia-role">Sonstige Rollen</span>
+              <span class="ia-role">Gemeinsam Zuständig</span>
+              <span class="ia-role">Netzauftritt Landwirt</span>
+              <span class="ia-role">Vertretungsbefugnis &amp; Vollmachten</span>
+            </div>
+
+            <!-- stems to root -->
+            <div style="display:flex;justify-content:center;height:18px;">
+              <div style="width:1px;background:var(--gray-400);"></div>
+            </div>
+
+            <!-- eAMA root -->
+            <div style="display:flex;justify-content:center;margin-bottom:0;">
+              <span class="ia-eama">eAMA</span>
+            </div>
+
+            <!-- stem down from root to spine -->
+            <div style="display:flex;justify-content:center;height:20px;">
+              <div style="width:1px;background:var(--gray-400);"></div>
+            </div>
+
+            <!-- horizontal spine + modules -->
+            <div style="position:relative;">
+              <div style="height:2px;background:var(--gray-400);position:absolute;top:0;left:0;right:0;"></div>
+              <div class="ia-modules">
+
+                <!-- 01 RinderNET -->
+                <div class="ia-module">
+                  <div class="ia-mod-name">RinderNET</div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item">Lagebestand</div>
+                    <div class="ia-item">Tierzugang / -abgang</div>
+                    <div class="ia-item">Labornummer zu Kühen</div>
+                    <div class="ia-item--sub ia-item">FFK &amp; Import</div>
+                    <div class="ia-item ia-item--dead">↳ Mehrfachantrag MFÄ</div>
+                    <div class="ia-item ia-item--dead">↳ FÖK Inhalt</div>
+                  </div>
+                </div>
+
+                <!-- 02 Tierdaten -->
+                <div class="ia-module">
+                  <div class="ia-mod-name">Tierdaten</div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item">Lagebestand</div>
+                    <div class="ia-item">Tierbestandsdaten (MFÄ)</div>
+                    <div class="ia-item">Futterbestandsdaten (MFÄ)</div>
+                    <div class="ia-item">Stallungen</div>
+                    <div class="ia-item">Tierseuchenbekämpfung</div>
+                    <div class="ia-item ia-item--dead">FÖK Daten</div>
+                    <div class="ia-item ia-item--dead">FÖK Inhalt</div>
+                  </div>
+                </div>
+
+                <!-- 03 Ergebnisse -->
+                <div class="ia-module">
+                  <div class="ia-mod-name">Ergebnisse</div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item">Lagebestand</div>
+                    <div class="ia-item--sub ia-item">Abschreibungsart</div>
+                    <div class="ia-item--sub ia-item">Prämienabzüge</div>
+                    <div class="ia-item--sub ia-item">Betriebsabzüge</div>
+                    <div class="ia-item--sub ia-item">Tabellenwesen</div>
+                    <div class="ia-item ia-item--dup">Lagekonto</div>
+                    <div class="ia-item">MFA-Saldo</div>
+                  </div>
+                </div>
+
+                <!-- 04 Daten -->
+                <div class="ia-module" style="min-width:110px;max-width:130px;">
+                  <div class="ia-mod-name">Daten</div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item">Lagebestand</div>
+                    <div class="ia-item ia-item--dup">Prämienkonten</div>
+                  </div>
+                </div>
+
+                <!-- 05 MFA (duplicate of MFÄ) -->
+                <div class="ia-module">
+                  <div class="ia-mod-name" style="border-color:#BFDBFE;color:#1D4ED8;">MFA <span style="font-size:0.5rem;font-weight:400;color:#3B82F6;">↔ MFÄ</span></div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item ia-item--dead">Lagebestand (Anträge)</div>
+                    <div class="ia-item">Schläge</div>
+                    <div class="ia-item">Schlaggruppen</div>
+                    <div class="ia-item">Natur Nutzung</div>
+                    <div class="ia-item">Fusion</div>
+                  </div>
+                </div>
+
+                <!-- 06 Betriebe -->
+                <div class="ia-module" style="min-width:110px;max-width:130px;">
+                  <div class="ia-mod-name">Betriebe</div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item">Lagebestand</div>
+                    <div class="ia-item">Anschriften</div>
+                    <div class="ia-item ia-item--dead">↳ Gläubiger (mehrere)</div>
+                  </div>
+                </div>
+
+                <!-- 07 Mehrfachantrag MFÄ — the big one -->
+                <div class="ia-module ia-module--wide" style="min-width:170px;max-width:200px;">
+                  <div class="ia-mod-name" style="background:var(--teal-50);border-color:var(--teal-300);">Mehrfachantrag (MFÄ)</div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item">Lagebestand</div>
+                    <div class="ia-item ia-item--dead">↳ 9 Varianten</div>
+                    <div class="ia-item">ZA (Zahlungsansprüche)</div>
+                    <div class="ia-item">Flächen Lage</div>
+                    <div class="ia-item">Offene Anträge</div>
+                    <div class="ia-item">Schlösser &amp; Flächen</div>
+                    <div class="ia-item">Jahresüberleitungen</div>
+                    <div class="ia-item">Maßnahmen &amp; Berichte</div>
+                    <div class="ia-item">Maßnahmen &amp; Prämien</div>
+                    <div class="ia-item">KT-Ausschluss / Flächen</div>
+                    <div class="ia-item">Tieraufschlüsselung</div>
+                  </div>
+                </div>
+
+                <!-- 08 Tierhaltungen -->
+                <div class="ia-module">
+                  <div class="ia-mod-name">Tierhaltungen</div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item">Lagebestand</div>
+                    <div class="ia-item">Treiben</div>
+                    <div class="ia-item">Tierseuchenbekämpfung</div>
+                    <div class="ia-item">Förderung</div>
+                  </div>
+                </div>
+
+                <!-- 09 Förderinfo -->
+                <div class="ia-module" style="min-width:110px;max-width:130px;">
+                  <div class="ia-mod-name">Förderinfo</div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item ia-item--dead">Lagebestand</div>
+                    <div class="ia-item">Förderkonten</div>
+                  </div>
+                </div>
+
+                <!-- 10 MIS -->
+                <div class="ia-module" style="min-width:110px;max-width:130px;">
+                  <div class="ia-mod-name">MIS</div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item">Lagebestand</div>
+                    <div class="ia-item ia-item--dup">Katasterbezeichnung / DKT</div>
+                  </div>
+                </div>
+
+                <!-- 11 Qualitätssicherung -->
+                <div class="ia-module">
+                  <div class="ia-mod-name">Qualitäts­sicherung</div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item">Lagebestand</div>
+                    <div class="ia-item">Listen</div>
+                    <div class="ia-item">Prüfungen</div>
+                    <div class="ia-item">Befunde</div>
+                    <div class="ia-item ia-item--dead">Abschlüsse</div>
+                    <div class="ia-item">Spesen</div>
+                  </div>
+                </div>
+
+                <!-- 12 Admin -->
+                <div class="ia-module" style="min-width:110px;max-width:130px;">
+                  <div class="ia-mod-name">Admin</div>
+                  <div class="ia-mod-items">
+                    <div class="ia-item">Lagebestand</div>
+                    <div class="ia-item">Zahlungsaufträge</div>
+                    <div class="ia-item">Teilnehmer</div>
+                  </div>
+                </div>
+
+              </div><!-- /ia-modules -->
+            </div><!-- /spine wrapper -->
+
+          </div><!-- /ia-scroll -->
+        </div><!-- /ia-viewer -->
+        <p style="font-size:0.8125rem; color:var(--gray-500); margin-top:var(--s-3); text-align:center;">Reconstructed from the IA audit file. Red = marked for deletion (dead-ends); blue = duplicate/redundant pages; MFA module appears in four separate locations across the portal.</p>
       </div>
     </div>
   </section>
