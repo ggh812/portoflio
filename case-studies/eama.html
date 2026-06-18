@@ -163,6 +163,31 @@
     .impl-highlights li::before { content:''; position:absolute; left:0; top:0.55em; width:7px; height:7px; border-radius:2px; background:var(--teal-500); }
     .impl-highlights strong { color:var(--gray-900); font-weight:600; }
     @media (max-width:768px){ .impl-frame{ padding:var(--s-4);} .impl-highlights{ grid-template-columns:1fr; } }
+
+    /* MFA submission flow — before / after comparison */
+    .mfa-compare { display:grid; grid-template-columns:1fr 1fr; gap:var(--s-5); align-items:start; margin-top:var(--s-5); }
+    .mfa-col { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--r-xl); padding:var(--s-5); }
+    .mfa-col-head { margin-bottom:var(--s-3); }
+    .mfa-col-title { font-size:0.6875rem; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; }
+    .mfa-col--before .mfa-col-title { color:#B91C1C; }
+    .mfa-col--after  .mfa-col-title { color:var(--teal-700); }
+    .mfa-col-sub { font-size:0.6875rem; color:var(--gray-400); margin-top:3px; }
+    .mfa-legend { display:flex; flex-wrap:wrap; gap:5px 10px; margin-bottom:var(--s-3); }
+    .mfa-leg { display:flex; align-items:center; gap:4px; font-size:0.5625rem; color:var(--gray-500); }
+    .mfa-leg i { width:9px; height:9px; border-radius:2px; display:inline-block; flex-shrink:0; }
+    .mfa-steps { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:3px; }
+    .mfa-step { display:flex; align-items:flex-start; gap:6px; font-size:0.6875rem; line-height:1.3; color:var(--gray-700); padding:3px 7px; border-radius:5px; background:var(--gray-50); }
+    .mfa-step .n { font-size:0.5625rem; font-weight:700; color:var(--gray-400); min-width:0.95rem; flex-shrink:0; padding-top:1px; font-variant-numeric:tabular-nums; }
+    .mfa-step--print { background:#FFF1E6; color:#9A3412; }
+    .mfa-step--print .n { color:#C2632A; }
+    .mfa-step--post  { background:#FDE9C8; color:#92400E; }
+    .mfa-step--post .n { color:#B45309; }
+    .mfa-step--wait  { background:repeating-linear-gradient(45deg,#F1F5F9,#F1F5F9 6px,#E7EDF3 6px,#E7EDF3 12px); color:#475569; font-style:italic; }
+    .mfa-step--after { background:var(--teal-50); color:var(--teal-900); }
+    .mfa-step--after .n { color:var(--teal-600); }
+    .mfa-result { margin-top:var(--s-5); padding:var(--s-4) var(--s-5); background:var(--teal-50); border:1px solid var(--teal-100); border-radius:var(--r-md); }
+    .mfa-result span { font-size:0.8125rem; color:var(--teal-800); font-weight:500; line-height:1.6; }
+    @media (max-width:768px){ .mfa-compare{ grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -662,72 +687,74 @@
             <p>I ran a three-day service blueprinting workshop with AMA's product, technical, and legal teams to map the actual data dependencies between steps and identify where a progressive disclosure model was feasible without creating new compliance risk.</p>
           </div>
 
-          <!-- Workflow diagram — MFA submission flow -->
+          <!-- Workflow diagram — MFA submission flow, before vs after -->
           <div style="margin-top:var(--s-10);" data-reveal>
-            <h3 style="font-size:0.9375rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-5);">Redesigned MFA Submission Flow</h3>
-            <div class="workflow-diagram" style="padding:var(--s-6);">
-              <div style="font-size:0.8125rem; color:var(--gray-500); margin-bottom:var(--s-5);">Before: 4 separate modules, no shared state · After: Unified 5-step wizard with draft save &amp; resume</div>
+            <h3 style="font-size:0.9375rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-2);">Redesigned MFA Submission Flow</h3>
+            <p style="font-size:0.8125rem; color:var(--gray-500); margin:0;">A 25-step submission intertwined with printed PDFs posted to AMA — and blocking waits between each return — reduced to 7 fully-digital steps completed in one sitting.</p>
 
-              <!-- Vertical step list — always fits the column width -->
-              <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:var(--s-2);">
+            <div class="mfa-compare">
 
-                <!-- Login — full width -->
-                <li style="grid-column:1/-1;display:flex;align-items:center;gap:var(--s-3);padding:var(--s-3) var(--s-4);background:var(--teal-700);border-radius:var(--r-md);">
-                  <span style="font-size:0.8125rem;font-weight:700;color:rgba(255,255,255,0.6);flex-shrink:0;">→</span>
-                  <span style="font-size:0.8125rem;font-weight:600;color:var(--white);">Farm login</span>
-                </li>
-
-                <!-- Steps 1–4 in 2-col grid -->
-                <li style="display:flex;align-items:flex-start;gap:var(--s-3);padding:var(--s-3) var(--s-4);background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:var(--r-md);">
-                  <span style="font-size:0.75rem;font-weight:700;color:var(--teal-600);flex-shrink:0;min-width:1.25rem;">01</span>
-                  <div>
-                    <div style="font-size:0.8125rem;font-weight:600;color:var(--gray-800);">Farm &amp; season</div>
-                    <div style="font-size:0.75rem;color:var(--gray-400);margin-top:2px;">Pre-filled from previous year</div>
-                  </div>
-                </li>
-                <li style="display:flex;align-items:flex-start;gap:var(--s-3);padding:var(--s-3) var(--s-4);background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:var(--r-md);">
-                  <span style="font-size:0.75rem;font-weight:700;color:var(--teal-600);flex-shrink:0;min-width:1.25rem;">02</span>
-                  <div>
-                    <div style="font-size:0.8125rem;font-weight:600;color:var(--gray-800);">Parcel map</div>
-                    <div style="font-size:0.75rem;color:var(--gray-400);margin-top:2px;">Touch-first GIS viewer</div>
-                  </div>
-                </li>
-                <li style="display:flex;align-items:flex-start;gap:var(--s-3);padding:var(--s-3) var(--s-4);background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:var(--r-md);">
-                  <span style="font-size:0.75rem;font-weight:700;color:var(--teal-600);flex-shrink:0;min-width:1.25rem;">03</span>
-                  <div>
-                    <div style="font-size:0.8125rem;font-weight:600;color:var(--gray-800);">Crop declaration</div>
-                    <div style="font-size:0.75rem;color:var(--gray-400);margin-top:2px;">Per-parcel, validated live</div>
-                  </div>
-                </li>
-                <li style="display:flex;align-items:flex-start;gap:var(--s-3);padding:var(--s-3) var(--s-4);background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:var(--r-md);">
-                  <span style="font-size:0.75rem;font-weight:700;color:var(--teal-600);flex-shrink:0;min-width:1.25rem;">04</span>
-                  <div>
-                    <div style="font-size:0.8125rem;font-weight:600;color:var(--gray-800);">ÖPUL measures</div>
-                    <div style="font-size:0.75rem;color:var(--gray-400);margin-top:2px;">Optional — save &amp; return</div>
-                  </div>
-                </li>
-                <li style="grid-column:1/-1;display:flex;align-items:flex-start;gap:var(--s-3);padding:var(--s-3) var(--s-4);background:var(--gray-50);border:1.5px solid var(--gray-200);border-radius:var(--r-md);">
-                  <span style="font-size:0.75rem;font-weight:700;color:var(--teal-600);flex-shrink:0;min-width:1.25rem;">05</span>
-                  <div>
-                    <div style="font-size:0.8125rem;font-weight:600;color:var(--gray-800);">Review &amp; submit</div>
-                    <div style="font-size:0.75rem;color:var(--gray-400);margin-top:2px;">Full summary, PDF preview</div>
-                  </div>
-                </li>
-
-                <!-- Confirmation — full width -->
-                <li style="grid-column:1/-1;display:flex;align-items:center;gap:var(--s-3);padding:var(--s-3) var(--s-4);background:var(--gray-900);border-radius:var(--r-md);">
-                  <span style="font-size:0.8125rem;font-weight:700;color:rgba(255,255,255,0.5);flex-shrink:0;">✓</span>
-                  <div>
-                    <div style="font-size:0.8125rem;font-weight:600;color:var(--white);">Confirmation</div>
-                    <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:2px;">+ AMA-signed PDF receipt</div>
-                  </div>
-                </li>
-
-              </ol>
-
-              <div style="margin-top:var(--s-5); padding:var(--s-4) var(--s-5); background:var(--teal-50); border-radius:var(--r-md); border:1px solid var(--teal-100);">
-                <span style="font-size:0.8125rem; color:var(--teal-800); font-weight:500;">Result: Average submission time for returning users reduced from 14.8 min → 6.3 min. Draft resumption used by 38% of sessions in first MFA season.</span>
+              <!-- BEFORE -->
+              <div class="mfa-col mfa-col--before">
+                <div class="mfa-col-head">
+                  <div class="mfa-col-title">Before — paper-bound</div>
+                  <div class="mfa-col-sub">25 steps · 5 PDF printouts · 5 postal returns · 4 blocking waits</div>
+                </div>
+                <div class="mfa-legend">
+                  <span class="mfa-leg"><i style="background:#E2E8F0;"></i>digital step</span>
+                  <span class="mfa-leg"><i style="background:#F6C28B;"></i>print PDF</span>
+                  <span class="mfa-leg"><i style="background:#EFA85F;"></i>post to AMA</span>
+                  <span class="mfa-leg"><i style="background:#CBD5E1;"></i>wait for AMA</span>
+                </div>
+                <ol class="mfa-steps">
+                  <li class="mfa-step"><span class="n">01</span>Log in to eAMA</li>
+                  <li class="mfa-step"><span class="n">02</span>Open MFA module</li>
+                  <li class="mfa-step"><span class="n">03</span>Select farm &amp; season</li>
+                  <li class="mfa-step"><span class="n">04</span>Enter parcel list</li>
+                  <li class="mfa-step mfa-step--print"><span class="n">05</span>Print parcel list (PDF)</li>
+                  <li class="mfa-step mfa-step--post"><span class="n">06</span>Sign &amp; post to AMA</li>
+                  <li class="mfa-step mfa-step--wait"><span class="n">07</span>Wait for parcel registration</li>
+                  <li class="mfa-step"><span class="n">08</span>Log back in</li>
+                  <li class="mfa-step"><span class="n">09</span>Open GIS module (desktop only)</li>
+                  <li class="mfa-step"><span class="n">10</span>Draw field boundaries</li>
+                  <li class="mfa-step mfa-step--print"><span class="n">11</span>Print GIS sketch (PDF)</li>
+                  <li class="mfa-step mfa-step--post"><span class="n">12</span>Post sketch to AMA</li>
+                  <li class="mfa-step mfa-step--wait"><span class="n">13</span>Wait for boundary confirmation</li>
+                  <li class="mfa-step"><span class="n">14</span>Re-open MFA module</li>
+                  <li class="mfa-step"><span class="n">15</span>Declare crops per parcel</li>
+                  <li class="mfa-step mfa-step--print"><span class="n">16</span>Print crop declaration (PDF)</li>
+                  <li class="mfa-step mfa-step--post"><span class="n">17</span>Post declaration + documents</li>
+                  <li class="mfa-step"><span class="n">18</span>Open ÖPUL module separately</li>
+                  <li class="mfa-step"><span class="n">19</span>Select agri-environment measures</li>
+                  <li class="mfa-step mfa-step--print"><span class="n">20</span>Print ÖPUL commitment (PDF)</li>
+                  <li class="mfa-step mfa-step--post"><span class="n">21</span>Sign &amp; post ÖPUL form</li>
+                  <li class="mfa-step mfa-step--wait"><span class="n">22</span>Wait for eligibility check</li>
+                  <li class="mfa-step mfa-step--print"><span class="n">23</span>Print final MFA summary (PDF)</li>
+                  <li class="mfa-step mfa-step--post"><span class="n">24</span>Post signed summary to AMA</li>
+                  <li class="mfa-step mfa-step--wait"><span class="n">25</span>Wait for confirmation letter</li>
+                </ol>
               </div>
+
+              <!-- AFTER -->
+              <div class="mfa-col mfa-col--after">
+                <div class="mfa-col-head">
+                  <div class="mfa-col-title">After — fully digital</div>
+                  <div class="mfa-col-sub">7 steps · no printing · no postal returns · no waiting</div>
+                </div>
+                <ol class="mfa-steps">
+                  <li class="mfa-step mfa-step--after"><span class="n">01</span>Farm login (single sign-on)</li>
+                  <li class="mfa-step mfa-step--after"><span class="n">02</span>Farm &amp; season — pre-filled from last year</li>
+                  <li class="mfa-step mfa-step--after"><span class="n">03</span>Parcel map — touch-first GIS, draw on device</li>
+                  <li class="mfa-step mfa-step--after"><span class="n">04</span>Crop declaration — per parcel, validated live</li>
+                  <li class="mfa-step mfa-step--after"><span class="n">05</span>ÖPUL measures — optional, save &amp; return</li>
+                  <li class="mfa-step mfa-step--after"><span class="n">06</span>Review &amp; submit — qualified digital signature</li>
+                  <li class="mfa-step mfa-step--after"><span class="n">07</span>Instant confirmation + AMA-signed PDF receipt</li>
+                </ol>
+                <div class="mfa-result">
+                  <span>Result: five PDF printouts, five postal returns and four blocking waits — the weeks of dead time between them — eliminated entirely. Average active submission time for returning users fell from 14.8 to 6.3 minutes, now completed in a single session.</span>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
