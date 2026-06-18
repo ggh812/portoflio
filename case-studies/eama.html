@@ -146,23 +146,35 @@
       .ds-frame { height:clamp(70px, 20vw, 150px); }
     }
 
-    /* Implementation contribution — process diagram */
-    .impl-figure { margin:var(--s-10) 0 0; }
+    /* Implementation contribution — UX-in-development diagram */
+    .impl-figure { margin:var(--s-6) 0 0; }
     .impl-frame {
       background:var(--white);
       border:1px solid var(--gray-200);
       border-radius:var(--r-xl);
-      padding:var(--s-6);
+      overflow:hidden;
       box-shadow:var(--shadow-sm);
-      overflow-x:auto;
+      /* crop to flowchart — hides yellow annotation notes at bottom */
+      aspect-ratio: 1681 / 425;
     }
-    .impl-frame img { display:block; width:100%; min-width:820px; height:auto; }
-    .impl-caption { font-size:0.8125rem; color:var(--gray-500); line-height:1.65; margin-top:var(--s-4); max-width:820px; }
-    .impl-highlights { list-style:none; margin:var(--s-6) 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:var(--s-4) var(--s-7); }
-    .impl-highlights li { font-size:0.9375rem; line-height:1.55; color:var(--gray-700); padding-left:var(--s-5); position:relative; }
-    .impl-highlights li::before { content:''; position:absolute; left:0; top:0.55em; width:7px; height:7px; border-radius:2px; background:var(--teal-500); }
-    .impl-highlights strong { color:var(--gray-900); font-weight:600; }
-    @media (max-width:768px){ .impl-frame{ padding:var(--s-4);} .impl-highlights{ grid-template-columns:1fr; } }
+    .impl-frame img { display:block; width:100%; height:100%; object-fit:cover; object-position:top center; }
+    .impl-caption { font-size:0.8125rem; color:var(--gray-500); line-height:1.65; margin-top:var(--s-3); }
+    /* WAS / WIE governance label strip */
+    .impl-waswie { display:grid; grid-template-columns:2fr 3fr; gap:var(--s-2); margin-top:var(--s-5); margin-bottom:var(--s-2); }
+    .impl-waswie-cell { padding:var(--s-2) var(--s-3); border-radius:var(--r-md); font-size:0.625rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; line-height:1.4; }
+    .impl-waswie-cell--was { background:#EDE9FE; color:#5B21B6; }
+    .impl-waswie-cell--wie { background:#DBEAFE; color:#1E40AF; }
+    /* 5-phase strip */
+    .impl-phases { display:grid; grid-template-columns:repeat(5,1fr); gap:var(--s-2); }
+    .impl-phase { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--r-lg); padding:var(--s-3); border-top:3px solid currentColor; }
+    .impl-phase-label { font-size:0.5625rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:var(--s-1); color:inherit; }
+    .impl-phase-activity { font-size:0.625rem; color:var(--gray-600); line-height:1.4; }
+    .impl-phase--disc { color:#16A34A; }
+    .impl-phase--sol  { color:#7C3AED; }
+    .impl-phase--dev  { color:#2563EB; }
+    .impl-phase--val  { color:#D97706; }
+    .impl-phase--roll { color:#DC2626; }
+    @media (max-width:768px){ .impl-phases{ grid-template-columns:1fr 1fr; } .impl-waswie{ grid-template-columns:1fr; } }
 
     /* MFA submission flow — before / after comparison */
     .mfa-compare { display:grid; grid-template-columns:1fr 1fr; gap:var(--s-5); align-items:start; margin-top:var(--s-5); }
@@ -281,26 +293,43 @@
       <div class="cs-narrative-grid">
         <div><span class="cs-sidebar-label">My Contribution</span></div>
         <div>
-          <p class="cs-lead" data-reveal>My role didn't end at handoff. I defined how UX/UI lives inside the development process itself — the operating model that kept design intent intact from the first requirement through to rollout.</p>
-          <div class="cs-body-text" data-reveal>
-            <p>On a programme this size — two development squads, a requirements-engineering function, business departments (<em>Fachbereich</em>), an info-team and a dedicated test-team — the real threat to a redesign isn't the visual concept. It's the hundreds of small implementation decisions where design intent quietly erodes under technical constraint and shifting requirements. To prevent that, I authored the <strong>UX-in-development workflow</strong>: an explicit operating model defining how UX/UI is embedded across every phase, from Problem Discovery through Solution Discovery, Development, Validation and Rollout.</p>
-            <p>The model draws a hard line between the <strong>WAS</strong> — what the business needs and why — and the <strong>WIE</strong> — how the interface and screen-flow deliver it. The UX/UI concept I produced became the shared artefact bridging the two: reviewed jointly with engineering for technical feasibility and with the business for requirement coverage, so every team held a common understanding of both <em>what</em> was being built and <em>how</em>. It also set the rules of engagement during the build — input from any team can be folded into the WIE where it makes sense, but non-negotiable UX criteria (corporate design, legal requirements, cross-module consistency, accessibility) stay protected and can't be quietly overridden under delivery pressure.</p>
-            <p>When implementation or testing surfaced a needed change, the workflow routed it correctly: a purely interface-level fix was made directly in the UX/UI concept, while anything touching a functional requirement went back to the business to be sharpened first — and only then re-reflected in the design. The result was a redesign that survived contact with engineering intact.</p>
+          <p class="cs-lead" data-reveal>My role didn't end at handoff. I authored the UX-in-development operating model — the process that kept design intent intact across two dev squads, a requirements-engineering function, business departments, and a dedicated test-team from first requirement through to rollout.</p>
+
+          <div class="impl-waswie" data-reveal>
+            <div class="impl-waswie-cell impl-waswie-cell--was">WAS &mdash; What &amp; Why &middot; Problem &amp; Solution Discovery</div>
+            <div class="impl-waswie-cell impl-waswie-cell--wie">WIE &mdash; How &amp; Where &middot; Development &middot; Validation &middot; Rollout</div>
           </div>
-          <ul class="impl-highlights" data-reveal>
-            <li><strong>Owned the UX/UI concept</strong> as the binding reference for every screen and flow built.</li>
-            <li><strong>Defined WAS vs WIE governance</strong> separating functional ownership from design ownership.</li>
-            <li><strong>Ran joint feasibility &amp; coverage reviews</strong> with dev squads and the business per feature.</li>
-            <li><strong>Protected UX quality gates</strong> — CD, legal, consistency and WCAG AA — through to rollout.</li>
-          </ul>
+
+          <div class="impl-phases" data-reveal>
+            <div class="impl-phase impl-phase--disc">
+              <div class="impl-phase-label">Problem Discovery</div>
+              <div class="impl-phase-activity">Requirements mapped alongside RE and business; UX concept initiated</div>
+            </div>
+            <div class="impl-phase impl-phase--sol">
+              <div class="impl-phase-label">Solution Discovery</div>
+              <div class="impl-phase-activity">UX/UI concept authored; joint feasibility review with dev, coverage review with business</div>
+            </div>
+            <div class="impl-phase impl-phase--dev">
+              <div class="impl-phase-label">Development</div>
+              <div class="impl-phase-activity">Concept is the binding reference; changes routed via structured Änderungsantrag</div>
+            </div>
+            <div class="impl-phase impl-phase--val">
+              <div class="impl-phase-label">Validation</div>
+              <div class="impl-phase-activity">UX quality gate: CD compliance, legal, cross-module consistency, WCAG AA</div>
+            </div>
+            <div class="impl-phase impl-phase--roll">
+              <div class="impl-phase-label">Rollout</div>
+              <div class="impl-phase-activity">Design intent verified and handoff confirmed before release</div>
+            </div>
+          </div>
         </div>
       </div>
 
       <figure class="impl-figure" data-reveal>
         <div class="impl-frame">
-          <img src="../images/case-studies/eama/ux-in-development.png" alt="UX-in-development process map — swimlanes for requirements engineering, business and info-team, UX/UI, development and test-team across five phases (Problem Discovery, Solution Discovery, Development, Validation, Rollout), with decision gates and annotated rules of engagement.">
+          <img src="../images/case-studies/eama/ux-in-development.png" alt="UX-in-development process map — swimlanes for FA/Infoteam/RE, UX/UI, Entwicklung, and Test-Team across five phases with decision gates and review loops.">
         </div>
-        <figcaption class="impl-caption">The UX-in-development operating model I authored — how UX/UI decisions move through Problem Discovery → Solution Discovery → Development → Validation → Rollout, with explicit review gates and the WAS / WIE split that kept functional and design ownership distinct but synchronised.</figcaption>
+        <figcaption class="impl-caption">The UX-in-development operating model I authored. Swimlanes map each team's involvement across the five phases; decision diamonds enforce the WAS / WIE split — functional changes route back to business, interface changes stay within UX/UI. Non-negotiable quality gates (corporate design, legal, consistency, WCAG AA) are protected from override at every phase boundary.</figcaption>
       </figure>
     </div>
   </section>
@@ -818,9 +847,9 @@
           <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">Navigation-related calls dropped most sharply. "Where do I find X" enquiries — previously 73% of all MFA calls — reduced by 67% in the first year after launch.</div>
         </div>
         <div style="background:var(--gray-800); border-radius:var(--r-xl); padding:var(--s-8);">
-          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">0</div>
-          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Critical WCAG violations</div>
-          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">From over 3,000 violations (12 critical) to zero critical and zero serious. Independent BMASGK digital accessibility audit confirmed WCAG 2.1 AA certification.</div>
+          <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">12</div>
+          <div style="font-weight:600;color:var(--teal-400);margin-bottom:var(--s-2);">Critical WCAG violations — resolved</div>
+          <div style="font-size:0.875rem;color:var(--gray-500);line-height:1.6;">The legacy portal had over 3,000 accessibility violations in total — 12 of them critical. After redesign: zero critical, zero serious. Independent BMASGK audit confirmed WCAG 2.1 AA.</div>
         </div>
         <div style="background:var(--gray-800); border-radius:var(--r-xl); padding:var(--s-8);">
           <div style="font-family:var(--font-display);font-size:3.5rem;font-weight:300;color:white;line-height:1;margin-bottom:var(--s-2);">38</div>
