@@ -84,13 +84,13 @@
     .ia-eama { background:var(--teal-700); color:white; padding:5px 20px; border-radius:5px; font-size:0.8125rem; font-weight:700; letter-spacing:0.04em; display:inline-block; white-space:nowrap; }
     /* spine */
     .ia-spine-wrap { display:flex; flex-direction:column; align-items:center; }
-    .ia-stem { width:1px; height:20px; background:var(--gray-400); }
-    .ia-spine { height:2px; background:var(--gray-400); margin:0 0 0; }
+    .ia-stem { width:1px; height:20px; background:#cccccc; }
+    .ia-spine { height:2px; background:#cccccc; margin:0 0 0; }
     /* module columns */
-    .ia-modules { display:flex; gap:6px; }
+    .ia-modules { display:flex; gap:12px; }
     .ia-module { flex:0 0 auto; min-width:128px; max-width:152px; position:relative; padding-top:24px; }
     .ia-module--wide { min-width:152px; max-width:180px; }
-    .ia-module::before { content:''; position:absolute; top:0; left:50%; width:1px; height:22px; background:var(--gray-400); transform:translateX(-50%); }
+    .ia-module::before { content:''; position:absolute; top:0; left:50%; width:1px; height:22px; background:#cccccc; transform:translateX(-50%); }
     .ia-mod-name { background:white; border:1.5px solid #CBD5E1; border-radius:4px; padding:4px 8px; font-size:0.625rem; font-weight:700; color:var(--teal-700); text-align:center; margin-bottom:6px; line-height:1.35; }
     .ia-mod-items { display:flex; flex-direction:column; gap:2px; }
     .ia-item { font-size:0.5625rem; line-height:1.4; padding:3px 6px; border-radius:3px; color:#475569; background:white; border:1px solid #E2E8F0; }
@@ -396,10 +396,6 @@
           <!-- header bar -->
           <div class="ia-topbar">
             <span class="ia-topbar-title">Legacy eAMA · Full IA Audit · 140+ screens · 12 modules</span>
-            <div class="ia-legend">
-              <span class="ia-legend-item"><span class="ia-dot ia-dot--dead"></span>Löschnotiz — dead-end</span>
-              <span class="ia-legend-item"><span class="ia-dot ia-dot--dup"></span>Löschen — duplicate / redundant</span>
-            </div>
           </div>
 
           <!-- diagram canvas -->
@@ -416,7 +412,7 @@
 
             <!-- stems to root -->
             <div style="display:flex;justify-content:center;height:18px;">
-              <div style="width:1px;background:var(--gray-400);"></div>
+              <div style="width:1px;background:#cccccc;"></div>
             </div>
 
             <!-- eAMA root -->
@@ -426,12 +422,12 @@
 
             <!-- stem down from root to spine -->
             <div style="display:flex;justify-content:center;height:20px;">
-              <div style="width:1px;background:var(--gray-400);"></div>
+              <div style="width:1px;background:#cccccc;"></div>
             </div>
 
             <!-- horizontal spine + modules -->
             <div style="position:relative;">
-              <div style="height:2px;background:var(--gray-400);position:absolute;top:0;left:0;right:0;"></div>
+              <div style="height:2px;background:#cccccc;position:absolute;top:0;left:0;right:0;"></div>
               <div class="ia-modules">
 
                 <!-- 01 RinderNET -->
@@ -581,7 +577,6 @@
 
           </div><!-- /ia-scroll -->
         </div><!-- /ia-viewer -->
-        <p style="font-size:0.8125rem; color:var(--gray-500); margin-top:var(--s-3); text-align:center;">Reconstructed from the IA audit file. Red = marked for deletion (dead-ends); blue = duplicate/redundant pages; MFA module appears in four separate locations across the portal.</p>
       </div>
     </div>
   </section>
