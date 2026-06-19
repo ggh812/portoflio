@@ -56,6 +56,7 @@
     }
     @media (max-width: 768px) {
       .ds-grid { grid-template-columns: 1fr; }
+      .auth-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -231,7 +232,7 @@
     <div class="container">
       <div class="cs-narrative-grid">
         <div><span class="cs-sidebar-label">05 — Authentication</span></div>
-        <div style="display:grid; grid-template-columns:1fr 300px; gap:var(--s-10); align-items:start;">
+        <div style="display:grid; grid-template-columns:1fr 300px; gap:var(--s-10); align-items:start;" class="auth-grid">
           <div class="cs-body-text" data-reveal>
             <p>The mobile authentication flow covers the full password recovery sequence across six screens: selecting the recovery method (email or phone), receiving and entering a time-limited OTP code, handling code expiry with a resend option, verifying the code, and setting a new password with inline validation feedback.</p>
             <p>The flow prioritises clarity at each step — progressive disclosure keeps each screen to a single task, error states are specific rather than generic, and the keyboard layout is matched to the input type (numeric for OTP, standard for email input) to reduce friction on mobile.</p>
