@@ -66,6 +66,7 @@
       .af-decision-grid .af-screen { order: 2; display: flex; justify-content: center; }
       .af-decision-grid .af-screen img { max-width: 240px; width: 70% !important; }
       .af-next-row { flex-direction: column !important; align-items: flex-start !important; }
+      .af-igl-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -380,6 +381,57 @@
         <div class="af-screen" style="display:flex; justify-content:center;">
           <img src="../images/case-studies/ama-foto/screen-auftrag.webp" alt="Auftragsliste — prioritised job queue with deadline tracking and distance to field" style="width:100%; max-width:240px; display:block;">
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IGL STRUCTURE — DELIVERED SCREENS -->
+  <section class="cs-section cs-section--tinted">
+    <div class="container">
+      <header class="section-header" data-reveal>
+        <span class="section-label">IGL Structure</span>
+        <h2 class="section-title">Three screens, one coherent<br><em>field inspection flow</em></h2>
+        <p class="section-description" style="max-width:58ch;">The Auftragsliste, parcel detail view, and Daten Korrektur form connect into a single end-to-end workflow — from reading your task queue in the morning to submitting a corrected Schlagnutzung before driving home.</p>
+      </header>
+
+      <div class="af-igl-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:var(--s-8); justify-items:center; margin-top:var(--s-12);" data-reveal>
+
+        <!-- Screen 1: Auftragsliste -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:var(--s-5);">
+          <img src="../images/case-studies/ama-foto/igl-auftrag.png"
+               alt="Auftragsliste — task list grouped by urgency with deadline countdowns and Blühzeitpunkt tags"
+               style="width:100%; max-width:220px; display:block; border-radius:24px; box-shadow:0 16px 48px rgba(0,0,0,0.14);">
+          <div style="text-align:center;">
+            <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-600); margin-bottom:var(--s-2);">Step 1</div>
+            <div style="font-size:0.9375rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-2);">Auftragsliste</div>
+            <div style="font-size:0.8125rem; color:var(--gray-500); line-height:1.6; max-width:18ch; margin:0 auto;">Urgent items surface first; deadline and distance on every card</div>
+          </div>
+        </div>
+
+        <!-- Screen 2: Parcel detail + map -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:var(--s-5);">
+          <img src="../images/case-studies/ama-foto/igl-detail.png"
+               alt="Field detail view — satellite GIS map with parcel boundary and Blühzeitpunkt obligation card"
+               style="width:100%; max-width:220px; display:block; border-radius:24px; box-shadow:0 16px 48px rgba(0,0,0,0.14);">
+          <div style="text-align:center;">
+            <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-600); margin-bottom:var(--s-2);">Step 2</div>
+            <div style="font-size:0.9375rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-2);">Parcel Detail</div>
+            <div style="font-size:0.8125rem; color:var(--gray-500); line-height:1.6; max-width:18ch; margin:0 auto;">Satellite boundary, crop data, and open obligations in one view</div>
+          </div>
+        </div>
+
+        <!-- Screen 3: Daten Korrektur -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:var(--s-5);">
+          <img src="../images/case-studies/ama-foto/igl-korrektur.png"
+               alt="Daten Korrektur — from/to field-usage comparison form with confirm and discard actions"
+               style="width:100%; max-width:220px; display:block; border-radius:24px; box-shadow:0 16px 48px rgba(0,0,0,0.14);">
+          <div style="text-align:center;">
+            <div style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-600); margin-bottom:var(--s-2);">Step 3</div>
+            <div style="font-size:0.9375rem; font-weight:600; color:var(--gray-900); margin-bottom:var(--s-2);">Daten Korrektur</div>
+            <div style="font-size:0.8125rem; color:var(--gray-500); line-height:1.6; max-width:18ch; margin:0 auto;">From/to comparison locks in the change before it's submitted</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
