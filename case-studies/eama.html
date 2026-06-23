@@ -70,7 +70,7 @@
     .info-table td:first-child { font-weight:600; color: var(--gray-900); width:140px; padding-right:var(--s-6); }
 
     /* ── IA Sitemap Diagram ───────────────────────────────────────────── */
-    .ia-viewer { border-radius: var(--r-xl); overflow: hidden; margin-top: var(--s-8); box-shadow: var(--shadow-lg); }
+    .ia-viewer { border-radius: var(--r-xl); overflow: hidden; margin-top: var(--s-8); box-shadow: var(--shadow-lg); position: relative; }
     .ia-topbar { background: var(--gray-900); padding: var(--s-4) var(--s-6); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--s-4); }
     .ia-topbar-title { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-400); }
     .ia-legend { display:flex; gap:var(--s-5); align-items:center; flex-wrap:wrap; }
@@ -102,10 +102,21 @@
     .ia-roles { display:flex; justify-content:center; gap:6px; margin-bottom:0; flex-wrap:wrap; }
     .ia-role { font-size:0.5625rem; color:var(--teal-600); background:var(--teal-50); border:1px solid var(--teal-100); border-radius:var(--r-full); padding:2px 8px; white-space:nowrap; }
     .ia-roles-stem { display:flex; flex-direction:column; align-items:center; }
+    .ia-scroll-hint { display:none; font-size:0.5625rem; color:var(--gray-500); font-style:italic; white-space:nowrap; }
     @media (max-width:768px) {
-      .ia-scroll { padding:var(--s-5) var(--s-4); }
+      .ia-scroll { padding:var(--s-5) var(--s-4); -webkit-overflow-scrolling:touch; }
       .ia-topbar { padding:var(--s-3) var(--s-4); }
       .ia-legend { gap:var(--s-3); }
+      .ia-scroll-hint { display:block; }
+      .ia-module { min-width:68px; max-width:84px; }
+      .ia-module--wide { min-width:90px; max-width:110px; }
+      .ia-viewer::after {
+        content:'';
+        position:absolute;
+        top:44px; right:0; bottom:0; width:48px;
+        background:linear-gradient(to right, transparent, #F1F3F5);
+        pointer-events:none;
+      }
     }
 
     /* Design System component sheets — equal-height, equal-padding cards */
@@ -154,10 +165,8 @@
       border-radius:var(--r-xl);
       overflow:hidden;
       box-shadow:var(--shadow-sm);
-      /* crop to flowchart — hides yellow annotation notes at bottom */
-      aspect-ratio: 1681 / 425;
     }
-    .impl-frame img { display:block; width:100%; height:100%; object-fit:cover; object-position:top center; }
+    .impl-frame img { display:block; width:100%; height:auto; }
     .impl-caption { font-size:0.8125rem; color:var(--gray-500); line-height:1.65; margin-top:var(--s-3); }
     /* WAS / WIE governance label strip */
     .impl-waswie { display:grid; grid-template-columns:2fr 3fr; gap:var(--s-2); margin-top:var(--s-5); margin-bottom:var(--s-2); }
@@ -504,6 +513,7 @@
           <!-- header bar -->
           <div class="ia-topbar">
             <span class="ia-topbar-title">Legacy eAMA · Full IA Audit · 140+ screens · 12 modules</span>
+            <span class="ia-scroll-hint" aria-hidden="true">scroll to explore all 12 modules →</span>
           </div>
 
           <!-- diagram canvas -->
