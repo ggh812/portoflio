@@ -20,26 +20,45 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .aipe-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--gray-200); border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--shadow-md); margin-top:var(--s-10); }
-    .aipe-col { background:white; }
-    .aipe-col + .aipe-col { border-left:1px solid var(--gray-200); }
-    .aipe-header { padding:var(--s-6); }
-    .aipe-header--teal { background:var(--teal-700); }
-    .aipe-header--blue { background:#1e40af; }
-    .aipe-header--purple { background:var(--gray-800); }
-    .aipe-header-icon { width:32px; height:32px; opacity:0.85; }
-    .aipe-header-label { font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:white; margin-top:var(--s-3); display:block; }
-    .aipe-header-sub { font-size:0.75rem; color:rgba(255,255,255,0.65); margin-top:var(--s-1); display:block; }
-    .aipe-body { padding:var(--s-2) var(--s-6) var(--s-6); }
-    .aipe-skill { display:flex; align-items:center; gap:var(--s-3); padding:var(--s-3) 0; border-bottom:1px solid var(--gray-100); font-size:0.875rem; color:var(--gray-700); }
-    .aipe-skill:last-child { border-bottom:none; }
-    .aipe-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
-    .aipe-dot--teal { background:var(--teal-500); }
-    .aipe-dot--blue { background:#3b82f6; }
-    .aipe-dot--purple { background:var(--gray-500); }
-    @media (max-width:768px) {
-      .aipe-grid { grid-template-columns:1fr; border-radius:var(--r-lg); }
-      .aipe-col + .aipe-col { border-left:none; border-top:1px solid var(--gray-200); }
+    /* ===== AI Product Engineering — illustrated lifecycle ===== */
+    .aipe-flow { display:flex; align-items:stretch; margin-top:var(--s-12); }
+    .aipe-stage {
+      flex:1 1 0; min-width:0;
+      background:linear-gradient(180deg, var(--white) 0%, var(--teal-50) 100%);
+      border:1px solid var(--gray-200);
+      border-radius:var(--r-2xl);
+      padding:var(--s-5) var(--s-5) var(--s-6);
+      box-shadow:var(--shadow-md);
+      transition:transform var(--t-base), box-shadow var(--t-base);
+    }
+    .aipe-stage:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+    .aipe-arrow {
+      flex:0 0 var(--s-12); align-self:center;
+      display:flex; align-items:center; justify-content:center;
+      color:var(--teal-400);
+    }
+    .aipe-arrow svg { width:24px; height:24px; }
+    .aipe-illus {
+      position:relative;
+      background:linear-gradient(135deg, var(--teal-700) 0%, var(--teal-500) 100%);
+      border-radius:var(--r-xl);
+      overflow:hidden;
+      margin-bottom:var(--s-5);
+    }
+    .aipe-illus svg { display:block; width:100%; height:auto; }
+    .aipe-stage-head { display:flex; align-items:baseline; gap:var(--s-3); }
+    .aipe-stage-num { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--teal-600); }
+    .aipe-stage-title { font-family:var(--font-display); font-size:1.625rem; font-weight:600; color:var(--gray-900); line-height:1; margin:0; }
+    .aipe-stage-sub { font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-500); margin:var(--s-2) 0 var(--s-5); display:block; }
+    .aipe-chips { display:flex; flex-wrap:wrap; gap:var(--s-2); }
+    .aipe-chip {
+      font-size:0.8125rem; font-weight:500; color:var(--teal-800);
+      background:var(--teal-50); border:1px solid var(--teal-100);
+      padding:6px 12px; border-radius:var(--r-full);
+    }
+    @media (max-width:860px) {
+      .aipe-flow { flex-direction:column; }
+      .aipe-arrow { flex-basis:var(--s-8); transform:rotate(90deg); }
     }
   </style>
 </head>
@@ -260,49 +279,114 @@
         </p>
       </header>
 
-      <div class="aipe-grid" data-reveal>
+      <div class="aipe-flow" data-reveal>
 
-        <!-- Column 1: Engineering -->
-        <div class="aipe-col">
-          <div class="aipe-header aipe-header--teal">
-            <svg class="aipe-header-icon" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-            <span class="aipe-header-label">Engineering</span>
-            <span class="aipe-header-sub">Build &amp; integrate</span>
+        <!-- Stage 01 · Build -->
+        <div class="aipe-stage">
+          <div class="aipe-illus">
+            <svg viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="28" cy="22" r="3" fill="#FFFFFF" fill-opacity="0.18"/>
+              <circle cx="180" cy="106" r="4" fill="#FFFFFF" fill-opacity="0.14"/>
+              <rect x="22" y="24" width="150" height="86" rx="11" fill="#FFFFFF" fill-opacity="0.97"/>
+              <circle cx="36" cy="37" r="3" fill="#14B8A6"/>
+              <circle cx="46" cy="37" r="3" fill="#5EEAD4"/>
+              <circle cx="56" cy="37" r="3" fill="#CCFBF1"/>
+              <line x1="22" y1="48" x2="172" y2="48" stroke="#E5E7EB" stroke-width="1.5"/>
+              <rect x="36" y="59" width="12" height="6" rx="3" fill="#14B8A6"/>
+              <rect x="52" y="59" width="46" height="6" rx="3" fill="#CCFBF1"/>
+              <rect x="44" y="72" width="22" height="6" rx="3" fill="#2DD4BF"/>
+              <rect x="70" y="72" width="50" height="6" rx="3" fill="#E5E7EB"/>
+              <rect x="44" y="85" width="38" height="6" rx="3" fill="#CCFBF1"/>
+              <rect x="36" y="98" width="16" height="6" rx="3" fill="#14B8A6"/>
+              <rect x="56" y="98" width="28" height="6" rx="3" fill="#E5E7EB"/>
+              <circle cx="170" cy="34" r="17" fill="#0F766E"/>
+              <path d="M166 28l-5 6 5 6M174 28l5 6-5 6" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M150 90c0 4 1.5 5.5 5.5 5.5-4 0-5.5 1.5-5.5 5.5 0-4-1.5-5.5-5.5-5.5 4 0 5.5-1.5 5.5-5.5z" fill="#5EEAD4"/>
+            </svg>
           </div>
-          <div class="aipe-body">
-            <div class="aipe-skill"><span class="aipe-dot aipe-dot--teal"></span>Python Programming</div>
-            <div class="aipe-skill"><span class="aipe-dot aipe-dot--teal"></span>Frontend &amp; Backend Integration</div>
-            <div class="aipe-skill"><span class="aipe-dot aipe-dot--teal"></span>Streaming &amp; Latency</div>
-            <div class="aipe-skill"><span class="aipe-dot aipe-dot--teal"></span>Rapid Prototyping</div>
+          <div class="aipe-stage-head">
+            <span class="aipe-stage-num">01</span>
+            <h3 class="aipe-stage-title">Build</h3>
+          </div>
+          <span class="aipe-stage-sub">Engineering</span>
+          <div class="aipe-chips">
+            <span class="aipe-chip">Python Programming</span>
+            <span class="aipe-chip">Frontend &amp; Backend Integration</span>
+            <span class="aipe-chip">Streaming &amp; Latency</span>
+            <span class="aipe-chip">Rapid Prototyping</span>
           </div>
         </div>
 
-        <!-- Column 2: Product Design -->
-        <div class="aipe-col">
-          <div class="aipe-header aipe-header--blue">
-            <svg class="aipe-header-icon" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            <span class="aipe-header-label">Product Design</span>
-            <span class="aipe-header-sub">Shape &amp; communicate</span>
+        <div class="aipe-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+
+        <!-- Stage 02 · Ship -->
+        <div class="aipe-stage">
+          <div class="aipe-illus">
+            <svg viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="24" cy="100" r="3.5" fill="#FFFFFF" fill-opacity="0.16"/>
+              <circle cx="176" cy="26" r="3" fill="#FFFFFF" fill-opacity="0.18"/>
+              <rect x="64" y="14" width="72" height="104" rx="14" fill="#FFFFFF" fill-opacity="0.97"/>
+              <rect x="90" y="20" width="20" height="4" rx="2" fill="#E5E7EB"/>
+              <rect x="72" y="34" width="50" height="26" rx="9" fill="#CCFBF1"/>
+              <rect x="79" y="42" width="32" height="4" rx="2" fill="#2DD4BF"/>
+              <rect x="79" y="50" width="22" height="4" rx="2" fill="#5EEAD4"/>
+              <path d="M70 30c0 3 1 4 4 4-3 0-4 1-4 4 0-3-1-4-4-4 3 0 4-1 4-4z" fill="#0F766E"/>
+              <rect x="86" y="68" width="44" height="20" rx="9" fill="#0D9488"/>
+              <rect x="93" y="76" width="30" height="4" rx="2" fill="#CCFBF1"/>
+              <rect x="72" y="96" width="18" height="8" rx="4" fill="#F0FDFA"/>
+              <rect x="94" y="96" width="18" height="8" rx="4" fill="#F0FDFA"/>
+              <circle cx="138" cy="100" r="15" fill="#0F766E"/>
+              <path d="M132 100h12M139 95l5 5-5 5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
-          <div class="aipe-body">
-            <div class="aipe-skill"><span class="aipe-dot aipe-dot--blue"></span>AI UX Design</div>
-            <div class="aipe-skill"><span class="aipe-dot aipe-dot--blue"></span>Trust Design</div>
-            <div class="aipe-skill"><span class="aipe-dot aipe-dot--blue"></span>Agent UX</div>
-            <div class="aipe-skill"><span class="aipe-dot aipe-dot--blue"></span>Requirement Translation</div>
+          <div class="aipe-stage-head">
+            <span class="aipe-stage-num">02</span>
+            <h3 class="aipe-stage-title">Ship</h3>
+          </div>
+          <span class="aipe-stage-sub">Product Design</span>
+          <div class="aipe-chips">
+            <span class="aipe-chip">AI UX Design</span>
+            <span class="aipe-chip">Trust Design</span>
+            <span class="aipe-chip">Agent UX</span>
+            <span class="aipe-chip">Requirement Translation</span>
           </div>
         </div>
 
-        <!-- Column 3: Scale & Operations -->
-        <div class="aipe-col">
-          <div class="aipe-header aipe-header--purple">
-            <svg class="aipe-header-icon" fill="none" stroke="white" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-            <span class="aipe-header-label">Scale &amp; Operations</span>
-            <span class="aipe-header-sub">Measure &amp; maintain</span>
+        <div class="aipe-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </div>
+
+        <!-- Stage 03 · Scale -->
+        <div class="aipe-stage">
+          <div class="aipe-illus">
+            <svg viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="30" cy="104" r="3.5" fill="#FFFFFF" fill-opacity="0.15"/>
+              <circle cx="176" cy="100" r="3" fill="#FFFFFF" fill-opacity="0.16"/>
+              <rect x="20" y="22" width="160" height="86" rx="11" fill="#FFFFFF" fill-opacity="0.97"/>
+              <rect x="32" y="33" width="40" height="6" rx="3" fill="#5EEAD4"/>
+              <circle cx="160" cy="36" r="3" fill="#CCFBF1"/>
+              <circle cx="170" cy="36" r="3" fill="#CCFBF1"/>
+              <line x1="20" y1="48" x2="180" y2="48" stroke="#E5E7EB" stroke-width="1.5"/>
+              <path d="M34 92 L58 78 L80 84 L104 64 L126 70 L150 52 V96 H34 Z" fill="#CCFBF1" fill-opacity="0.6"/>
+              <path d="M34 92 L58 78 L80 84 L104 64 L126 70 L150 52" stroke="#0D9488" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="104" cy="64" r="3.5" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
+              <circle cx="150" cy="52" r="3.5" fill="#FFFFFF" stroke="#0D9488" stroke-width="2"/>
+              <circle cx="158" cy="86" r="15" fill="#0F766E"/>
+              <path d="M151 91l6-7 4 4 7-9" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M163 79h6v6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
-          <div class="aipe-body">
-            <div class="aipe-skill"><span class="aipe-dot aipe-dot--purple"></span>Instrumentation &amp; Analytics</div>
-            <div class="aipe-skill"><span class="aipe-dot aipe-dot--purple"></span>Domain Adaptation</div>
-            <div class="aipe-skill"><span class="aipe-dot aipe-dot--purple"></span>Human-in-the-Loop</div>
+          <div class="aipe-stage-head">
+            <span class="aipe-stage-num">03</span>
+            <h3 class="aipe-stage-title">Scale</h3>
+          </div>
+          <span class="aipe-stage-sub">Operations</span>
+          <div class="aipe-chips">
+            <span class="aipe-chip">Instrumentation &amp; Analytics</span>
+            <span class="aipe-chip">Domain Adaptation</span>
+            <span class="aipe-chip">Human-in-the-Loop</span>
           </div>
         </div>
 
