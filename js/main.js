@@ -265,20 +265,30 @@
   }
 
   /* ==========================================================================
-     TILT EFFECT ON EXPERTISE CARDS (subtle, desktop only)
+     ALIGN HERO STATS CARD BOTTOM WITH HERO ACTIONS BOTTOM (desktop only)
   ========================================================================== */
-  if (window.matchMedia('(pointer: fine)').matches) {
-    qsa('.expertise-card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width  - 0.5;
-        const y = (e.clientY - rect.top)  / rect.height - 0.5;
-        card.style.transform = `translateY(-2px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-    });
+  function alignStatsCard() {
+    const actions   = qs('.hero-actions');
+    const statsCard = qs('.hero-stats-card');
+    const wrapper   = qs('.hero-portrait-wrapper');
+    if (!actions || !statsCard || !wrapper) return;
+
+    if (window.innerWidth < 900) {
+      statsCard.style.top = '';
+      statsCard.style.transform = '';
+      return;
+    }
+
+    const actionsBottom  = actions.getBoundingClientRect().bottom;
+    const wrapperTop     = wrapper.getBoundingClientRect().top;
+    const cardH          = statsCard.offsetHeight;
+    const targetTop      = actionsBottom - wrapperTop - cardH;
+
+    statsCard.style.top       = targetTop + 'px';
+    statsCard.style.transform = 'none';
   }
+
+  window.addEventListener('load',   alignStatsCard);
+  window.addEventListener('resize', alignStatsCard);
 
 })();
