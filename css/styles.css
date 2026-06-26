@@ -97,6 +97,43 @@
   --gray-600: #FFE0C5;
 }
 
+/* The AI Product Engineering and About sections carry a teal accent theme:
+   a light teal background with the teal-family and dark-neutral tokens
+   remapped in scope, so labels, headings, icons, tags, and card numbers all
+   resolve to teal without touching the global brand palette. */
+#ai-engineering,
+#about {
+  background: #E6F5F2;
+  /* warm neutrals → teal-leaning neutrals (headings, body, borders, tints) */
+  --gray-50:  #FFFFFF;
+  --gray-100: #D7EEEA;
+  --gray-200: #C2E5DF;
+  --gray-400: #0D9488;
+  --gray-500: #0F766E;
+  --gray-600: #0F766E;
+  --gray-700: #134E48;
+  --gray-800: #134E48;
+  --gray-900: #134E48;
+  /* teal accents */
+  --teal-50:  #E6F5F2;
+  --teal-100: #D7EEEA;
+  --teal-300: #2DD4BF;
+  --teal-400: #2DD4BF;
+  --teal-500: #0D9488;
+  --teal-600: #0D9488;
+  --teal-700: #0F766E;
+  --teal-800: #134E48;
+  --teal-900: #134E48;
+  /* semantic tokens re-resolve in scope (they were substituted to the warm
+     palette at :root, so the raw-token overrides above don't reach them) */
+  --color-primary:    var(--gray-900);
+  --color-accent:     var(--teal-700);
+  --color-accent-mid: var(--teal-600);
+  --color-text:       var(--gray-800);
+  --color-muted:      var(--gray-500);
+  --color-border:     var(--gray-200);
+}
+
 /* ==========================================================================
    2. RESET & BASE
    ========================================================================== */
@@ -1638,7 +1675,7 @@ input, textarea, select { font: inherit; }
    14. FOOTER
    ========================================================================== */
 .footer {
-  background: var(--gray-900);
+  background: #4D0020;
   color: var(--white);
   padding-block: var(--s-16) var(--s-8);
   border-top: 1px solid rgba(255,255,255,0.06);
