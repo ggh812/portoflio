@@ -9,26 +9,27 @@
 :root {
   /* Colors */
   --white:     #FFFFFF;
-  --gray-50:   #F9FAFB;
-  --gray-100:  #F3F4F6;
-  --gray-200:  #E5E7EB;
-  --gray-300:  #D1D5DB;
-  --gray-400:  #9CA3AF;
-  --gray-500:  #6B7280;
-  --gray-600:  #4B5563;
-  --gray-700:  #374151;
-  --gray-800:  #1F2937;
-  --gray-900:  #111827;
+  /* Brand palette (warm): cream → peach → coral → crimson → burgundy */
+  --gray-50:   #FFF0E4;
+  --gray-100:  #FFF0E4;
+  --gray-200:  #FFE0C5;
+  --gray-300:  #FFE0C5;
+  --gray-400:  #FF6060;
+  --gray-500:  #760031;
+  --gray-600:  #760031;
+  --gray-700:  #760031;
+  --gray-800:  #760031;
+  --gray-900:  #760031;
 
-  --teal-50:   #F0FDFA;
-  --teal-100:  #CCFBF1;
-  --teal-300:  #5EEAD4;
-  --teal-400:  #2DD4BF;
-  --teal-500:  #14B8A6;
-  --teal-600:  #0D9488;
-  --teal-700:  #0F766E;
-  --teal-800:  #115E59;
-  --teal-900:  #134E4A;
+  --teal-50:   #FFF0E4;
+  --teal-100:  #FFE0C5;
+  --teal-300:  #FF6060;
+  --teal-400:  #FF6060;
+  --teal-500:  #D51C39;
+  --teal-600:  #D51C39;
+  --teal-700:  #D51C39;
+  --teal-800:  #760031;
+  --teal-900:  #760031;
 
   /* Semantic */
   --color-primary:    var(--gray-900);
@@ -83,6 +84,17 @@
   --shadow-md:  0 4px 16px 0 rgba(0,0,0,0.08);
   --shadow-lg:  0 12px 40px 0 rgba(0,0,0,0.12);
   --shadow-xl:  0 24px 64px 0 rgba(0,0,0,0.14);
+}
+
+/* Inside dark (burgundy) containers, muted-text tokens resolve to a
+   light tint so secondary text stays legible on the dark background. */
+.footer,
+.contact-info,
+.cs-section--dark,
+.cs-hero {
+  --gray-400: #FFE0C5;
+  --gray-500: #FFE0C5;
+  --gray-600: #FFE0C5;
 }
 
 /* ==========================================================================
@@ -370,7 +382,7 @@ input, textarea, select { font: inherit; }
 .btn-primary:hover {
   background: var(--teal-700);
   border-color: var(--teal-700);
-  box-shadow: 0 4px 16px rgba(15,118,110,0.25);
+  box-shadow: 0 4px 16px rgba(213,28,57,0.25);
 }
 
 .btn-outline {
@@ -391,7 +403,7 @@ input, textarea, select { font: inherit; }
 .btn-teal:hover {
   background: var(--teal-800);
   border-color: var(--teal-800);
-  box-shadow: 0 4px 16px rgba(15,118,110,0.3);
+  box-shadow: 0 4px 16px rgba(213,28,57,0.3);
 }
 
 .btn-ghost {
@@ -447,8 +459,8 @@ input, textarea, select { font: inherit; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(15,118,110,0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 20% 20%, rgba(15,118,110,0.025) 0%, transparent 50%);
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(213,28,57,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 20% 20%, rgba(213,28,57,0.025) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -1001,7 +1013,7 @@ input, textarea, select { font: inherit; }
 }
 .notch-hole {
   width: 48px; height: 10px;
-  background: #000;
+  background: #760031;
   border-radius: 5px;
 }
 .screen-mobile-body {
@@ -1535,7 +1547,7 @@ input, textarea, select { font: inherit; }
 }
 .contact-link-item:hover {
   border-color: var(--teal-600);
-  background: rgba(15,118,110,0.08);
+  background: rgba(213,28,57,0.08);
 }
 .contact-link-icon {
   width: 40px; height: 40px;
@@ -1599,7 +1611,7 @@ input, textarea, select { font: inherit; }
 .form-select:focus {
   border-color: var(--teal-600);
   background: var(--white);
-  box-shadow: 0 0 0 3px rgba(15,118,110,0.1);
+  box-shadow: 0 0 0 3px rgba(213,28,57,0.1);
 }
 .form-input::placeholder,
 .form-textarea::placeholder { color: var(--gray-400); }
@@ -1854,7 +1866,7 @@ input, textarea, select { font: inherit; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  background: #666666;
+  background: #FFE0C5;
 }
 .cs-overview-cell {
   background: var(--white);
