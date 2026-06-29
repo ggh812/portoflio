@@ -97,12 +97,14 @@
   --gray-600: #FFE0C5;
 }
 
-/* The AI Product Engineering and About sections carry a teal accent theme:
-   a light teal background with the teal-family and dark-neutral tokens
-   remapped in scope, so labels, headings, icons, tags, and card numbers all
-   resolve to teal without touching the global brand palette. */
+/* The AI, About and Experience sections share a teal accent theme: a white
+   background with the teal-family and dark-neutral tokens remapped in scope,
+   so labels, headings, icons, tags, timeline markers and card numbers all
+   resolve to teal without touching the global brand palette. (The AI panel
+   itself uses a deeper #2b5761 slate, set on its own classes.) */
 #ai-engineering,
-#about {
+#about,
+#experience {
   background: var(--white);
   /* warm neutrals → teal-leaning neutrals (headings, body, borders, tints) */
   --gray-50:  #FFFFFF;
@@ -1432,14 +1434,14 @@ input, textarea, select { font: inherit; }
 
 .about-photo {
   display: block;
-  width: 300px;
+  width: 150px;
   max-width: 100%;
   aspect-ratio: 1 / 1;
   height: auto;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center;
-  margin: 0 auto var(--s-8);
+  object-position: center top;
+  margin: 0 auto var(--s-6);
   transform: scaleX(-1);
 }
 
