@@ -20,20 +20,42 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* ===== AI Product Engineering — card grid ===== */
-    .aipe-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--s-5); margin-top:var(--s-10); }
-    .aipe-card { background:white; border:1px solid var(--gray-200); border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--t-base), box-shadow var(--t-base); }
-    .aipe-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
-    .aipe-card-illus { background:#E3F4F0; display:flex; align-items:center; justify-content:center; padding:var(--s-7) var(--s-8); }
-    .aipe-card-illus svg { display:block; width:100%; max-width:220px; height:auto; }
-    .aipe-card-body { padding:var(--s-5) var(--s-6) var(--s-6); }
-    .aipe-card-meta { display:flex; align-items:baseline; gap:var(--s-3); margin-bottom:var(--s-2); }
-    .aipe-card-num { font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; color:var(--teal-600); }
-    .aipe-card-title { font-size:1.0625rem; font-weight:700; color:var(--gray-900); margin:0; line-height:1.25; }
-    .aipe-card-desc { font-size:0.875rem; color:var(--gray-600); line-height:1.55; margin:var(--s-3) 0 var(--s-4); }
-    .aipe-card-tags { display:flex; flex-wrap:wrap; gap:var(--s-2); }
-    .aipe-card-tag { font-size:0.75rem; font-weight:500; color:var(--gray-500); background:var(--gray-100); border:1px solid var(--gray-200); padding:3px 10px; border-radius:var(--r-full); }
-    @media (max-width:640px) { .aipe-cards { grid-template-columns:1fr; } }
+    /* ===== AI Product Engineering — glossy checklist panel ===== */
+    .aipe-panel { position:relative; border-radius:32px; padding:clamp(24px,3.2vw,44px); color:#fff; overflow:hidden;
+      background:linear-gradient(176deg, #17B0A0 0%, #0EA192 38%, #0C9082 72%, #0A7E72 100%);
+      box-shadow: inset 0 2px 0 rgba(255,255,255,0.5), inset 0 -10px 22px rgba(8,84,76,0.45), 0 28px 54px -22px rgba(12,140,128,0.6), 0 10px 26px -14px rgba(10,90,82,0.45); }
+    .aipe-panel::before { content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+      background:linear-gradient(180deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.05) 16%, rgba(255,255,255,0) 38%); }
+    .aipe-panel > * { position:relative; z-index:1; }
+
+    .aipe-panel-head { display:flex; align-items:flex-start; justify-content:space-between; gap:var(--s-6); flex-wrap:wrap; margin-bottom:clamp(22px,2.6vw,34px); }
+    .aipe-panel-eyebrow { display:inline-block; font-size:0.6875rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.78); margin-bottom:var(--s-3); }
+    .aipe-panel-title { font-family:var(--font-body); font-size:clamp(1.5rem,2.6vw,2rem); font-weight:700; line-height:1.12; color:#fff; margin:0; }
+    .aipe-panel-sub { font-size:0.9375rem; color:rgba(255,255,255,0.82); margin-top:var(--s-3); max-width:48ch; }
+    .aipe-panel-progress { display:flex; align-items:center; gap:var(--s-4); padding-top:var(--s-2); }
+    .aipe-progress-count { font-size:0.875rem; font-weight:600; color:rgba(255,255,255,0.95); font-variant-numeric:tabular-nums; letter-spacing:0.03em; white-space:nowrap; }
+    .aipe-progress-bar { width:clamp(120px,18vw,230px); height:8px; border-radius:999px; background:rgba(255,255,255,0.26); box-shadow:inset 0 1px 2px rgba(0,0,0,0.18); overflow:hidden; }
+    .aipe-progress-fill { height:100%; width:100%; border-radius:999px; background:linear-gradient(180deg,#fff,#EAFBF8); box-shadow:0 0 8px rgba(255,255,255,0.6); }
+    .aipe-close { display:grid; place-items:center; width:28px; height:28px; flex-shrink:0; color:rgba(255,255,255,0.85); }
+    .aipe-close svg { width:18px; height:18px; }
+
+    .aipe-tasks { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.2vw,16px); }
+    .aipe-task { display:flex; flex-direction:column; border-radius:18px; padding:clamp(16px,1.4vw,20px);
+      background:linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.07) 100%);
+      border:1px solid rgba(255,255,255,0.24);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,0.35), 0 12px 22px -16px rgba(0,0,0,0.45);
+      transition:transform var(--t-base), box-shadow var(--t-base), background var(--t-base); }
+    .aipe-task:hover { transform:translateY(-3px); background:linear-gradient(180deg, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0.10) 100%); box-shadow:inset 0 1px 0 rgba(255,255,255,0.4), 0 18px 30px -16px rgba(0,0,0,0.5); }
+    .aipe-task-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:var(--s-5); }
+    .aipe-task-icon { display:grid; place-items:center; width:42px; height:42px; border-radius:12px; color:#fff; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.28); box-shadow:inset 0 1px 0 rgba(255,255,255,0.3); }
+    .aipe-task-icon svg { width:22px; height:22px; }
+    .aipe-task-check { width:24px; height:24px; flex-shrink:0; filter:drop-shadow(0 2px 3px rgba(0,0,0,0.18)); }
+    .aipe-task-title { font-size:1.0625rem; font-weight:700; color:#fff; line-height:1.25; margin:0 0 var(--s-2); }
+    .aipe-task-copy { font-size:0.875rem; line-height:1.55; color:rgba(255,255,255,0.82); margin:0 0 var(--s-4); }
+    .aipe-task-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; }
+    .aipe-task-tags span { font-size:0.6875rem; font-weight:500; color:rgba(255,255,255,0.92); background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.22); padding:3px 9px; border-radius:999px; }
+    @media (max-width:1024px) { .aipe-tasks { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:560px)  { .aipe-tasks { grid-template-columns:1fr; } .aipe-panel-progress { width:100%; } }
   </style>
 </head>
 <body>
@@ -294,256 +316,104 @@
   ====================================================================== -->
   <section class="section" id="ai-engineering" aria-labelledby="ai-engineering-heading">
     <div class="container">
-      <header class="section-header" data-reveal>
-        <span class="section-label">AI Product Engineering</span>
-        <h2 class="section-title" id="ai-engineering-heading">
-          Using AI in research,<br><em>discovery, and testing</em>
-        </h2>
-      </header>
+      <div class="aipe-panel" data-reveal>
 
-      <div class="aipe-cards" data-reveal>
+        <div class="aipe-panel-head">
+          <div class="aipe-panel-heading">
+            <span class="aipe-panel-eyebrow">AI Product Engineering</span>
+            <h2 class="aipe-panel-title" id="ai-engineering-heading">Using AI in research, discovery &amp; testing</h2>
+            <p class="aipe-panel-sub">How I apply AI across the design process — from the first data review through to prototype delivery.</p>
+          </div>
+          <div class="aipe-panel-progress">
+            <span class="aipe-progress-count">08 / 08</span>
+            <div class="aipe-progress-bar" aria-hidden="true"><div class="aipe-progress-fill"></div></div>
+            <span class="aipe-close" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6 L18 18 M18 6 L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+          </div>
+        </div>
 
-        <!-- 01 Python Programming -->
-        <article class="aipe-card">
-          <div class="aipe-card-illus">
-            <svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="50" y="8" width="120" height="84" rx="8" stroke="#0D9488" stroke-width="2" fill="white"/>
-              <circle cx="64" cy="22" r="3.5" fill="#CDEDE8"/><circle cx="75" cy="22" r="3.5" fill="#CDEDE8"/><circle cx="86" cy="22" r="3.5" fill="#CDEDE8"/>
-              <line x1="50" y1="32" x2="170" y2="32" stroke="#CDEDE8" stroke-width="1.5"/>
-              <rect x="62" y="41" width="10" height="5" rx="2" fill="#0D9488"/>
-              <rect x="76" y="41" width="48" height="5" rx="2" fill="#CDEDE8"/>
-              <rect x="70" y="52" width="24" height="5" rx="2" fill="#2DD4BF"/>
-              <rect x="98" y="52" width="32" height="5" rx="2" fill="#CDEDE8"/>
-              <rect x="70" y="63" width="14" height="5" rx="2" fill="#0D9488"/>
-              <rect x="88" y="63" width="52" height="5" rx="2" fill="#CDEDE8"/>
-              <rect x="62" y="74" width="8" height="5" rx="2" fill="#0D9488"/>
-              <rect x="74" y="74" width="36" height="5" rx="2" fill="#CDEDE8"/>
-            </svg>
+        <div class="aipe-tasks">
+
+        <article class="aipe-task">
+          <div class="aipe-task-top">
+            <span class="aipe-task-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20 H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 18 V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 18 V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M17 18 V6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <svg class="aipe-task-check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M7 12.4 L10.4 15.8 L17 8.6" stroke="#0C9082" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="aipe-card-body">
-            <div class="aipe-card-meta"><span class="aipe-card-num">01</span><h3 class="aipe-card-title">Data Review and Analytics Exploration</h3></div>
-            <p class="aipe-card-desc">Using Pandas to analyze any existing survey or data to help shape initial hypotheses.</p>
-            <div class="aipe-card-tags"><span class="aipe-card-tag">Python</span><span class="aipe-card-tag">Pandas</span></div>
-          </div>
+          <h3 class="aipe-task-title">Data Review and Analytics Exploration</h3>
+          <p class="aipe-task-copy">Using Pandas to analyze any existing survey or data to help shape initial hypotheses.</p>
+          <div class="aipe-task-tags"><span>Python</span><span>Pandas</span></div>
         </article>
 
-        <!-- 02 Requirement Translation -->
-        <article class="aipe-card">
-          <div class="aipe-card-illus">
-            <svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="38" cy="38" r="16" stroke="#0D9488" stroke-width="2" fill="white"/>
-              <circle cx="38" cy="38" r="6" fill="#0D9488"/>
-              <circle cx="50" cy="68" r="16" stroke="#2DD4BF" stroke-width="2" fill="white"/>
-              <circle cx="50" cy="68" r="6" fill="#2DD4BF"/>
-              <line x1="54" y1="43" x2="105" y2="52" stroke="#0D9488" stroke-width="1.5" stroke-dasharray="4 3"/>
-              <line x1="66" y1="68" x2="105" y2="60" stroke="#2DD4BF" stroke-width="1.5" stroke-dasharray="4 3"/>
-              <path d="M101 47 L110 53 L101 59" stroke="#0D9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              <rect x="114" y="24" width="72" height="82" rx="6" stroke="#0D9488" stroke-width="2" fill="white"/>
-              <rect x="124" y="36" width="52" height="6" rx="2" fill="#2DD4BF"/>
-              <rect x="124" y="48" width="38" height="6" rx="2" fill="#CDEDE8"/>
-              <rect x="124" y="60" width="46" height="6" rx="2" fill="#2DD4BF"/>
-              <rect x="124" y="72" width="30" height="6" rx="2" fill="#CDEDE8"/>
-              <rect x="124" y="84" width="42" height="6" rx="2" fill="#2DD4BF"/>
-            </svg>
+        <article class="aipe-task">
+          <div class="aipe-task-top">
+            <span class="aipe-task-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8 H17 M14 5 L17 8 L14 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 16 H7 M10 13 L7 16 L10 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <svg class="aipe-task-check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M7 12.4 L10.4 15.8 L17 8.6" stroke="#0C9082" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="aipe-card-body">
-            <div class="aipe-card-meta"><span class="aipe-card-num">02</span><h3 class="aipe-card-title">Requirement Translation</h3></div>
-            <p class="aipe-card-desc">Translating user needs and workflows into precise technical specifications.</p>
-            <div class="aipe-card-tags"><span class="aipe-card-tag">Workflow</span><span class="aipe-card-tag">Framing</span><span class="aipe-card-tag">Specification</span></div>
-          </div>
+          <h3 class="aipe-task-title">Requirement Translation</h3>
+          <p class="aipe-task-copy">Translating user needs and workflows into precise technical specifications.</p>
+          <div class="aipe-task-tags"><span>Workflow</span><span>Framing</span><span>Specification</span></div>
         </article>
 
-        <!-- 03 Information Architecture -->
-        <article class="aipe-card">
-          <div class="aipe-card-illus">
-            <svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="85" y="6" width="50" height="14" rx="3" fill="#0D9488"/>
-              <line x1="110" y1="20" x2="110" y2="30" stroke="#0D9488" stroke-width="1.5"/>
-              <line x1="45" y1="30" x2="175" y2="30" stroke="#0D9488" stroke-width="1.5"/>
-              <line x1="45" y1="30" x2="45" y2="38" stroke="#0D9488" stroke-width="1.5"/>
-              <line x1="110" y1="30" x2="110" y2="38" stroke="#0D9488" stroke-width="1.5"/>
-              <line x1="175" y1="30" x2="175" y2="38" stroke="#0D9488" stroke-width="1.5"/>
-              <rect x="20" y="38" width="50" height="12" rx="3" fill="#0D9488"/>
-              <rect x="85" y="38" width="50" height="12" rx="3" fill="#0D9488"/>
-              <rect x="150" y="38" width="50" height="12" rx="3" fill="#0D9488"/>
-              <line x1="35" y1="50" x2="35" y2="60" stroke="#2DD4BF" stroke-width="1.5"/>
-              <line x1="22" y1="60" x2="48" y2="60" stroke="#2DD4BF" stroke-width="1.5"/>
-              <line x1="22" y1="60" x2="22" y2="68" stroke="#2DD4BF" stroke-width="1.5"/>
-              <line x1="48" y1="60" x2="48" y2="68" stroke="#2DD4BF" stroke-width="1.5"/>
-              <line x1="110" y1="50" x2="110" y2="68" stroke="#2DD4BF" stroke-width="1.5"/>
-              <line x1="165" y1="50" x2="165" y2="60" stroke="#2DD4BF" stroke-width="1.5"/>
-              <line x1="152" y1="60" x2="178" y2="60" stroke="#2DD4BF" stroke-width="1.5"/>
-              <line x1="152" y1="60" x2="152" y2="68" stroke="#2DD4BF" stroke-width="1.5"/>
-              <line x1="178" y1="60" x2="178" y2="68" stroke="#2DD4BF" stroke-width="1.5"/>
-              <rect x="10" y="68" width="24" height="8" rx="2" fill="#2DD4BF"/>
-              <rect x="36" y="68" width="24" height="8" rx="2" fill="#2DD4BF"/>
-              <rect x="97" y="68" width="26" height="8" rx="2" fill="#2DD4BF"/>
-              <rect x="140" y="68" width="24" height="8" rx="2" fill="#2DD4BF"/>
-              <rect x="166" y="68" width="24" height="8" rx="2" fill="#2DD4BF"/>
-              <line x1="22" y1="76" x2="22" y2="82" stroke="#CDEDE8" stroke-width="1"/>
-              <rect x="12" y="82" width="20" height="6" rx="1.5" fill="#CDEDE8"/>
-              <line x1="110" y1="76" x2="110" y2="82" stroke="#CDEDE8" stroke-width="1"/>
-              <rect x="100" y="82" width="20" height="6" rx="1.5" fill="#CDEDE8"/>
-              <line x1="178" y1="76" x2="178" y2="82" stroke="#CDEDE8" stroke-width="1"/>
-              <rect x="168" y="82" width="20" height="6" rx="1.5" fill="#CDEDE8"/>
-            </svg>
+        <article class="aipe-task">
+          <div class="aipe-task-top">
+            <span class="aipe-task-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="16" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.7"/><rect x="15" y="16" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.7"/><path d="M12 7 V11 M6 16 V13 H18 V16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <svg class="aipe-task-check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M7 12.4 L10.4 15.8 L17 8.6" stroke="#0C9082" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="aipe-card-body">
-            <div class="aipe-card-meta"><span class="aipe-card-num">03</span><h3 class="aipe-card-title">Information Architecture</h3></div>
-            <p class="aipe-card-desc">Structuring complex content and navigation systems for large-scale public-sector services.</p>
-            <div class="aipe-card-tags"><span class="aipe-card-tag">Taxonomy</span><span class="aipe-card-tag">Navigation</span><span class="aipe-card-tag">Content</span></div>
-          </div>
+          <h3 class="aipe-task-title">Information Architecture</h3>
+          <p class="aipe-task-copy">Structuring complex content and navigation systems for large-scale public-sector services.</p>
+          <div class="aipe-task-tags"><span>Taxonomy</span><span>Navigation</span><span>Content</span></div>
         </article>
 
-        <!-- 04 Concept Phase -->
-        <article class="aipe-card">
-          <div class="aipe-card-illus">
-            <svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="14" y="22" width="72" height="56" rx="7" stroke="#2DD4BF" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
-              <rect x="24" y="33" width="52" height="8" rx="3" stroke="#CDEDE8" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
-              <rect x="24" y="48" width="36" height="8" rx="3" stroke="#CDEDE8" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
-              <rect x="24" y="63" width="20" height="8" rx="3" stroke="#CDEDE8" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
-              <path d="M98 50 L112 50" stroke="#2DD4BF" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M107 44 L113 50 L107 56" stroke="#2DD4BF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="122" y="22" width="84" height="56" rx="7" fill="#FFFFFF" stroke="#2DD4BF" stroke-width="2"/>
-              <rect x="132" y="33" width="64" height="8" rx="3" fill="#2DD4BF"/>
-              <rect x="132" y="48" width="46" height="8" rx="3" fill="#CDEDE8"/>
-              <rect x="132" y="63" width="28" height="8" rx="3" fill="#CDEDE8"/>
-            </svg>
+        <article class="aipe-task">
+          <div class="aipe-task-top">
+            <span class="aipe-task-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="9.5" r="6" stroke="currentColor" stroke-width="1.7"/><path d="M9.5 18 H14.5 M10.5 21 H13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 15.5 V18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+            <svg class="aipe-task-check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M7 12.4 L10.4 15.8 L17 8.6" stroke="#0C9082" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="aipe-card-body">
-            <div class="aipe-card-meta"><span class="aipe-card-num">04</span><h3 class="aipe-card-title">Concept Phase</h3></div>
-            <p class="aipe-card-desc">Benchmarking, persona synthesis, wireframing, clickable prototypes, and usability evaluation.</p>
-            <div class="aipe-card-tags"><span class="aipe-card-tag">Wireframing</span><span class="aipe-card-tag">Personas</span><span class="aipe-card-tag">Usertesting</span></div>
-          </div>
+          <h3 class="aipe-task-title">Concept Phase</h3>
+          <p class="aipe-task-copy">Benchmarking, persona synthesis, wireframing, clickable prototypes, and usability evaluation.</p>
+          <div class="aipe-task-tags"><span>Wireframing</span><span>Personas</span><span>Usertesting</span></div>
         </article>
 
-        <!-- 05 Design Phase -->
-        <article class="aipe-card">
-          <div class="aipe-card-illus">
-            <svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="18" y="8" width="104" height="84" rx="8" stroke="#0D9488" stroke-width="2" fill="white"/>
-              <rect x="26" y="18" width="42" height="22" rx="4" fill="#CDEDE8"/>
-              <rect x="72" y="18" width="42" height="22" rx="4" stroke="#CDEDE8" stroke-width="1.5" fill="white"/>
-              <rect x="26" y="46" width="88" height="14" rx="4" fill="#FFFFFF"/>
-              <rect x="26" y="66" width="40" height="20" rx="4" stroke="#CDEDE8" stroke-width="1.5" fill="white"/>
-              <rect x="70" y="66" width="44" height="20" rx="4" fill="#0D9488" fill-opacity="0.25"/>
-              <rect x="136" y="8" width="68" height="84" rx="8" stroke="#CDEDE8" stroke-width="1.5" fill="white"/>
-              <rect x="144" y="18" width="52" height="6" rx="2" fill="#CDEDE8"/>
-              <rect x="144" y="30" width="38" height="6" rx="2" fill="#CDEDE8"/>
-              <rect x="144" y="42" width="46" height="6" rx="2" fill="#CDEDE8"/>
-              <rect x="144" y="54" width="30" height="6" rx="2" fill="#CDEDE8"/>
-              <circle cx="148" cy="74" r="5" fill="#0D9488"/>
-              <circle cx="162" cy="74" r="5" fill="#2DD4BF"/>
-              <circle cx="176" cy="74" r="5" fill="#CDEDE8"/>
-            </svg>
+        <article class="aipe-task">
+          <div class="aipe-task-top">
+            <span class="aipe-task-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L21 8 L12 13 L3 8 Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M3 12 L12 17 L21 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16 L12 21 L21 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <svg class="aipe-task-check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M7 12.4 L10.4 15.8 L17 8.6" stroke="#0C9082" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="aipe-card-body">
-            <div class="aipe-card-meta"><span class="aipe-card-num">05</span><h3 class="aipe-card-title">Design Phase</h3></div>
-            <p class="aipe-card-desc">Figma structuring, edge case &amp; state generation, component creation, and dev handoff.</p>
-            <div class="aipe-card-tags"><span class="aipe-card-tag">Figma</span><span class="aipe-card-tag">Components</span><span class="aipe-card-tag">Edge Cases</span></div>
-          </div>
+          <h3 class="aipe-task-title">Design Phase</h3>
+          <p class="aipe-task-copy">Figma structuring, edge case &amp; state generation, component creation, and dev handoff.</p>
+          <div class="aipe-task-tags"><span>Figma</span><span>Components</span><span>Edge Cases</span></div>
         </article>
 
-        <!-- 06 Documentation -->
-        <article class="aipe-card">
-          <div class="aipe-card-illus">
-            <svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="134" y="22" width="64" height="72" rx="6" stroke="#CDEDE8" stroke-width="1" fill="#FFFFFF"/>
-              <rect x="68" y="14" width="64" height="72" rx="6" stroke="#2DD4BF" stroke-width="1.5" fill="white"/>
-              <rect x="78" y="26" width="44" height="6" rx="2" fill="#2DD4BF"/>
-              <rect x="78" y="38" width="36" height="4" rx="2" fill="#CDEDE8"/>
-              <rect x="78" y="48" width="40" height="4" rx="2" fill="#CDEDE8"/>
-              <rect x="78" y="58" width="32" height="4" rx="2" fill="#2DD4BF"/>
-              <rect x="78" y="68" width="36" height="4" rx="2" fill="#CDEDE8"/>
-              <rect x="78" y="78" width="28" height="4" rx="2" fill="#CDEDE8"/>
-              <rect x="20" y="8" width="64" height="72" rx="6" stroke="#0D9488" stroke-width="2" fill="white"/>
-              <rect x="30" y="20" width="44" height="6" rx="2" fill="#0D9488"/>
-              <rect x="30" y="32" width="36" height="4" rx="2" fill="#2DD4BF"/>
-              <rect x="36" y="40" width="30" height="4" rx="2" fill="#CDEDE8"/>
-              <rect x="36" y="48" width="26" height="4" rx="2" fill="#CDEDE8"/>
-              <rect x="30" y="56" width="38" height="4" rx="2" fill="#2DD4BF"/>
-              <rect x="36" y="64" width="28" height="4" rx="2" fill="#CDEDE8"/>
-              <circle cx="168" cy="16" r="14" fill="#0D9488"/>
-              <path d="M160 17 L165 22 L178 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            </svg>
+        <article class="aipe-task">
+          <div class="aipe-task-top">
+            <span class="aipe-task-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3 H14 L18 7 V21 H6 Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3 V7 H18" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12 H15 M9 15 H15 M9 18 H13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <svg class="aipe-task-check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M7 12.4 L10.4 15.8 L17 8.6" stroke="#0C9082" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="aipe-card-body">
-            <div class="aipe-card-meta"><span class="aipe-card-num">06</span><h3 class="aipe-card-title">Documentation</h3></div>
-            <p class="aipe-card-desc">Confluence cleanup and structured design documentation across the project lifecycle.</p>
-            <div class="aipe-card-tags"><span class="aipe-card-tag">Confluence</span><span class="aipe-card-tag">Handoff</span><span class="aipe-card-tag">Structure</span></div>
-          </div>
+          <h3 class="aipe-task-title">Documentation</h3>
+          <p class="aipe-task-copy">Confluence cleanup and structured design documentation across the project lifecycle.</p>
+          <div class="aipe-task-tags"><span>Confluence</span><span>Handoff</span><span>Structure</span></div>
         </article>
 
-        <!-- 07 Ad-hoc Tasks -->
-        <article class="aipe-card">
-          <div class="aipe-card-illus">
-            <svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="110" cy="50" r="16" fill="#0D9488"/>
-              <path d="M110 40 l2 8 8 2 -8 2 -2 8 -2 -8 -8 -2 8 -2 z" fill="white"/>
-              <line x1="95" y1="40" x2="70" y2="22" stroke="#2DD4BF" stroke-width="1.5" stroke-dasharray="3 2"/>
-              <line x1="125" y1="40" x2="150" y2="22" stroke="#2DD4BF" stroke-width="1.5" stroke-dasharray="3 2"/>
-              <line x1="95" y1="60" x2="70" y2="78" stroke="#2DD4BF" stroke-width="1.5" stroke-dasharray="3 2"/>
-              <line x1="125" y1="60" x2="150" y2="78" stroke="#2DD4BF" stroke-width="1.5" stroke-dasharray="3 2"/>
-              <rect x="40" y="10" width="52" height="22" rx="5" fill="#FFFFFF" stroke="#2DD4BF" stroke-width="1.5"/>
-              <rect x="47" y="16" width="28" height="4" rx="2" fill="#0D9488" fill-opacity="0.4"/>
-              <rect x="47" y="23" width="20" height="3" rx="1.5" fill="#CDEDE8"/>
-              <rect x="128" y="10" width="52" height="22" rx="5" fill="#FFFFFF" stroke="#2DD4BF" stroke-width="1.5"/>
-              <rect x="135" y="16" width="28" height="4" rx="2" fill="#0D9488" fill-opacity="0.4"/>
-              <rect x="135" y="23" width="20" height="3" rx="1.5" fill="#CDEDE8"/>
-              <rect x="40" y="68" width="52" height="22" rx="5" fill="#FFFFFF" stroke="#2DD4BF" stroke-width="1.5"/>
-              <rect x="47" y="74" width="28" height="4" rx="2" fill="#0D9488" fill-opacity="0.4"/>
-              <rect x="47" y="81" width="20" height="3" rx="1.5" fill="#CDEDE8"/>
-              <rect x="128" y="68" width="52" height="22" rx="5" fill="#FFFFFF" stroke="#2DD4BF" stroke-width="1.5"/>
-              <rect x="135" y="74" width="28" height="4" rx="2" fill="#0D9488" fill-opacity="0.4"/>
-              <rect x="135" y="81" width="20" height="3" rx="1.5" fill="#CDEDE8"/>
-            </svg>
+        <article class="aipe-task">
+          <div class="aipe-task-top">
+            <span class="aipe-task-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2 L4 14 H11 L10 22 L20 9 H12 Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+            <svg class="aipe-task-check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M7 12.4 L10.4 15.8 L17 8.6" stroke="#0C9082" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="aipe-card-body">
-            <div class="aipe-card-meta"><span class="aipe-card-num">07</span><h3 class="aipe-card-title">Ad-hoc Tasks</h3></div>
-            <p class="aipe-card-desc">Effort estimation, pattern recognition across designs, and live system data synchronisation.</p>
-            <div class="aipe-card-tags"><span class="aipe-card-tag">Research</span><span class="aipe-card-tag">Automation</span><span class="aipe-card-tag">Patterns</span></div>
-          </div>
+          <h3 class="aipe-task-title">Ad-hoc Tasks</h3>
+          <p class="aipe-task-copy">Effort estimation, pattern recognition across designs, and live system data synchronisation.</p>
+          <div class="aipe-task-tags"><span>Research</span><span>Automation</span><span>Patterns</span></div>
         </article>
 
-        <!-- 08 Prototype Pipeline -->
-        <article class="aipe-card">
-          <div class="aipe-card-illus">
-            <svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="8" y="16" width="80" height="58" rx="6" stroke="#0D9488" stroke-width="2" fill="white"/>
-              <rect x="8" y="16" width="80" height="13" rx="6" fill="#0D9488"/>
-              <circle cx="18" cy="22" r="2.5" fill="white" fill-opacity="0.6"/>
-              <circle cx="26" cy="22" r="2.5" fill="white" fill-opacity="0.6"/>
-              <rect x="15" y="35" width="66" height="5" rx="2" fill="#CDEDE8"/>
-              <rect x="15" y="45" width="46" height="5" rx="2" fill="#2DD4BF"/>
-              <rect x="15" y="55" width="58" height="5" rx="2" fill="#CDEDE8"/>
-              <rect x="38" y="74" width="20" height="4" rx="2" fill="#2DD4BF"/>
-              <path d="M96 46 L112 46" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M107 40 L113 46 L107 52" stroke="#0D9488" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="120" y="10" width="36" height="72" rx="8" stroke="#0D9488" stroke-width="2" fill="white"/>
-              <circle cx="138" cy="20" r="2.5" fill="#2DD4BF"/>
-              <rect x="126" y="29" width="24" height="5" rx="2" fill="#CDEDE8"/>
-              <rect x="126" y="39" width="24" height="5" rx="2" fill="#2DD4BF"/>
-              <rect x="126" y="49" width="16" height="5" rx="2" fill="#CDEDE8"/>
-              <rect x="126" y="59" width="20" height="5" rx="2" fill="#2DD4BF"/>
-              <circle cx="166" cy="26" r="5" fill="#0D9488"/>
-              <line x1="171" y1="26" x2="179" y2="26" stroke="#2DD4BF" stroke-width="1.5"/>
-              <circle cx="184" cy="26" r="5" fill="#2DD4BF"/>
-              <line x1="189" y1="26" x2="197" y2="26" stroke="#2DD4BF" stroke-width="1.5"/>
-              <circle cx="202" cy="26" r="5" fill="#2DD4BF"/>
-              <rect x="162" y="40" width="50" height="34" rx="4" fill="none" stroke="#CDEDE8" stroke-width="1.5"/>
-              <rect x="167" y="45" width="40" height="4" rx="2" fill="#CDEDE8"/>
-              <line x1="173" y1="54" x2="184" y2="54" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="173" y1="60" x2="180" y2="60" stroke="#CDEDE8" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M184 54 L188 60 L184 66" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            </svg>
+        <article class="aipe-task">
+          <div class="aipe-task-top">
+            <span class="aipe-task-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="6" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="18" r="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M6 8.5 V12 H18 V8.5 M12 12 V15.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <svg class="aipe-task-check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M7 12.4 L10.4 15.8 L17 8.6" stroke="#0C9082" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="aipe-card-body">
-            <div class="aipe-card-meta"><span class="aipe-card-num">08</span><h3 class="aipe-card-title">Prototype Pipeline</h3></div>
-            <p class="aipe-card-desc">IST analysis, desktop-to-mobile adaptation, prototyping, and user flow documentation.</p>
-            <div class="aipe-card-tags"><span class="aipe-card-tag">IST-Analyse</span><span class="aipe-card-tag">Prototyp</span><span class="aipe-card-tag">Userflow</span></div>
-          </div>
+          <h3 class="aipe-task-title">Prototype Pipeline</h3>
+          <p class="aipe-task-copy">IST analysis, desktop-to-mobile adaptation, prototyping, and user flow documentation.</p>
+          <div class="aipe-task-tags"><span>IST-Analyse</span><span>Prototyp</span><span>Userflow</span></div>
         </article>
+
+        </div>
 
       </div>
     </div>
