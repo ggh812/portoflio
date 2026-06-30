@@ -20,38 +20,19 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* ===== AI Product Engineering — checklist panel (#2b5761) ===== */
+    /* ===== AI Product Engineering — flat panel (#2b5761) ===== */
     .aipe-panel { position:relative; border-radius:32px; padding:clamp(24px,3.2vw,44px); color:#fff; overflow:hidden;
-      background:linear-gradient(176deg, #3a6f7b 0%, #2b5761 42%, #244c55 74%, #1d3d45 100%);
-      box-shadow: inset 0 2px 0 rgba(255,255,255,0.35), inset 0 -10px 22px rgba(12,30,35,0.5), 0 28px 54px -22px rgba(28,61,69,0.6), 0 10px 26px -14px rgba(20,45,52,0.5); }
-    .aipe-panel::before { content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
-      background:linear-gradient(180deg, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.04) 16%, rgba(255,255,255,0) 38%); }
-    .aipe-panel > * { position:relative; z-index:1; }
+      background:#2b5761; box-shadow:0 18px 40px -22px rgba(28,61,69,0.45); }
 
     .aipe-panel-head { display:flex; align-items:flex-start; justify-content:space-between; gap:var(--s-6); flex-wrap:wrap; margin-bottom:clamp(22px,2.6vw,34px); }
     .aipe-panel-eyebrow { display:inline-block; font-size:0.6875rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.72); margin-bottom:var(--s-3); }
     .aipe-panel-title { font-family:var(--font-body); font-size:clamp(1.5rem,2.6vw,2rem); font-weight:700; line-height:1.12; color:#fff; margin:0; }
     .aipe-panel-sub { font-size:0.9375rem; color:rgba(255,255,255,0.78); margin-top:var(--s-3); max-width:48ch; }
-    .aipe-panel-progress { display:flex; align-items:center; gap:var(--s-4); padding-top:var(--s-2); }
-    .aipe-progress-count { font-size:0.875rem; font-weight:600; color:rgba(255,255,255,0.95); font-variant-numeric:tabular-nums; letter-spacing:0.03em; white-space:nowrap; }
-    .aipe-progress-bar { width:clamp(120px,18vw,230px); height:8px; border-radius:999px; background:rgba(255,255,255,0.24); box-shadow:inset 0 1px 2px rgba(0,0,0,0.22); overflow:hidden; }
-    .aipe-progress-fill { height:100%; width:100%; border-radius:999px; background:linear-gradient(180deg,#fff,#e7f1f2); box-shadow:0 0 8px rgba(255,255,255,0.55); }
-    .aipe-close { display:grid; place-items:center; width:28px; height:28px; flex-shrink:0; color:rgba(255,255,255,0.8); }
-    .aipe-close svg { width:18px; height:18px; }
 
     .aipe-tasks { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(13px,1.3vw,18px); }
-    /* 3D extruded glossy cards: lit top bevel, shaded bottom, glossy sheen, raised drop shadow */
-    .aipe-task { position:relative; display:flex; flex-direction:column; border-radius:20px;
-      background:linear-gradient(180deg,#437f8c 0%,#376e7b 52%,#2c5d69 100%);
-      box-shadow: inset 0 2px 0 rgba(255,255,255,0.42), inset 0 1px 1px rgba(255,255,255,0.2), inset 0 -5px 11px rgba(8,26,31,0.5), 0 16px 26px -12px rgba(8,24,29,0.6);
-      transition:transform var(--t-base), box-shadow var(--t-base); }
-    .aipe-task::before { content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:1;
-      background:linear-gradient(180deg, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0.05) 32%, rgba(255,255,255,0) 56%); }
-    .aipe-task:hover { transform:translateY(-4px); box-shadow: inset 0 2px 0 rgba(255,255,255,0.48), inset 0 1px 1px rgba(255,255,255,0.22), inset 0 -5px 11px rgba(8,26,31,0.5), 0 26px 38px -14px rgba(8,24,29,0.66); }
-    .aipe-task > * { position:relative; z-index:2; }
-    .aipe-task-illus { margin:16px 16px 0; border-radius:13px; padding:14px 16px; display:flex; align-items:center; justify-content:center;
-      background:linear-gradient(180deg,#eef6f7,#dceef1);
-      box-shadow: inset 0 2px 6px rgba(8,26,31,0.22), inset 0 -1px 0 rgba(255,255,255,0.55), 0 1px 0 rgba(255,255,255,0.22); }
+    .aipe-task { display:flex; flex-direction:column; border-radius:16px; background:#39737f; border:1px solid rgba(255,255,255,0.12); transition:background var(--t-base); }
+    .aipe-task:hover { background:#3f7e8b; }
+    .aipe-task-illus { margin:16px 16px 0; border-radius:12px; padding:14px 16px; display:flex; align-items:center; justify-content:center; background:#eaf2f3; }
     .aipe-task-illus svg { display:block; width:100%; max-width:180px; height:auto; }
     .aipe-task-body { display:flex; flex-direction:column; flex:1; padding:16px 18px 18px; }
     .aipe-task-title { font-size:1.0625rem; font-weight:700; color:#fff; line-height:1.25; margin:0 0 var(--s-2); }
@@ -308,27 +289,18 @@
     <div class="container">
       <div class="aipe-panel" data-reveal>
 
-        <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-          <filter id="aipe3d" x="-25%" y="-25%" width="150%" height="150%">
-            <feDropShadow dx="0" dy="1.8" stdDeviation="1.4" flood-color="#16323a" flood-opacity="0.45"/>
-          </filter>
-        </defs></svg>
-
         <div class="aipe-panel-head">
           <div class="aipe-panel-heading">
             <span class="aipe-panel-eyebrow">AI Product Engineering</span>
             <h2 class="aipe-panel-title" id="ai-engineering-heading">Using AI across the UX/UI design process</h2>
             <p class="aipe-panel-sub">Concrete ways I bring AI into each phase — requirements, concept, design, and documentation.</p>
           </div>
-          <div class="aipe-panel-progress">
-            <span class="aipe-close" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6 L18 18 M18 6 L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
-          </div>
         </div>
 
         <div class="aipe-tasks">
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><circle cx="38" cy="38" r="16" stroke="#2b5761" stroke-width="2" fill="white"/>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><circle cx="38" cy="38" r="16" stroke="#2b5761" stroke-width="2" fill="white"/>
               <circle cx="38" cy="38" r="6" fill="#2b5761"/>
               <circle cx="50" cy="68" r="16" stroke="#5b8893" stroke-width="2" fill="white"/>
               <circle cx="50" cy="68" r="6" fill="#5b8893"/>
@@ -349,7 +321,7 @@
         </article>
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><rect x="38" y="14" width="144" height="74" rx="8" stroke="#2b5761" stroke-width="2" fill="white"/><rect x="52" y="24" width="40" height="5" rx="2" fill="#c2dadf"/><line x1="52" y1="76" x2="168" y2="76" stroke="#c2dadf" stroke-width="1.5"/><rect x="60" y="56" width="16" height="20" rx="2" fill="#c2dadf"/><rect x="84" y="46" width="16" height="30" rx="2" fill="#5b8893"/><rect x="108" y="34" width="16" height="42" rx="2" fill="#2b5761"/><rect x="132" y="50" width="16" height="26" rx="2" fill="#5b8893"/><circle cx="116" cy="28" r="4.5" fill="#2b5761"/></g></svg></div>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="38" y="14" width="144" height="74" rx="8" stroke="#2b5761" stroke-width="2" fill="white"/><rect x="52" y="24" width="40" height="5" rx="2" fill="#c2dadf"/><line x1="52" y1="76" x2="168" y2="76" stroke="#c2dadf" stroke-width="1.5"/><rect x="60" y="56" width="16" height="20" rx="2" fill="#c2dadf"/><rect x="84" y="46" width="16" height="30" rx="2" fill="#5b8893"/><rect x="108" y="34" width="16" height="42" rx="2" fill="#2b5761"/><rect x="132" y="50" width="16" height="26" rx="2" fill="#5b8893"/><circle cx="116" cy="28" r="4.5" fill="#2b5761"/></g></svg></div>
           <div class="aipe-task-body">
             <h3 class="aipe-task-title">Benchmarking</h3>
             <p class="aipe-task-copy">Build experience-based benchmarking — defining the criteria and best-in-class cases across Austrian and EU-wide context.</p>
@@ -358,7 +330,7 @@
         </article>
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><rect x="14" y="22" width="72" height="56" rx="7" stroke="#5b8893" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="14" y="22" width="72" height="56" rx="7" stroke="#5b8893" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
               <rect x="24" y="33" width="52" height="8" rx="3" stroke="#c2dadf" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
               <rect x="24" y="48" width="36" height="8" rx="3" stroke="#c2dadf" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
               <rect x="24" y="63" width="20" height="8" rx="3" stroke="#c2dadf" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
@@ -376,7 +348,7 @@
         </article>
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><rect x="116" y="24" width="80" height="66" rx="8" stroke="#c2dadf" stroke-width="1.5" fill="white"/><rect x="30" y="14" width="84" height="72" rx="8" stroke="#2b5761" stroke-width="2" fill="white"/><circle cx="54" cy="40" r="12" fill="#5b8893"/><path d="M38 64 a16 14 0 0 1 32 0 Z" fill="#c2dadf"/><rect x="78" y="32" width="28" height="5" rx="2" fill="#2b5761"/><rect x="78" y="42" width="22" height="4" rx="2" fill="#c2dadf"/><rect x="78" y="50" width="26" height="4" rx="2" fill="#c2dadf"/><rect x="40" y="72" width="22" height="7" rx="3" fill="#c2dadf"/><rect x="66" y="72" width="30" height="7" rx="3" fill="#5b8893"/></g></svg></div>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="116" y="24" width="80" height="66" rx="8" stroke="#c2dadf" stroke-width="1.5" fill="white"/><rect x="30" y="14" width="84" height="72" rx="8" stroke="#2b5761" stroke-width="2" fill="white"/><circle cx="54" cy="40" r="12" fill="#5b8893"/><path d="M38 64 a16 14 0 0 1 32 0 Z" fill="#c2dadf"/><rect x="78" y="32" width="28" height="5" rx="2" fill="#2b5761"/><rect x="78" y="42" width="22" height="4" rx="2" fill="#c2dadf"/><rect x="78" y="50" width="26" height="4" rx="2" fill="#c2dadf"/><rect x="40" y="72" width="22" height="7" rx="3" fill="#c2dadf"/><rect x="66" y="72" width="30" height="7" rx="3" fill="#5b8893"/></g></svg></div>
           <div class="aipe-task-body">
             <h3 class="aipe-task-title">Synthetic Personas</h3>
             <p class="aipe-task-copy">Generate synthetic personas from real user questionnaires and run AI usability tests against the Figma designs.</p>
@@ -385,7 +357,7 @@
         </article>
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><rect x="30" y="16" width="120" height="72" rx="8" stroke="#2b5761" stroke-width="2" fill="white"/><rect x="42" y="28" width="42" height="24" rx="3" fill="#c2dadf"/><rect x="92" y="28" width="46" height="6" rx="2" fill="#c2dadf"/><rect x="92" y="40" width="34" height="6" rx="2" fill="#c2dadf"/><rect x="42" y="60" width="96" height="6" rx="2" fill="#c2dadf"/><rect x="42" y="72" width="64" height="6" rx="2" fill="#c2dadf"/><rect x="40" y="26" width="46" height="28" rx="4" stroke="#2b5761" stroke-width="2" fill="none"/><circle cx="150" cy="66" r="18" fill="white" stroke="#2b5761" stroke-width="2"/><circle cx="150" cy="66" r="9" stroke="#5b8893" stroke-width="1.6" fill="none"/><line x1="162" y1="78" x2="174" y2="90" stroke="#2b5761" stroke-width="3" stroke-linecap="round"/></g></svg></div>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="30" y="16" width="120" height="72" rx="8" stroke="#2b5761" stroke-width="2" fill="white"/><rect x="42" y="28" width="42" height="24" rx="3" fill="#c2dadf"/><rect x="92" y="28" width="46" height="6" rx="2" fill="#c2dadf"/><rect x="92" y="40" width="34" height="6" rx="2" fill="#c2dadf"/><rect x="42" y="60" width="96" height="6" rx="2" fill="#c2dadf"/><rect x="42" y="72" width="64" height="6" rx="2" fill="#c2dadf"/><rect x="40" y="26" width="46" height="28" rx="4" stroke="#2b5761" stroke-width="2" fill="none"/><circle cx="150" cy="66" r="18" fill="white" stroke="#2b5761" stroke-width="2"/><circle cx="150" cy="66" r="9" stroke="#5b8893" stroke-width="1.6" fill="none"/><line x1="162" y1="78" x2="174" y2="90" stroke="#2b5761" stroke-width="3" stroke-linecap="round"/></g></svg></div>
           <div class="aipe-task-body">
             <h3 class="aipe-task-title">Automated Design Review</h3>
             <p class="aipe-task-copy">Automatically review designs against the defined design principles and enterprise visual standards.</p>
@@ -394,7 +366,7 @@
         </article>
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><rect x="50" y="8" width="120" height="84" rx="8" stroke="#2b5761" stroke-width="2" fill="white"/>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="50" y="8" width="120" height="84" rx="8" stroke="#2b5761" stroke-width="2" fill="white"/>
               <circle cx="64" cy="22" r="3.5" fill="#c2dadf"/><circle cx="75" cy="22" r="3.5" fill="#c2dadf"/><circle cx="86" cy="22" r="3.5" fill="#c2dadf"/>
               <line x1="50" y1="32" x2="170" y2="32" stroke="#c2dadf" stroke-width="1.5"/>
               <rect x="62" y="41" width="10" height="5" rx="2" fill="#2b5761"/>
@@ -413,7 +385,7 @@
         </article>
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><rect x="85" y="6" width="50" height="14" rx="3" fill="#2b5761"/>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="85" y="6" width="50" height="14" rx="3" fill="#2b5761"/>
               <line x1="110" y1="20" x2="110" y2="30" stroke="#2b5761" stroke-width="1.5"/>
               <line x1="45" y1="30" x2="175" y2="30" stroke="#2b5761" stroke-width="1.5"/>
               <line x1="45" y1="30" x2="45" y2="38" stroke="#2b5761" stroke-width="1.5"/>
@@ -450,7 +422,7 @@
         </article>
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><rect x="12" y="22" width="80" height="62" rx="7" stroke="#2b5761" stroke-width="2" fill="white"/><rect x="20" y="30" width="64" height="11" rx="2" fill="#5b8893"/><rect x="20" y="47" width="42" height="6" rx="2" fill="#c2dadf"/><rect x="20" y="59" width="54" height="6" rx="2" fill="#c2dadf"/><rect x="20" y="71" width="30" height="6" rx="2" fill="#c2dadf"/><path d="M98 46 l14 0 M106 41 l5 5 l-5 5" stroke="#2b5761" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M122 62 l-14 0 M114 57 l-5 5 l5 5" stroke="#5b8893" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="128" y="22" width="80" height="62" rx="7" stroke="#5b8893" stroke-width="1.5" fill="white"/><rect x="136" y="30" width="64" height="11" rx="2" fill="#c2dadf"/><rect x="136" y="47" width="42" height="6" rx="2" fill="#c2dadf"/><rect x="136" y="59" width="54" height="6" rx="2" fill="#c2dadf"/><rect x="136" y="71" width="30" height="6" rx="2" fill="#c2dadf"/></g></svg></div>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="12" y="22" width="80" height="62" rx="7" stroke="#2b5761" stroke-width="2" fill="white"/><rect x="20" y="30" width="64" height="11" rx="2" fill="#5b8893"/><rect x="20" y="47" width="42" height="6" rx="2" fill="#c2dadf"/><rect x="20" y="59" width="54" height="6" rx="2" fill="#c2dadf"/><rect x="20" y="71" width="30" height="6" rx="2" fill="#c2dadf"/><path d="M98 46 l14 0 M106 41 l5 5 l-5 5" stroke="#2b5761" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M122 62 l-14 0 M114 57 l-5 5 l5 5" stroke="#5b8893" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="128" y="22" width="80" height="62" rx="7" stroke="#5b8893" stroke-width="1.5" fill="white"/><rect x="136" y="30" width="64" height="11" rx="2" fill="#c2dadf"/><rect x="136" y="47" width="42" height="6" rx="2" fill="#c2dadf"/><rect x="136" y="59" width="54" height="6" rx="2" fill="#c2dadf"/><rect x="136" y="71" width="30" height="6" rx="2" fill="#c2dadf"/></g></svg></div>
           <div class="aipe-task-body">
             <h3 class="aipe-task-title">Dev Hand-off Check</h3>
             <p class="aipe-task-copy">Check the built UI and Storybook components against Figma, so obvious findings are fixed before the design review.</p>
@@ -459,7 +431,7 @@
         </article>
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><circle cx="110" cy="50" r="16" fill="#2b5761"/>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><circle cx="110" cy="50" r="16" fill="#2b5761"/>
               <path d="M110 40 l2 8 8 2 -8 2 -2 8 -2 -8 -8 -2 8 -2 z" fill="white"/>
               <line x1="95" y1="40" x2="70" y2="22" stroke="#5b8893" stroke-width="1.5" stroke-dasharray="3 2"/>
               <line x1="125" y1="40" x2="150" y2="22" stroke="#5b8893" stroke-width="1.5" stroke-dasharray="3 2"/>
@@ -485,7 +457,7 @@
         </article>
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><rect x="8" y="16" width="80" height="58" rx="6" stroke="#2b5761" stroke-width="2" fill="white"/>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="8" y="16" width="80" height="58" rx="6" stroke="#2b5761" stroke-width="2" fill="white"/>
               <rect x="8" y="16" width="80" height="13" rx="6" fill="#2b5761"/>
               <circle cx="18" cy="22" r="2.5" fill="white" fill-opacity="0.6"/>
               <circle cx="26" cy="22" r="2.5" fill="white" fill-opacity="0.6"/>
@@ -519,7 +491,7 @@
         </article>
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><rect x="18" y="8" width="104" height="84" rx="8" stroke="#2b5761" stroke-width="2" fill="white"/>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="18" y="8" width="104" height="84" rx="8" stroke="#2b5761" stroke-width="2" fill="white"/>
               <rect x="26" y="18" width="42" height="22" rx="4" fill="#c2dadf"/>
               <rect x="72" y="18" width="42" height="22" rx="4" stroke="#c2dadf" stroke-width="1.5" fill="white"/>
               <rect x="26" y="46" width="88" height="14" rx="4" fill="#FFFFFF"/>
@@ -541,7 +513,7 @@
         </article>
 
         <article class="aipe-task">
-          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g filter="url(#aipe3d)"><rect x="134" y="22" width="64" height="72" rx="6" stroke="#c2dadf" stroke-width="1" fill="#FFFFFF"/>
+          <div class="aipe-task-illus"><svg viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g><rect x="134" y="22" width="64" height="72" rx="6" stroke="#c2dadf" stroke-width="1" fill="#FFFFFF"/>
               <rect x="68" y="14" width="64" height="72" rx="6" stroke="#5b8893" stroke-width="1.5" fill="white"/>
               <rect x="78" y="26" width="44" height="6" rx="2" fill="#5b8893"/>
               <rect x="78" y="38" width="36" height="4" rx="2" fill="#c2dadf"/>
