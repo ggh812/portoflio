@@ -11,8 +11,19 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../css/styles.css">
   <style>
+    /* ---- page palette: #1A3712 and its shades ---- */
+    :root {
+      --gray-50:#E4E7E3;--gray-100:#E4E7E3;--gray-200:#C3CBC1;--gray-300:#C3CBC1;--gray-400:#8C9B88;
+      --gray-500:#1A3712;--gray-600:#1A3712;--gray-700:#1A3712;--gray-800:#1A3712;--gray-900:#1A3712;
+      --teal-50:#E4E7E3;--teal-100:#C3CBC1;--teal-200:#8C9B88;--teal-300:#5A6F54;--teal-400:#5A6F54;
+      --teal-500:#1A3712;--teal-600:#1A3712;--teal-700:#1A3712;--teal-800:#1A3712;--teal-900:#1A3712;
+      --color-primary:#1A3712;--color-accent:#1A3712;--color-accent-mid:#1A3712;
+      --color-text:#1A3712;--color-muted:#1A3712;--color-border:#C3CBC1;--color-bg-alt:#E4E7E3;
+    }
+    .cs-hero, .cs-section--dark, .footer { --gray-400:#C3CBC1; --gray-500:#C3CBC1; --gray-600:#C3CBC1; }
+    .footer { background:#12250C; }
     .cs-hero-bg {
-      background: linear-gradient(160deg, #760031 0%, #760031 50%, #760031 100%);
+      background: linear-gradient(160deg, #1A3712 0%, #1A3712 50%, #1A3712 100%);
     }
     .cs-hero-bg::before {
       content: '';
@@ -25,14 +36,14 @@
     .phone-frame {
       width: 220px;
       border-radius: 32px;
-      border: 8px solid #760031;
+      border: 8px solid #1A3712;
       overflow: hidden;
       background: white;
       box-shadow: 0 32px 64px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.08);
     }
     .phone-notch-bar {
       height: 24px;
-      background: #760031;
+      background: #1A3712;
       position: relative;
     }
     .phone-notch-pill {
@@ -42,7 +53,7 @@
       transform: translateX(-50%);
       width: 60px;
       height: 12px;
-      background: #760031;
+      background: #1A3712;
       border-radius: 6px;
     }
 

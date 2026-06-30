@@ -11,8 +11,19 @@
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../css/styles.css">
   <style>
+    /* ---- page palette: #27521B and its shades ---- */
+    :root {
+      --gray-50:#E5EAE4;--gray-100:#E5EAE4;--gray-200:#C7D2C4;--gray-300:#C7D2C4;--gray-400:#93A88D;
+      --gray-500:#27521B;--gray-600:#27521B;--gray-700:#27521B;--gray-800:#27521B;--gray-900:#27521B;
+      --teal-50:#E5EAE4;--teal-100:#C7D2C4;--teal-200:#93A88D;--teal-300:#63825B;--teal-400:#63825B;
+      --teal-500:#27521B;--teal-600:#27521B;--teal-700:#27521B;--teal-800:#27521B;--teal-900:#27521B;
+      --color-primary:#27521B;--color-accent:#27521B;--color-accent-mid:#27521B;
+      --color-text:#27521B;--color-muted:#27521B;--color-border:#C7D2C4;--color-bg-alt:#E5EAE4;
+    }
+    .cs-hero, .cs-section--dark, .footer { --gray-400:#C7D2C4; --gray-500:#C7D2C4; --gray-600:#C7D2C4; }
+    .footer { background:#1B3812; }
     .cs-hero-bg {
-      background: linear-gradient(160deg, #760031 0%, #760031 50%, #D51C39 100%);
+      background: linear-gradient(160deg, #27521B 0%, #27521B 50%, #63825B 100%);
     }
     .cs-hero-bg::before {
       content: '';
@@ -25,7 +36,7 @@
     .phone-frame {
       width: 220px;
       border-radius: 32px;
-      border: 8px solid #760031;
+      border: 8px solid #27521B;
       overflow: hidden;
       background: white;
       box-shadow: 0 32px 64px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.1);
@@ -34,7 +45,7 @@
     .phone-frame::before {
       content: '';
       display: block;
-      background: #760031;
+      background: #27521B;
       height: 24px;
       display: flex;
       align-items: center;
@@ -47,7 +58,7 @@
       transform: translateX(-50%);
       width: 60px;
       height: 12px;
-      background: #760031;
+      background: #27521B;
       border-radius: 6px;
       z-index: 10;
     }
@@ -401,33 +412,33 @@
       <div data-reveal style="margin:var(--s-12) 0 var(--s-4);">
 
         <div class="bl-header">
-          <div style="padding:8px 12px; border-radius:6px; font-size:0.625rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; line-height:1.4; background:#FFF0E4; color:#D51C39;">IGL-FotoApp &middot; Beyond Launch 2025</div>
-          <div style="padding:8px 12px; border-radius:6px; font-size:0.625rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; line-height:1.4; background:#FFF0E4; color:#D51C39;">19 New Features &middot; Tasks &middot; Capture &middot; Compliance &middot; Notifications &middot; Platform &middot; Built for the 2026 Application Cycle</div>
+          <div style="padding:8px 12px; border-radius:6px; font-size:0.625rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; line-height:1.4; background:#E5EAE4; color:#63825B;">IGL-FotoApp &middot; Beyond Launch 2025</div>
+          <div style="padding:8px 12px; border-radius:6px; font-size:0.625rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; line-height:1.4; background:#E5EAE4; color:#63825B;">19 New Features &middot; Tasks &middot; Capture &middot; Compliance &middot; Notifications &middot; Platform &middot; Built for the 2026 Application Cycle</div>
         </div>
 
         <div class="bl-phases">
 
-          <div style="background:white; border:1px solid var(--gray-200); border-radius:var(--r-lg); padding:var(--s-3); border-top:3px solid #D51C39; color:#D51C39;">
+          <div style="background:white; border:1px solid var(--gray-200); border-radius:var(--r-lg); padding:var(--s-3); border-top:3px solid #63825B; color:#63825B;">
             <div style="font-size:0.5625rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:var(--s-1);">Tasks + Workflow</div>
             <div style="font-size:0.625rem; color:var(--gray-600); line-height:1.4;">Open/completed task split &middot; RCD task-type &middot; RAA task-type &middot; Bulk editing of INI tasks &middot; Task status in map view &middot; Pre-send validation</div>
           </div>
 
-          <div style="background:white; border:1px solid var(--gray-200); border-radius:var(--r-lg); padding:var(--s-3); border-top:3px solid #760031; color:#760031;">
+          <div style="background:white; border:1px solid var(--gray-200); border-radius:var(--r-lg); padding:var(--s-3); border-top:3px solid #27521B; color:#27521B;">
             <div style="font-size:0.5625rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:var(--s-1);">Capture + Documentation</div>
             <div style="font-size:0.625rem; color:var(--gray-600); line-height:1.4;">Photo + document upload &middot; Guided photo-capture page &middot; Refined camera mode &middot; Measurement tool + export &middot; On-screen direction cone</div>
           </div>
 
-          <div style="background:white; border:1px solid var(--gray-200); border-radius:var(--r-lg); padding:var(--s-3); border-top:3px solid #760031; color:#760031;">
+          <div style="background:white; border:1px solid var(--gray-200); border-radius:var(--r-lg); padding:var(--s-3); border-top:3px solid #27521B; color:#27521B;">
             <div style="font-size:0.5625rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:var(--s-1);">Compliance Intelligence</div>
             <div style="font-size:0.625rem; color:var(--gray-600); line-height:1.4;">Obligations shown in context &middot; Flowering-time detection</div>
           </div>
 
-          <div style="background:white; border:1px solid var(--gray-200); border-radius:var(--r-lg); padding:var(--s-3); border-top:3px solid #D51C39; color:#D51C39;">
+          <div style="background:white; border:1px solid var(--gray-200); border-radius:var(--r-lg); padding:var(--s-3); border-top:3px solid #63825B; color:#63825B;">
             <div style="font-size:0.5625rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:var(--s-1);">Notifications + Onboarding</div>
             <div style="font-size:0.625rem; color:var(--gray-600); line-height:1.4;">Tailored reminder push &middot; Full notification history &middot; Silent-push install + update &middot; In-app tutorial / onboarding</div>
           </div>
 
-          <div style="background:white; border:1px solid var(--gray-200); border-radius:var(--r-lg); padding:var(--s-3); border-top:3px solid #D51C39; color:#D51C39;">
+          <div style="background:white; border:1px solid var(--gray-200); border-radius:var(--r-lg); padding:var(--s-3); border-top:3px solid #63825B; color:#63825B;">
             <div style="font-size:0.5625rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:var(--s-1);">Platform + Integration</div>
             <div style="font-size:0.625rem; color:var(--gray-600); line-height:1.4;">In-app farm switching &middot; Route-planner plugin</div>
           </div>
